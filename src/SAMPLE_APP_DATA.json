@@ -1,0 +1,45 @@
+{
+  "trainer": {
+    "name": "Gary Oak",
+    "items": [
+      {
+        "key": "ITEM_SMALL_POTION",
+        "quantity": 5
+      }
+    ],
+    "badges": [
+      "PEWTER_GYM_BADGE"
+    ]
+  },
+  "pokemon": {
+    "filters": {
+      "typeFilter": {
+        "value": ""
+      },
+      "nameFilter": {
+        "value": ""
+      }
+    },
+    "list": [
+      {
+        "number": 3,
+        "customName": "Hubert",
+        "stats": {
+          "hp": 100,
+          "maxHp": 120,
+          "level": 20,
+          "attack": 15,
+          "defense": 15,
+          "specialAttack": 15,
+          "specialDefense": 15,
+          "speed": 15,
+          "captureDifficulty": 10
+        },
+        "moves": [
+          "FIRE_FLAMETHROWER",
+          "NORMAL_TAIL_WHIP"
+        ]
+      }
+    ]
+  }
+}

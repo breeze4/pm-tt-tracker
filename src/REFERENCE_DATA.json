@@ -1,0 +1,103 @@
+{
+  "badges": {
+    "BADGE_PEWTER_GYM": {
+      "name": "Pewter Gym Badge",
+      "type": [
+        "ROCK",
+        "GROUND"
+      ],
+      "bonus": [
+        "ATTACK_AND_DAMAGE_PLUS_1",
+        "CONTROL_LEVEL"
+      ]
+    }
+  },
+  "bonuses": {
+    "ATTACK_AND_DAMAGE_PLUS_1": {
+      "key": "ATTACK_AND_DAMAGE_PLUS_1",
+      "attackBonus": 1,
+      "damageBonus": 1
+    },
+    "CONTROL_LEVEL": {
+      "controlLevel": 10
+    }
+  },
+  "pokemon": [
+    {
+      "number": 3,
+      "name": "Charizard",
+      "type": [
+        "FIRE",
+        "FLYING"
+      ],
+      "baseStats": {
+        "hp": 10,
+        "level": 1,
+        "attack": 10,
+        "defense": 10,
+        "specialAttack": 10,
+        "specialDefense": 10,
+        "speed": 10,
+        "captureDifficulty": 10
+      },
+      "moves": [
+        "FIRE_FLAMETHROWER",
+        "NORMAL_TAIL_WHIP"
+      ]
+    }
+  ],
+  "moves": {
+    "FIRE_FLAMETHROWER": {
+      "name": "Flamethrower",
+      "type": "FIRE",
+      "category": "Special",
+      "effect": "ATTACK",
+      "power": 90,
+      "accuracy": 100,
+      "damageBonus": 5,
+      "hitBonus": 5,
+      "PP": 15
+    },
+    "NORMAL_TAIL_WHIP": {
+      "name": "Tail Whip",
+      "type": "NORMAL",
+      "effect": "DEF_LOWER_1",
+      "accuracy": 100,
+      "hitBonus": 5,
+      "PP": 40
+    }
+  },
+  "types": {
+    "FIRE": {
+      "name": "Fire",
+      "goodAgainst": [
+        "GRASS",
+        "ICE",
+        "BUG"
+      ],
+      "badAgainst": [
+        "FIRE",
+        "WATER",
+        "ROCK",
+        "DRAGON"
+      ],
+      "noEffect": []
+    },
+    "NORMAL": {
+      "name": "Fire",
+      "goodAgainst": [],
+      "badAgainst": [
+        "ROCK"
+      ],
+      "noEffect": [
+        "GHOST"
+      ]
+    }
+  },
+  "items": {
+    "ITEM_SMALL_POTION": {
+      "effect": "HEAL",
+      "healAmount": 10
+    }
+  }
+}
