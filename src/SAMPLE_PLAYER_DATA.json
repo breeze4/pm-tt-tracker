@@ -41,5 +41,19 @@
         ]
       }
     ]
+  },
+  "pokedex": {
+    "filters": {
+      "typeFilter": {
+        "value": ""
+      },
+      "nameFilter": {
+        "value": ""
+      }
+    },
+    "list": {
+      "startNumber": 1,
+      "endNumber": 151
+    }
   }
 }

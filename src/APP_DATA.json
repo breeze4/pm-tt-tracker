@@ -1,0 +1,20 @@
+{
+  "navigation": [
+    {
+      "path": "",
+      "name": "Home"
+    },
+    {
+      "path": "trainer",
+      "name": "Trainer"
+    },
+    {
+      "path": "pokemon",
+      "name": "Pokemon"
+    },
+    {
+      "path": "pokedex",
+      "name": "Pokedex"
+    }
+  ]
+}

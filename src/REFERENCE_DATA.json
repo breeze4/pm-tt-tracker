@@ -1,7 +1,9 @@
 {
   "badges": {
-    "BADGE_PEWTER_GYM": {
+    "PEWTER_GYM": {
       "name": "Pewter Gym Badge",
+      "ordering": 1,
+      "image": "pewter_gym.png",
       "type": [
         "ROCK",
         "GROUND"
@@ -14,7 +16,6 @@
   },
   "bonuses": {
     "ATTACK_AND_DAMAGE_PLUS_1": {
-      "key": "ATTACK_AND_DAMAGE_PLUS_1",
       "attackBonus": 1,
       "damageBonus": 1
     },
@@ -26,6 +27,7 @@
     {
       "number": 3,
       "name": "Charizard",
+      "image": "003_charizard.png",
       "type": [
         "FIRE",
         "FLYING"
@@ -40,7 +42,7 @@
         "speed": 10,
         "captureDifficulty": 10
       },
-      "moves": [
+      "defaultMoves": [
         "FIRE_FLAMETHROWER",
         "NORMAL_TAIL_WHIP"
       ]
@@ -70,6 +72,7 @@
   "types": {
     "FIRE": {
       "name": "Fire",
+      "image": "fire.png",
       "goodAgainst": [
         "GRASS",
         "ICE",
@@ -85,6 +88,7 @@
     },
     "NORMAL": {
       "name": "Fire",
+      "image": "normal.png",
       "goodAgainst": [],
       "badAgainst": [
         "ROCK"
@@ -96,6 +100,7 @@
   },
   "items": {
     "ITEM_SMALL_POTION": {
+      "image": "small_potion.png",
       "effect": "HEAL",
       "healAmount": 10
     }
