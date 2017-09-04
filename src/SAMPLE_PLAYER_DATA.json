@@ -22,8 +22,9 @@
     },
     "list": [
       {
-        "number": 3,
+        "number": "006",
         "customName": "Hubert",
+        "party": true,
         "stats": {
           "hp": 100,
           "maxHp": 120,
@@ -37,6 +38,26 @@
         },
         "moves": [
           "FIRE_FLAMETHROWER",
+          "NORMAL_TAIL_WHIP"
+        ]
+      },
+      {
+        "number": "004",
+        "customName": "Foxboro",
+        "party": false,
+        "stats": {
+          "hp": 20,
+          "maxHp": 120,
+          "level": 20,
+          "attack": 15,
+          "defense": 15,
+          "specialAttack": 15,
+          "specialDefense": 15,
+          "speed": 15,
+          "captureDifficulty": 10
+        },
+        "moves": [
+          "FIRE_EMBER",
           "NORMAL_TAIL_WHIP"
         ]
       }

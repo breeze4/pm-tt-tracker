@@ -23,11 +23,31 @@
       "controlLevel": 10
     }
   },
-  "pokemon": [
-    {
-      "number": 3,
+  "pokemon": {
+    "004": {
+      "name": "Charmander",
+      "image": "004_charmander.png",
+      "type": [
+        "FIRE"
+      ],
+      "baseStats": {
+        "hp": 10,
+        "level": 1,
+        "attack": 10,
+        "defense": 10,
+        "specialAttack": 10,
+        "specialDefense": 10,
+        "speed": 10,
+        "captureDifficulty": 10
+      },
+      "defaultMoves": [
+        "FIRE_EMBER",
+        "NORMAL_TAIL_WHIP"
+      ]
+    },
+    "006": {
       "name": "Charizard",
-      "image": "003_charizard.png",
+      "image": "006_charizard.png",
       "type": [
         "FIRE",
         "FLYING"
@@ -47,8 +67,19 @@
         "NORMAL_TAIL_WHIP"
       ]
     }
-  ],
+  },
   "moves": {
+    "FIRE_EMBER": {
+      "name": "Flamethrower",
+      "type": "FIRE",
+      "category": "Special",
+      "effect": "ATTACK",
+      "power": 40,
+      "accuracy": 100,
+      "damageBonus": 2,
+      "hitBonus": 2,
+      "PP": 30
+    },
     "FIRE_FLAMETHROWER": {
       "name": "Flamethrower",
       "type": "FIRE",

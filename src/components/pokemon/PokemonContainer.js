@@ -2,25 +2,20 @@ import React, { Component } from 'react';
 import { NavLink as Link } from 'react-router-dom';
 
 // import './Home.css';
+import PokemonList from './PokemonList.js';
 
 import config from '../../Config.js';
 const { playerData: { pokemon } } = config;
 
 class PokemonContainer extends Component {
   render() {
-    const pokemonListComponent = pokemon && pokemon.list ?
-      pokemon.list.map((pm) => {
-        const { key } = pm;
-        return (
-          <li key={}></li>
-        );
-      }) : null;
+    const pokemonListComponent = pokemon && pokemon.list ? (
+      <PokemonList list={pokemon.list} />
+    ) : null;
 
     return (
       <div className="PokemonContainer">
         {pokemonListComponent}
-        <ul className="PokemonContainer-list">
-        </ul>
       </div>
     );
   }
