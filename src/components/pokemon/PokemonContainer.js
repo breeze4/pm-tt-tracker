@@ -4,19 +4,22 @@ import { NavLink as Link } from 'react-router-dom';
 // import './Home.css';
 import PokemonList from './PokemonList.js';
 
-import config from '../../Config.js';
-const { playerData: { pokemon } } = config;
+import api from '../../api/api.js';
+
+// import config from '../../Config.js';
+// const { playerData: { pokemon } } = config;
 
 class PokemonContainer extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      editMode: false, 
-      pokemon: pokemon
+      editMode: false,
+      pokemon: api.getPokemon()
     }
   }
   render() {
+    const { pokemon } = this.state;
     const pokemonListComponent = pokemon && pokemon.list ? (
       <PokemonList
         list={pokemon.list}
@@ -38,17 +41,7 @@ class PokemonContainer extends Component {
   }
 
   onSelectPokemon(event, id) {
-    console.log(id);
-    const { pokemon } = this.state;
-
-    const pmList = pokemon.list || [];
-    for (let i = 0; i < pmList.length; i++) {
-      const pm = pmList[i];
-      if (pm.id === id) {
-        pmList[i].party = !pmList[i].party;
-      }
-    }
-    const updatedPokemon = { ...pokemon, list: pmList };
+    const updatedPokemon = api.togglePokemonInParty(id);
     this.setState({ pokemon: updatedPokemon });
   }
 }
