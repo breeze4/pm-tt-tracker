@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './pokemon.css';
 
@@ -17,12 +18,14 @@ const PokemonList = ({ editMode, list, onSwitchMode, onSelectPokemon }) => {
       </div>
       <ul>
         {list.filter(pm => pm.party).map((pm) => {
-          const { number } = pm;
+          const { id, number } = pm;
           return (
             <li key={number} className="pokemon-list-item">
-              <PokemonListItem
-                onSelectPokemon={editMode ? onSelectPokemon : () => { }}
-                {...pm} />
+              <Link to={`/pokemon/${id}`}>
+                <PokemonListItem
+                  onSelectPokemon={editMode ? onSelectPokemon : () => { }}
+                  {...pm} />
+              </Link>
             </li>
           );
         })}
@@ -36,12 +39,14 @@ const PokemonList = ({ editMode, list, onSwitchMode, onSelectPokemon }) => {
       </div>
       <ul>
         {list.filter(pm => !pm.party).map((pm) => {
-          const { number } = pm;
+          const { id, number } = pm;
           return (
             <li key={number} className="pokemon-list-item">
-              <PokemonListItem
-                onSelectPokemon={editMode ? onSelectPokemon : () => { }}
-                {...pm} />
+              <Link to={`/pokemon/${id}`}>
+                <PokemonListItem
+                  onSelectPokemon={editMode ? onSelectPokemon : () => { }}
+                  {...pm} />
+              </Link>
             </li>
           );
         })}

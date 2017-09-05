@@ -10,6 +10,7 @@ import './App.css';
 import Navigation from './components/Navigation';
 import Pokedex from './components/pokedex/Pokedex';
 import PokemonContainer from './components/pokemon/PokemonContainer';
+import PokemonDetailContainer from './components/pokemon/PokemonDetailContainer';
 import Trainer from './components/trainer/Trainer';
 import Home from './components/Home';
 
@@ -22,6 +23,7 @@ class App extends Component {
           <Route exact path="/" component={Home} />
           <Route path="/pokedex" component={Pokedex} />
           <Route path="/pokemon" component={PokemonContainer} />
+          <Route path="/pokemon/:id" component={PokemonDetailContainer} />
           <Route path="/trainer" component={Trainer} />
         </div>
       </div>
