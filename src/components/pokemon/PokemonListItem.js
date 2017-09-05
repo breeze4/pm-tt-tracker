@@ -7,12 +7,13 @@ const { refData: { pokemon } } = config;
 
 const pathToThumbnails = require.context('../../../images/thumbnails', true);
 
-const PokemonListItem = ({ number, customName, stats }) => {
+const PokemonListItem = ({ id, number, customName, stats, onSelectPokemon }) => {
   const { hp, maxHp, level } = stats;
   const { name, image, type } = pokemon[number];
   const imgSrc = pathToThumbnails(`./${image}`, true);
   return (
-    <div className="pokemon-list-item-container">
+    <div className="pokemon-list-item-container"
+        onClick={(e) => onSelectPokemon(e, id)}>
       <div className="pokemon-list-item-thumbnail">
         <img src={imgSrc} alt="" />
       </div>

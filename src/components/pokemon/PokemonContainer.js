@@ -12,7 +12,8 @@ class PokemonContainer extends Component {
     super(props);
 
     this.state = {
-      editMode: false 
+      editMode: false,
+      pokemon: pokemon
       // add pokemon data to state and fetch from an API service
     }
   }
@@ -22,6 +23,7 @@ class PokemonContainer extends Component {
         list={pokemon.list}
         editMode={this.state.editMode}
         onSwitchMode={this.onSwitchMode.bind(this)}
+        onSelectPokemon={this.onSelectPokemon.bind(this)}
       />
     ) : null;
 
@@ -37,8 +39,18 @@ class PokemonContainer extends Component {
   }
 
   onSelectPokemon(event, id) {
-    // TODO:
-    //  
+    console.log(id);
+    const { pokemon } = this.state;
+    const pmList = pokemon.list || [];
+
+    for (let i = 0; i < pmList.length; i++) {
+      const pm = pmList[i];
+      if (pm.id === id) {
+        pmList[i].party = !pmList[i].party;
+      }
+    }
+    const updatedPokemon = { ...pokemon, list: pmList };
+    this.setState({ pokemon: updatedPokemon });
   }
 }
 
