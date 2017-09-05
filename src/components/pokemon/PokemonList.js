@@ -4,10 +4,20 @@ import './pokemon.css';
 
 import PokemonListItem from './PokemonListItem';
 
-const PokemonList = ({ list }) => {
+const PokemonList = ({ editMode, list, onSwitchMode }) => {
+  const toggleModeButton = editMode ?
+    (
+      <button onClick={onSwitchMode}>Save</button>
+    ) : (
+      <button onClick={onSwitchMode}>Edit</button>
+    );
+
   const pokemonPartyList = list ? (
     <div className="pokemon-list pokemon-party">
-      <label>Party:</label>
+      <div className="list-header">
+        <label>Party:</label>
+        {toggleModeButton}
+      </div>
       <ul>
         {list.filter(pm => pm.party).map((pm) => {
           const { number } = pm;
@@ -22,7 +32,9 @@ const PokemonList = ({ list }) => {
   ) : null;
   const pokemonStorageList = list ? (
     <div className="pokemon-list pokemon-storage">
-      <label>Storage:</label>
+      <div className="list-header">
+        <label>Storage:</label>
+      </div>
       <ul>
         {list.filter(pm => !pm.party).map((pm) => {
           const { number } = pm;

@@ -1,8 +1,18 @@
 .pokemon-list {
   text-align: left;
 }
+.pokemon-list .list-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
 .pokemon-list label {
   padding-left: 5px;
+}
+.pokemon-list button {
+  margin-right: 5px;
 }
 .pokemon-list ul {
   margin: 0;
