@@ -12,9 +12,8 @@ class PokemonContainer extends Component {
     super(props);
 
     this.state = {
-      editMode: false,
+      editMode: false, 
       pokemon: pokemon
-      // add pokemon data to state and fetch from an API service
     }
   }
   render() {
@@ -41,8 +40,8 @@ class PokemonContainer extends Component {
   onSelectPokemon(event, id) {
     console.log(id);
     const { pokemon } = this.state;
-    const pmList = pokemon.list || [];
 
+    const pmList = pokemon.list || [];
     for (let i = 0; i < pmList.length; i++) {
       const pm = pmList[i];
       if (pm.id === id) {

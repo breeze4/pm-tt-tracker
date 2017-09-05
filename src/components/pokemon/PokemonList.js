@@ -5,12 +5,9 @@ import './pokemon.css';
 import PokemonListItem from './PokemonListItem';
 
 const PokemonList = ({ editMode, list, onSwitchMode, onSelectPokemon }) => {
-  const toggleModeButton = editMode ?
-    (
-      <button onClick={onSwitchMode}>Save</button>
-    ) : (
-      <button onClick={onSwitchMode}>Edit</button>
-    );
+  const toggleModeButton = editMode
+    ? (<button onClick={onSwitchMode}>Save</button>)
+    : (<button onClick={onSwitchMode}>Edit</button>);
 
   const pokemonPartyList = list ? (
     <div className="pokemon-list pokemon-party">
@@ -24,7 +21,7 @@ const PokemonList = ({ editMode, list, onSwitchMode, onSelectPokemon }) => {
           return (
             <li key={number} className="pokemon-list-item">
               <PokemonListItem
-                onSelectPokemon={editMode ? onSelectPokemon : () => {}}
+                onSelectPokemon={editMode ? onSelectPokemon : () => { }}
                 {...pm} />
             </li>
           );
@@ -43,7 +40,7 @@ const PokemonList = ({ editMode, list, onSwitchMode, onSelectPokemon }) => {
           return (
             <li key={number} className="pokemon-list-item">
               <PokemonListItem
-                onSelectPokemon={editMode ? onSelectPokemon : () => {}}
+                onSelectPokemon={editMode ? onSelectPokemon : () => { }}
                 {...pm} />
             </li>
           );
