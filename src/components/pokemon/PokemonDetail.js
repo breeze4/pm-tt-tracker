@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import MoveDetail from '../moves/MoveDetail';
 
@@ -31,7 +32,9 @@ const PokemonDetail = ({ imgSrc, name, type, number, customName, stats, moves, m
   return (
     <div className="pm-detail">
       <div className="pm-detail-header">
-        {`< My Pokemon`}
+        <Link to={'/pokemon'}>
+          {`< My Pokemon`}
+        </Link>
       </div>
       <div className="pm-detail-description">
 

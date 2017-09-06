@@ -1,3 +1,22 @@
-.Navigation {
-  background-color: red;
+.nav{
+}
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  list-style-type: none;
+  line-height: 40px;
+  height: 40px;
+}
+
+.navbar-item {
+  padding: 2px 5px 0 5px;
+  font-size: 16px;
+}
+.navbar-item a {
+  padding: 3px 5px;
+  color: black;
+}
+.navbar-item a.active {
+  border-bottom: 3px solid coral;
 }

@@ -39,7 +39,7 @@
           "captureDifficulty": 10
         },
         "moves": [
-          "FIRE_FLAMETHROWER",
+          "TEST",
           "NORMAL_TAIL_WHIP",
           "FIRE_FLAMETHROWER",
           "NORMAL_WRAP"
