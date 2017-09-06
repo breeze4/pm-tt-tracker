@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import './Pokedex.css';
 
-import config from '../../Config.js';
+// import config from '../../Config.js';
 
 class Pokedex extends Component {
   render() {

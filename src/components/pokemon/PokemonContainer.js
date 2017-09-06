@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
-import { NavLink as Link } from 'react-router-dom';
 
 // import './Home.css';
 import PokemonList from './PokemonList.js';
 
 import api from '../../api/api.js';
-
-// import config from '../../Config.js';
-// const { playerData: { pokemon } } = config;
 
 class PokemonContainer extends Component {
   constructor(props) {

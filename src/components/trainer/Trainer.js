@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 // import './Home.css';
 
-import config from '../../Config.js';
+// import config from '../../Config.js';
 
 class Trainer extends Component {
   render() {

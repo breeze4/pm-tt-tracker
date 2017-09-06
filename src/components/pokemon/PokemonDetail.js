@@ -1,12 +1,23 @@
 import React from 'react';
 
-const pathToImages = require.context('../images/pokemon');
+import './pokemon.css';
 
-const Pokemon = ({ number, customName, stats, moves }) => {
+import config from '../../Config.js';
+const { refData: { pokemon } } = config;
+
+const pathToImages = require.context('../../../images/pokemon');
+
+const PokemonDetail = ({ number, customName, stats, moves }) => {
+  const { hp, maxHp, level } = stats;
+  const { name, image, type } = pokemon[number];
+  const imgSrc = pathToImages(`./${image}`, true);
   return (
     <div className="Pokemon">
       <div className="Pokemon-name">
         {customName}
+      </div>
+      <div className="pokemon-list-item-thumbnail">
+        <img src={imgSrc} alt="" />
       </div>
       <div className="Pokemon-stats">
         {Object.keys(stats).map((key) => {
@@ -21,4 +32,4 @@ const Pokemon = ({ number, customName, stats, moves }) => {
   )
 }
 
-export default Pokemon;
+export default PokemonDetail;

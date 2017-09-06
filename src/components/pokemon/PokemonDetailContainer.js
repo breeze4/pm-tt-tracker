@@ -2,42 +2,36 @@ import React, { Component } from 'react';
 import { NavLink as Link } from 'react-router-dom';
 
 // import './Home.css';
-import PokemonList from './PokemonList.js';
+import PokemonDetail from './PokemonDetail.js';
 
 import api from '../../api/api.js';
 
 // import config from '../../Config.js';
 // const { playerData: { pokemon } } = config;
 
-class PokemonContainer extends Component {
+class PokemonDetailContainer extends Component {
   constructor(props) {
     super(props);
 
+    const { match: { params: { id } } } = props;
+
     this.state = {
-      editMode: false,
-      pokemon: api.getPokemon()
+      id: id,
+      pokemon: api.getPokemon(id)
     }
   }
   render() {
     const { pokemon } = this.state;
-    const pokemonListComponent = pokemon && pokemon.list ? (
-      <PokemonList
-        list={pokemon.list}
-        editMode={this.state.editMode}
-        onSwitchMode={this.onSwitchMode.bind(this)}
-        onSelectPokemon={this.onSelectPokemon.bind(this)}
-      />
-    ) : null;
 
     return (
-      <div className="PokemonContainer">
-        {pokemonListComponent}
+      <div className="PokemonDetail">
+        {JSON.stringify(this.props)}
       </div>
     );
   }
 
   onSwitchMode(event) {
-    this.setState({ editMode: !this.state.editMode });
+    // this.setState({ editMode: !this.state.editMode });
   }
 
   onSelectPokemon(event, id) {
@@ -46,4 +40,4 @@ class PokemonContainer extends Component {
   }
 }
 
-export default PokemonContainer;
+export default PokemonDetailContainer;

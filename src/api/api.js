@@ -13,7 +13,10 @@ const sortPokemon = (a, b) => {
 const api = () => {
   const _data = PLAYER_DATA;
   return {
-    getPokemon: () => {
+    getPokemon: (id) => {
+      if (id) {
+        return _data.pokemon.list.find((pm) => pm.id === id);
+      }
       return _data.pokemon;
     },
     togglePokemonInParty: (id) => {

@@ -4,7 +4,7 @@ import {
   Route
 } from 'react-router-dom';
 
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 
 import Navigation from './components/Navigation';
@@ -22,7 +22,7 @@ class App extends Component {
         <div className="App-contents">
           <Route exact path="/" component={Home} />
           <Route path="/pokedex" component={Pokedex} />
-          <Route path="/pokemon" component={PokemonContainer} />
+          <Route exact path="/pokemon" component={PokemonContainer} />
           <Route path="/pokemon/:id" component={PokemonDetailContainer} />
           <Route path="/trainer" component={Trainer} />
         </div>
