@@ -9,6 +9,12 @@ import api from '../../api/api.js';
 // import config from '../../Config.js';
 // const { playerData: { pokemon } } = config;
 
+import config from '../../Config.js';
+const { refData } = config;
+const POKEMON_REF_DATA = refData.pokemon;
+
+const pathToImages = require.context('../../../images/pokemon');
+
 class PokemonDetailContainer extends Component {
   constructor(props) {
     super(props);
@@ -22,10 +28,23 @@ class PokemonDetailContainer extends Component {
   }
   render() {
     const { pokemon } = this.state;
+    const { number } = pokemon;
+
+    const { name, image, type } = POKEMON_REF_DATA[number];
+    const imgSrc = pathToImages(`./${image}`, true);
+
+    const pokemonDetailComponent = pokemon ? (
+      <PokemonDetail
+        {...pokemon}
+        name={name}
+        imgSrc={imgSrc}
+        type={type}
+      />
+    ) : null;
 
     return (
       <div className="PokemonDetail">
-        {JSON.stringify(this.props)}
+        {pokemonDetailComponent}
       </div>
     );
   }

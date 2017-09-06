@@ -2,31 +2,41 @@ import React from 'react';
 
 import './pokemon.css';
 
-import config from '../../Config.js';
-const { refData: { pokemon } } = config;
-
-const pathToImages = require.context('../../../images/pokemon');
-
-const PokemonDetail = ({ number, customName, stats, moves }) => {
+const PokemonDetail = ({ imgSrc, name, type , number, customName, stats, moves }) => {
   const { hp, maxHp, level } = stats;
-  const { name, image, type } = pokemon[number];
-  const imgSrc = pathToImages(`./${image}`, true);
   return (
-    <div className="Pokemon">
-      <div className="Pokemon-name">
-        {customName}
+    <div className="pm-detail">
+      <div className="pm-detail-header">
+        {`< My Pokemon`}
       </div>
-      <div className="pokemon-list-item-thumbnail">
-        <img src={imgSrc} alt="" />
+      <div className="pm-detail-description">
+
+        <div className="pm-detail-left">
+          <img src={imgSrc} alt={name} />
+          <div className="pm-detail-name">
+            {`${name} #${number}`}
+          </div>
+        </div>
+
+        <div className="pm-detail-right">
+          <div className="pm-detail-custom-name">
+            {customName}
+          </div>
+          <div className="pm-detail-stats">
+            {Object.keys(stats).map((key) => {
+              const stat = stats[key];
+              return `${key}: ${stat}`;
+            })}
+          </div>
+        </div>
       </div>
-      <div className="Pokemon-stats">
-        {Object.keys(stats).map((key) => {
-          const stat = stats[key];
-          return `${key}: ${stat}`;
-        })}
-      </div>
-      <div className="Pokemon-moves">
-        {moves}
+      <div className="pm-detail-moves">
+        <div className="pm-detail-header">
+          {`Moves`}
+        </div>
+        <div className="pm-detail-moves-list">
+          {moves}
+        </div>
       </div>
     </div>
   )
