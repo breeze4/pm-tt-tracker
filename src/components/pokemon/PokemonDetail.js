@@ -1,9 +1,33 @@
 import React from 'react';
 
+import MoveDetail from '../moves/MoveDetail';
+
 import './pokemon.css';
 
-const PokemonDetail = ({ imgSrc, name, type , number, customName, stats, moves }) => {
+const PokemonDetail = ({ imgSrc, name, type, number, customName, stats, moves, moveRefData }) => {
   const { hp, maxHp, level } = stats;
+
+  const statsList = (
+    Object.keys(stats).map((key) => {
+      const stat = stats[key];
+      return (<div key={key} className="pm-detail-stat">
+        {`${key}: ${stat}`}
+      </div>);
+    })
+  );
+
+  const movesList = (
+    <div className="pm-detail-moves-list">
+      <ul className="pm-moves-list">
+        {moves.map((key) => {
+          const move = moveRefData[key];
+          return (<li key={key} className="pm-moves-list-item">
+            <MoveDetail {...move} />
+          </li>);
+        })}
+      </ul>
+    </div>
+  );
   return (
     <div className="pm-detail">
       <div className="pm-detail-header">
@@ -20,13 +44,10 @@ const PokemonDetail = ({ imgSrc, name, type , number, customName, stats, moves }
 
         <div className="pm-detail-right">
           <div className="pm-detail-custom-name">
-            {customName}
+            <h4>{customName}</h4>
           </div>
           <div className="pm-detail-stats">
-            {Object.keys(stats).map((key) => {
-              const stat = stats[key];
-              return `${key}: ${stat}`;
-            })}
+            {statsList}
           </div>
         </div>
       </div>
@@ -35,7 +56,7 @@ const PokemonDetail = ({ imgSrc, name, type , number, customName, stats, moves }
           {`Moves`}
         </div>
         <div className="pm-detail-moves-list">
-          {moves}
+          {movesList}
         </div>
       </div>
     </div>

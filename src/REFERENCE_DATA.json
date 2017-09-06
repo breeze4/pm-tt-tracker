@@ -69,41 +69,85 @@
     }
   },
   "moves": {
+    "TEST": {
+      "name": "Test Move Please Ignore",
+      "type": "NORMAL",
+      "category": "Physical",
+      "effect": "Test Move Please Ignore Test Move Please Ignore",
+      "power": 15,
+      "accuracy": 90,
+      "damageDice": "1d4",
+      "hitBonus": 4,
+      "PP": 20
+    },
+    "NORMAL_WRAP": {
+      "name": "Wrap",
+      "type": "NORMAL",
+      "category": "Physical",
+      "effect": "Squeezes the foe for 2-5 turns.",
+      "power": 15,
+      "accuracy": 90,
+      "damageDice": "1d4",
+      "hitBonus": 4,
+      "PP": 20
+    },
     "FIRE_EMBER": {
-      "name": "Flamethrower",
+      "name": "Fire Ember",
       "type": "FIRE",
       "category": "Special",
-      "effect": "ATTACK",
+      "effect": "A weak fire attack that may inflict a burn.",
       "power": 40,
       "accuracy": 100,
-      "damageBonus": 2,
-      "hitBonus": 2,
+      "damageDice": "1d8",
+      "hitBonus": 5,
       "PP": 30
     },
     "FIRE_FLAMETHROWER": {
       "name": "Flamethrower",
       "type": "FIRE",
       "category": "Special",
-      "effect": "ATTACK",
+      "effect": "A powerful fire attack that may inflict a burn.",
       "power": 90,
       "accuracy": 100,
-      "damageBonus": 5,
+      "damageDice": "2d8",
       "hitBonus": 5,
       "PP": 15
     },
     "NORMAL_TAIL_WHIP": {
       "name": "Tail Whip",
       "type": "NORMAL",
-      "effect": "DEF_LOWER_1",
+      "effect": "Lowers the foe's Defense.",
+      "changedStat": "DEF",
+      "changedStatAmount": 1,
       "accuracy": 100,
       "hitBonus": 5,
       "PP": 40
     }
   },
+  "stats": {
+    "ATK": {
+      "name": "Attack"
+    },
+    "DEF": {
+      "name": "Defense"
+    },
+    "SPC_ATK": {
+      "name": "Special Attack"
+    },
+    "SPC_DEF": {
+      "name": "Special Defense"
+    },
+    "SPD": {
+      "name": "Speed"
+    },
+    "CAP": {
+      "name": "Capture Difficulty"
+    }
+  },
   "types": {
     "FIRE": {
       "name": "Fire",
-      "image": "fire.png",
+      "color": "#F08030",
       "goodAgainst": [
         "GRASS",
         "ICE",
@@ -118,8 +162,8 @@
       "noEffect": []
     },
     "NORMAL": {
-      "name": "Fire",
-      "image": "normal.png",
+      "name": "Normal",
+      "color": "#A8A878",
       "goodAgainst": [],
       "badAgainst": [
         "ROCK"

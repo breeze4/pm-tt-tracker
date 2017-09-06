@@ -40,7 +40,9 @@
         },
         "moves": [
           "FIRE_FLAMETHROWER",
-          "NORMAL_TAIL_WHIP"
+          "NORMAL_TAIL_WHIP",
+          "FIRE_FLAMETHROWER",
+          "NORMAL_WRAP"
         ]
       },
       {
@@ -60,8 +62,10 @@
           "captureDifficulty": 10
         },
         "moves": [
-          "FIRE_EMBER",
-          "NORMAL_TAIL_WHIP"
+          "TEST",
+          "NORMAL_TAIL_WHIP",
+          "FIRE_FLAMETHROWER",
+          "NORMAL_WRAP"
         ]
       }
     ]

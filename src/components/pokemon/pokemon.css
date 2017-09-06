@@ -87,12 +87,47 @@
 
 }
 .pm-detail-custom-name {
-
+  text-align: left;
 }
 .pm-detail-stats {
-
+  text-align: left;
 }
+
 .pm-detail-moves {
   display: flex;
   flex-direction: column;
+}
+.pm-moves-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  list-style-type: none;
+  line-height: 16px;
+}
+.pm-moves-list-item {
+  margin: 5px;
+  min-width: 1.5em; 
+  font-size: 0.7em;
+  text-align: center;
+}
+.move-detail {
+  padding: 7px;
+  border: 1px solid black;
+  border-radius: 5px;
+  text-align: left;
+}
+.move-detail-name {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.move-detail-effect {
+  margin: 1px 0;
+}
+.move-type-label {
+  padding: 0 4px;
+  background-color: orange;
+  color: white;
+  height: 16px;
+  border-radius: 2px;
 }

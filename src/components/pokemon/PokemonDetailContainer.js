@@ -12,6 +12,7 @@ import api from '../../api/api.js';
 import config from '../../Config.js';
 const { refData } = config;
 const POKEMON_REF_DATA = refData.pokemon;
+const MOVES_REF_DATA = refData.moves;
 
 const pathToImages = require.context('../../../images/pokemon');
 
@@ -39,6 +40,7 @@ class PokemonDetailContainer extends Component {
         name={name}
         imgSrc={imgSrc}
         type={type}
+        moveRefData={MOVES_REF_DATA}
       />
     ) : null;
 
