@@ -5,16 +5,16 @@ import MoveDetail from '../moves/MoveDetail';
 
 import './pokemon.css';
 
-const PokemonEdit = ({ imgSrc, name, type, number, customName, stats, moves, moveRefData, onSwitchMode, onCancelEdit }) => {
+const PokemonEdit = ({ imgSrc, name, type, number, customName, stats, moves, moveRefData, onSaveEdit, onCancelEdit }) => {
   const { hp, maxHp, level } = stats;
-  
-  const toggleModeButton = (<button onClick={onSwitchMode}>Save</button>);
+
+  const saveEditButton = (<button onClick={onSaveEdit}>Save</button>);
   const cancelModeButton = (<button onClick={onCancelEdit}>Cancel</button>);
 
   const headerComponent = (
     <div className="pm-detail-header">
       {cancelModeButton}
-      {toggleModeButton}
+      {saveEditButton}
     </div>
   );
 
@@ -44,10 +44,9 @@ const PokemonEdit = ({ imgSrc, name, type, number, customName, stats, moves, mov
       {headerComponent}
       <div className="pm-detail-description">
 
-        
-      <div className="pm-detail-stats">
-      {statsList}
-    </div>
+        <div className="pm-detail-stats">
+          {statsList}
+        </div>
       </div>
       <div className="pm-detail-moves">
         <div className="pm-detail-header">

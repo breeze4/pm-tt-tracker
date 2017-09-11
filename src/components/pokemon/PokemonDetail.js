@@ -5,10 +5,10 @@ import MoveDetail from '../moves/MoveDetail';
 
 import './pokemon.css';
 
-const PokemonDetail = ({ imgSrc, name, type, number, customName, stats, moves, moveRefData, onSwitchMode }) => {
+const PokemonDetail = ({ imgSrc, name, type, number, customName, stats, moves, moveRefData, onEnterEditMode }) => {
   const { hp, maxHp, level } = stats;
   
-  const toggleModeButton = (<button onClick={onSwitchMode}>Edit</button>);
+  const editModeButton = (<button onClick={onEnterEditMode}>Edit</button>);
 
   const statsList = (
     Object.keys(stats).map((key) => {
@@ -37,7 +37,7 @@ const PokemonDetail = ({ imgSrc, name, type, number, customName, stats, moves, m
         <Link to={'/pokemon'}>
           {`< My Pokemon`}
         </Link>
-        {toggleModeButton}
+        {editModeButton}
       </div>
       <div className="pm-detail-description">
 

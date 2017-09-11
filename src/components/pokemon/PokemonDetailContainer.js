@@ -21,20 +21,23 @@ class PokemonDetailContainer extends Component {
   constructor(props) {
     super(props);
 
-    const { match: { params: { id } } } = props;
+    const { match: { params: { id, edit } } } = props;
 
     this.state = {
       id: id,
       pokemon: api.getPokemon(id),
-      editMode: false
+      editMode: !!edit
     }
-
-    this.onSwitchMode = this.onSwitchMode.bind(this);
   }
+
+  componentWillReceiveProps(nextProps) {
+    const { match: { params: { id, edit } } } = nextProps;
+    this.setState({ editMode: !!edit });
+  }
+
   render() {
     const { editMode, pokemon } = this.state;
     const { number } = pokemon;
-
     const { name, image, type } = POKEMON_REF_DATA[number];
     const imgSrc = pathToImages(`./${image}`, true);
 
@@ -47,7 +50,8 @@ class PokemonDetailContainer extends Component {
           imgSrc={imgSrc}
           type={type}
           moveRefData={MOVES_REF_DATA}
-          onSwitchMode={this.onSwitchMode.bind(this)}
+          onCancelEdit={this.onCancelEdit.bind(this)}
+          onSaveEdit={this.onSaveEdit.bind(this)}
         />
       ) : (
           <PokemonDetail
@@ -56,7 +60,7 @@ class PokemonDetailContainer extends Component {
             imgSrc={imgSrc}
             type={type}
             moveRefData={MOVES_REF_DATA}
-            onSwitchMode={this.onSwitchMode.bind(this)}
+            onEnterEditMode={this.onEnterEditMode.bind(this)}
           />
         ) : null;
 
@@ -67,8 +71,20 @@ class PokemonDetailContainer extends Component {
     );
   }
 
-  onSwitchMode(event) {
-    this.setState({ editMode: !this.state.editMode });
+  onCancelEdit() {
+
+  }
+
+  onSaveEdit() {
+    const { id } = this.state;
+    const { history } = this.props;
+    history.push(`/pokemon/${id}`);
+  }
+
+  onEnterEditMode() {
+    const { id } = this.state;
+    const { history } = this.props;
+    history.push(`/pokemon/${id}/edit`);
   }
 
   onSelectPokemon(event, id) {
