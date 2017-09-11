@@ -36,7 +36,7 @@ class PokemonDetailContainer extends Component {
   }
 
   render() {
-    const { editMode, pokemon } = this.state;
+    const { editMode, id, pokemon } = this.state;
     const { number } = pokemon;
     const { name, image, type } = POKEMON_REF_DATA[number];
     const imgSrc = pathToImages(`./${image}`, true);
@@ -45,6 +45,7 @@ class PokemonDetailContainer extends Component {
       editMode ? (
         <PokemonEdit
           {...pokemon}
+          id={id}
           editMode={editMode}
           name={name}
           imgSrc={imgSrc}
@@ -56,6 +57,7 @@ class PokemonDetailContainer extends Component {
       ) : (
           <PokemonDetail
             {...pokemon}
+            id={id}
             name={name}
             imgSrc={imgSrc}
             type={type}
@@ -72,7 +74,9 @@ class PokemonDetailContainer extends Component {
   }
 
   onCancelEdit() {
-
+    const { id } = this.state;
+    const { history } = this.props;
+    history.push(`/pokemon/${id}`);
   }
 
   onSaveEdit() {

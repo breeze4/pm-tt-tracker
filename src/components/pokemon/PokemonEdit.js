@@ -5,10 +5,10 @@ import MoveDetail from '../moves/MoveDetail';
 
 import './pokemon.css';
 
-const PokemonEdit = ({ imgSrc, name, type, number, customName, stats, moves, moveRefData, onSaveEdit, onCancelEdit }) => {
+const PokemonEdit = ({ id, imgSrc, name, type, number, customName, stats, moves, moveRefData, onSaveEdit, onCancelEdit }) => {
   const { hp, maxHp, level } = stats;
 
-  const saveEditButton = (<button onClick={onSaveEdit}>Save</button>);
+  const saveEditButton = (<button onClick={() => onSaveEdit({ id })}>Save</button>);
   const cancelModeButton = (<button onClick={onCancelEdit}>Cancel</button>);
 
   const headerComponent = (

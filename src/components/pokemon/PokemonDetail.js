@@ -5,7 +5,7 @@ import MoveDetail from '../moves/MoveDetail';
 
 import './pokemon.css';
 
-const PokemonDetail = ({ imgSrc, name, type, number, customName, stats, moves, moveRefData, onEnterEditMode }) => {
+const PokemonDetail = ({ id, imgSrc, name, type, number, customName, stats, moves, moveRefData, onEnterEditMode }) => {
   const { hp, maxHp, level } = stats;
   
   const editModeButton = (<button onClick={onEnterEditMode}>Edit</button>);
