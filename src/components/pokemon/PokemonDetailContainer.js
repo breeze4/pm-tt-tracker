@@ -3,6 +3,7 @@ import { NavLink as Link } from 'react-router-dom';
 
 // import './Home.css';
 import PokemonDetail from './PokemonDetail.js';
+import PokemonEdit from './PokemonEdit.js';
 
 import api from '../../api/api.js';
 
@@ -24,25 +25,40 @@ class PokemonDetailContainer extends Component {
 
     this.state = {
       id: id,
-      pokemon: api.getPokemon(id)
+      pokemon: api.getPokemon(id),
+      editMode: false
     }
+
+    this.onSwitchMode = this.onSwitchMode.bind(this);
   }
   render() {
-    const { pokemon } = this.state;
+    const { editMode, pokemon } = this.state;
     const { number } = pokemon;
 
     const { name, image, type } = POKEMON_REF_DATA[number];
     const imgSrc = pathToImages(`./${image}`, true);
 
-    const pokemonDetailComponent = pokemon ? (
-      <PokemonDetail
-        {...pokemon}
-        name={name}
-        imgSrc={imgSrc}
-        type={type}
-        moveRefData={MOVES_REF_DATA}
-      />
-    ) : null;
+    const pokemonDetailComponent = pokemon ?
+      editMode ? (
+        <PokemonEdit
+          {...pokemon}
+          editMode={editMode}
+          name={name}
+          imgSrc={imgSrc}
+          type={type}
+          moveRefData={MOVES_REF_DATA}
+          onSwitchMode={this.onSwitchMode.bind(this)}
+        />
+      ) : (
+          <PokemonDetail
+            {...pokemon}
+            name={name}
+            imgSrc={imgSrc}
+            type={type}
+            moveRefData={MOVES_REF_DATA}
+            onSwitchMode={this.onSwitchMode.bind(this)}
+          />
+        ) : null;
 
     return (
       <div className="PokemonDetail">
@@ -52,7 +68,7 @@ class PokemonDetailContainer extends Component {
   }
 
   onSwitchMode(event) {
-    // this.setState({ editMode: !this.state.editMode });
+    this.setState({ editMode: !this.state.editMode });
   }
 
   onSelectPokemon(event, id) {

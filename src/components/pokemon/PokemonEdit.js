@@ -5,10 +5,18 @@ import MoveDetail from '../moves/MoveDetail';
 
 import './pokemon.css';
 
-const PokemonDetail = ({ imgSrc, name, type, number, customName, stats, moves, moveRefData, onSwitchMode }) => {
+const PokemonEdit = ({ imgSrc, name, type, number, customName, stats, moves, moveRefData, onSwitchMode, onCancelEdit }) => {
   const { hp, maxHp, level } = stats;
   
-  const toggleModeButton = (<button onClick={onSwitchMode}>Edit</button>);
+  const toggleModeButton = (<button onClick={onSwitchMode}>Save</button>);
+  const cancelModeButton = (<button onClick={onCancelEdit}>Cancel</button>);
+
+  const headerComponent = (
+    <div className="pm-detail-header">
+      {cancelModeButton}
+      {toggleModeButton}
+    </div>
+  );
 
   const statsList = (
     Object.keys(stats).map((key) => {
@@ -32,30 +40,14 @@ const PokemonDetail = ({ imgSrc, name, type, number, customName, stats, moves, m
     </div>
   );
   return (
-    <div className="pm-detail">
-      <div className="pm-detail-header">
-        <Link to={'/pokemon'}>
-          {`< My Pokemon`}
-        </Link>
-        {toggleModeButton}
-      </div>
+    <div className="pm-detail-edit">
+      {headerComponent}
       <div className="pm-detail-description">
 
-        <div className="pm-detail-left">
-          <img src={imgSrc} alt={name} />
-          <div className="pm-detail-name">
-            {`${name} #${number}`}
-          </div>
-        </div>
-
-        <div className="pm-detail-right">
-          <div className="pm-detail-custom-name">
-            <h4>{customName}</h4>
-          </div>
-          <div className="pm-detail-stats">
-            {statsList}
-          </div>
-        </div>
+        
+      <div className="pm-detail-stats">
+      {statsList}
+    </div>
       </div>
       <div className="pm-detail-moves">
         <div className="pm-detail-header">
@@ -69,4 +61,4 @@ const PokemonDetail = ({ imgSrc, name, type, number, customName, stats, moves, m
   )
 }
 
-export default PokemonDetail;
+export default PokemonEdit;

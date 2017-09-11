@@ -4,9 +4,10 @@ import { NavLink as Link } from 'react-router-dom';
 import '../App.css';
 import './Navigation.css';
 
-
 import config from '../Config.js';
 const { appData: { navigation } } = config;
+
+const NESTED_ROUTES = ['trainer', 'pokemon', 'pokedex'];
 
 class Navigation extends Component {
   render() {
@@ -14,7 +15,9 @@ class Navigation extends Component {
       return (
         <li key={path}
           className="navbar-item">
-          <Link exact={true} to={`/${path}`}>{name}</Link>
+          <Link isActive={(match, location) => {
+            return this.isActive(path, name, match, location);
+          }} exact={true} to={`/${path}`}>{name}</Link>
         </li>
       )
     }) : null;
@@ -25,6 +28,14 @@ class Navigation extends Component {
         </ul>
       </div>
     );
+  }
+
+  isActive(path, name, match, location) {
+    if (path && location) {
+      return location.pathname.includes(path);
+    } else {
+      return false;
+    }
   }
 }
 
