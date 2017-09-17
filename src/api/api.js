@@ -15,7 +15,8 @@ const api = () => {
   return {
     getPokemon: (id) => {
       if (id) {
-        return _data.pokemon.list.find((pm) => pm.id === id);
+        const pm = _data.pokemon.list.find((pm) => pm.id === id);
+        return { ...pm, stats: { ...pm.stats } };
       }
       return _data.pokemon;
     },

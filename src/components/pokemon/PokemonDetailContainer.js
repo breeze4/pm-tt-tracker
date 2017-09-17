@@ -26,7 +26,8 @@ class PokemonDetailContainer extends Component {
     this.state = {
       id: id,
       pokemon: api.getPokemon(id),
-      editMode: !!edit
+      editMode: !!edit,
+      backupPmData: api.getPokemon(id)
     }
   }
 
@@ -75,9 +76,10 @@ class PokemonDetailContainer extends Component {
   }
 
   onCancelEdit() {
-    const { id } = this.state;
+    const { id, backupPmData } = this.state;
     const { history } = this.props;
     history.push(`/pokemon/${id}`);
+    this.setState({ pokemon: backupPmData });
   }
 
   onSaveEdit() {
@@ -88,8 +90,10 @@ class PokemonDetailContainer extends Component {
   }
 
   onEnterEditMode() {
-    const { id } = this.state;
+    const { id, pokemon } = this.state;
     const { history } = this.props;
+    const backupPmData = { ...pokemon };
+    this.setState({ backupPmData });
     history.push(`/pokemon/${id}/edit`);
   }
 

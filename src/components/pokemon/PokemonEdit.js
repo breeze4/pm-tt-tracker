@@ -5,6 +5,17 @@ import MoveDetail from '../moves/MoveDetail';
 
 import './pokemon.css';
 
+const EDITABLE_STATS = {
+  "hp": true,
+  "level": true,
+  "attack": true,
+  "defense": true,
+  "specialAttack": true,
+  "specialDefense": true,
+  "speed": true,
+  "captureDifficulty": false
+}
+
 const PokemonEdit = ({ id, imgSrc, name, type, number, customName, stats, moves,
   moveRefData, onSaveEdit, onCancelEdit, onStatInputChange }) => {
   const { hp, maxHp, level } = stats;
@@ -20,7 +31,7 @@ const PokemonEdit = ({ id, imgSrc, name, type, number, customName, stats, moves,
   );
 
   const statsList = (
-    Object.keys(stats).map((key) => {
+    Object.keys(stats).filter((key) => EDITABLE_STATS[key]).map((key) => {
       const stat = stats[key];
       return (
         <div key={key} className="pm-detail-stat">
