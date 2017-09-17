@@ -67,6 +67,7 @@
 .pm-detail-header {
   text-align: left;
   padding-left: 5px;
+  padding-right: 5px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -79,6 +80,14 @@
 .pm-detail-edit .pm-detail-stats {
   padding: 5px;
 }
+.pm-detail-edit .pm-detail-stat {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.pm-detail-stat-edit {
+  width: 60px;
+}
 .pm-detail-description img {
   height: 150px;
   width: 150px;
@@ -89,6 +98,7 @@
 }
 .pm-detail-stats {
   text-align: left;
+  width: 100%;
 }
 
 .pm-detail-moves {

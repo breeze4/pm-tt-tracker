@@ -23,16 +23,28 @@ const api = () => {
       const { pokemon } = _data;
 
       const pmList = pokemon.list || [];
-      for (let i = 0; i < pmList.length; i++) {
-        const pm = pmList[i];
+      const updatedList = pmList.map((pm) => {
         if (pm.id === id) {
-          pmList[i].party = !pmList[i].party;
+          pm.party = !pm.party;
         }
-      }
-      const sortedList = pmList.sort(sortPokemon);
-      const updatedPokemon = { ...pokemon, list: sortedList };
+        return pm;
+      }).sort(sortPokemon);
+      const updatedPokemon = { ...pokemon, list: updatedList };
       _data.pokemon = updatedPokemon;
       return _data.pokemon;
+    },
+    updatePokemon: (id, updatedPokemon) => {
+      const { pokemon } = _data;
+
+      const pmList = pokemon.list || [];
+      const updatedList = pmList.map((pm) => {
+        if (pm.id === id) {
+          return updatedPokemon;
+        }
+        return pm;
+      });
+      const updatedPokemonList = { ...pokemon, list: updatedList };
+      _data.pokemon = updatedPokemonList;
     }
   }
 };

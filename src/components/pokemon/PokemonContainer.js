@@ -37,6 +37,7 @@ class PokemonContainer extends Component {
   }
 
   onSelectPokemon(event, id) {
+    event.preventDefault();
     const updatedPokemon = api.togglePokemonInParty(id);
     this.setState({ pokemon: updatedPokemon });
   }

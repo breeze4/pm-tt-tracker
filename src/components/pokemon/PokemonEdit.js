@@ -5,7 +5,8 @@ import MoveDetail from '../moves/MoveDetail';
 
 import './pokemon.css';
 
-const PokemonEdit = ({ id, imgSrc, name, type, number, customName, stats, moves, moveRefData, onSaveEdit, onCancelEdit }) => {
+const PokemonEdit = ({ id, imgSrc, name, type, number, customName, stats, moves,
+  moveRefData, onSaveEdit, onCancelEdit, onStatInputChange }) => {
   const { hp, maxHp, level } = stats;
 
   const saveEditButton = (<button onClick={() => onSaveEdit({ id })}>Save</button>);
@@ -21,9 +22,13 @@ const PokemonEdit = ({ id, imgSrc, name, type, number, customName, stats, moves,
   const statsList = (
     Object.keys(stats).map((key) => {
       const stat = stats[key];
-      return (<div key={key} className="pm-detail-stat">
-        {`${key}: ${stat}`}
-      </div>);
+      return (
+        <div key={key} className="pm-detail-stat">
+          <span>{`${key}:`}</span>
+          <input className="pm-detail-stat-edit"
+            onChange={(e) => onStatInputChange(key, e.target.value || 0)} value={stat} />
+        </div>
+      );
     })
   );
 

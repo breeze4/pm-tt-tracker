@@ -53,6 +53,7 @@ class PokemonDetailContainer extends Component {
           moveRefData={MOVES_REF_DATA}
           onCancelEdit={this.onCancelEdit.bind(this)}
           onSaveEdit={this.onSaveEdit.bind(this)}
+          onStatInputChange={this.onStatInputChange.bind(this)}
         />
       ) : (
           <PokemonDetail
@@ -80,15 +81,22 @@ class PokemonDetailContainer extends Component {
   }
 
   onSaveEdit() {
-    const { id } = this.state;
+    const { id, pokemon } = this.state;
     const { history } = this.props;
     history.push(`/pokemon/${id}`);
+    const updatedPokemon = api.updatePokemon(id, pokemon);
   }
 
   onEnterEditMode() {
     const { id } = this.state;
     const { history } = this.props;
     history.push(`/pokemon/${id}/edit`);
+  }
+
+  onStatInputChange(statKey, value) {
+    const { id, pokemon, pokemon: { stats } } = this.state;
+    stats[statKey] = parseInt(value, 10);
+    this.setState({ pokemon: { ...pokemon, stats: stats } });
   }
 
   onSelectPokemon(event, id) {
