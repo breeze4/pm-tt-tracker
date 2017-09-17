@@ -1,3 +1,5 @@
+import cloneDeep from 'lodash/cloneDeep';
+
 import PLAYER_DATA from '../SAMPLE_PLAYER_DATA.json';
 
 const sortPokemon = (a, b) => {
@@ -16,7 +18,7 @@ const api = () => {
     getPokemon: (id) => {
       if (id) {
         const pm = _data.pokemon.list.find((pm) => pm.id === id);
-        return { ...pm, stats: { ...pm.stats } };
+        return cloneDeep(pm);
       }
       return _data.pokemon;
     },
