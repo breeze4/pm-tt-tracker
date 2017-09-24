@@ -8,7 +8,8 @@ import {
 import './App.css';
 
 import Navigation from './components/Navigation';
-import Pokedex from './components/pokedex/Pokedex';
+import PokedexContainer from './components/pokedex/PokedexContainer';
+import PokedexDetailContainer from './components/pokedex/PokedexDetailContainer';
 import PokemonContainer from './components/pokemon/PokemonContainer';
 import PokemonDetailContainer from './components/pokemon/PokemonDetailContainer';
 import Trainer from './components/trainer/Trainer';
@@ -21,17 +22,14 @@ class App extends Component {
         <Navigation />
         <div className="App-contents">
           <Route exact path="/" component={Home} />
-          <Route path="/pokedex" component={Pokedex} />
-          {/* <Route exact path="/pokemon" component={PokemonContainer} /> */}
-          <Route path="/pokemon" component={({match}) => {
-            return (
-              <div>
-                <Route exact path="/pokemon" component={PokemonContainer} />
-                <Route path="/pokemon/:id/:edit?" component={PokemonDetailContainer} />
-              </div>
-            );
-          }} />
-          {/* <Route path="/pokemon/:id" component={PokemonDetailContainer} /> */}
+          <Route path="/pokedex" component={() => (<div>
+            <Route exact path="/pokedex" component={PokedexContainer} />
+            <Route path="/pokedex/:number" component={PokedexDetailContainer} />
+          </div>)} />
+          <Route path="/pokemon" component={() => (<div>
+            <Route exact path="/pokemon" component={PokemonContainer} />
+            <Route path="/pokemon/:id/:edit?" component={PokemonDetailContainer} />
+          </div>)} />
           <Route path="/trainer" component={Trainer} />
         </div>
       </div>
@@ -42,7 +40,6 @@ class App extends Component {
 const AppWithRouter = () => (
   <Router>
     <App />
-
   </Router>
 );
 
