@@ -4,8 +4,8 @@ import {
   Route
 } from 'react-router-dom';
 
-// import logo from './logo.svg';
 import './App.css';
+import './components.css';
 
 import Navigation from './components/Navigation';
 import PokedexContainer from './components/pokedex/PokedexContainer';

@@ -1,6 +1,8 @@
 import React from 'react';
 
-import './pokemon.css';
+import { Card, CardSection } from '../Card.js';
+
+import '../../components.css';
 
 import config from '../../Config.js';
 const { refData: { pokemon } } = config;
@@ -12,22 +14,22 @@ const PokemonListItem = ({ id, number, customName, stats, onSelectPokemon }) => 
   const { name, image, type } = pokemon[number];
   const imgSrc = pathToThumbnails(`./${image}`, true);
   return (
-    <div className="pokemon-list-item-container"
-        onClick={(e) => onSelectPokemon(e, id)}>
-      <div className="pokemon-list-item-thumbnail">
+    <Card
+      onClick={(e) => onSelectPokemon(e, id)}>
+      <div className="thumbnail">
         <img src={imgSrc} alt="" />
       </div>
-      <div className="pokemon-list-item-description">
-        <div className="pokemon-list-item-name">
+      <CardSection>
+        <div className="card-text">
           <span>{customName}</span>
           <span>{`${name} #${number}`}</span>
         </div>
-        <div className="pokemon-list-item-stats">
+        <div className="card-text">
           <span>{`Level ${level}`}</span>
           <span>{`HP ${hp}/${maxHp}`}</span>
         </div>
-      </div>
-    </div>
+      </CardSection>
+    </Card>
   )
 }
 

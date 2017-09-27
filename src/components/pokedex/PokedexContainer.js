@@ -23,7 +23,7 @@ class PokedexContainer extends Component {
     const pokedexListItems = Object.keys(pokedex).map((number) => {
       const entry = pokedex[number];
       return (
-        <li key={number}>
+        <li key={number} className="card-container ">
           <Link to={`/pokedex/${number}`}>
             <PokedexItem
               number={number}
