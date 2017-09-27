@@ -20,7 +20,7 @@ const PokemonList = ({ editMode, list, onSwitchMode, onSelectPokemon }) => {
         {list.filter(pm => pm.party).map((pm) => {
           const { id, number } = pm;
           return (
-            <li key={number} className="pokemon-list-item">
+            <li key={id} className="pokemon-list-item">
               <Link to={`/pokemon/${id}`}>
                 <PokemonListItem
                   onSelectPokemon={editMode ? onSelectPokemon : () => { }}
@@ -41,7 +41,7 @@ const PokemonList = ({ editMode, list, onSwitchMode, onSelectPokemon }) => {
         {list.filter(pm => !pm.party).map((pm) => {
           const { id, number } = pm;
           return (
-            <li key={number} className="pokemon-list-item">
+            <li key={id} className="pokemon-list-item">
               <Link to={`/pokemon/${id}`}>
                 <PokemonListItem
                   onSelectPokemon={editMode ? onSelectPokemon : () => { }}

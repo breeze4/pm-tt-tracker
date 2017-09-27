@@ -38,7 +38,7 @@ class PokemonDetailContainer extends Component {
 
   render() {
     const { editMode, id, pokemon } = this.state;
-    const { number } = pokemon;
+    const { number, customName } = pokemon;
     const { name, image, type } = POKEMON_REF_DATA[number];
     const imgSrc = pathToImages(`./${image}`, true);
 
@@ -49,12 +49,14 @@ class PokemonDetailContainer extends Component {
           id={id}
           editMode={editMode}
           name={name}
+          customName={customName}
           imgSrc={imgSrc}
           type={type}
           moveRefData={MOVES_REF_DATA}
           onCancelEdit={this.onCancelEdit.bind(this)}
           onSaveEdit={this.onSaveEdit.bind(this)}
           onStatInputChange={this.onStatInputChange.bind(this)}
+          onCustomNameInputChange={this.onCustomNameInputChange.bind(this)}
         />
       ) : (
           <PokemonDetail
@@ -95,6 +97,11 @@ class PokemonDetailContainer extends Component {
     const backupPmData = { ...pokemon };
     this.setState({ backupPmData });
     history.push(`/pokemon/${id}/edit`);
+  }
+
+  onCustomNameInputChange(customName) {
+    const { id, pokemon } = this.state;
+    this.setState({ pokemon: { ...pokemon, customName } });
   }
 
   onStatInputChange(statKey, value) {

@@ -1,6 +1,10 @@
 import cloneDeep from 'lodash/cloneDeep';
 
+import createPokemonFromDex from './createPokemonFromDex';
+
 import PLAYER_DATA from '../SAMPLE_PLAYER_DATA.json';
+import config from '../Config.js';
+const { refData } = config;
 
 const sortPokemon = (a, b) => {
   if (parseInt(a.number, 10) > parseInt(b.number, 10)) {
@@ -48,6 +52,17 @@ const api = () => {
       });
       const updatedPokemonList = { ...pokemon, list: updatedList };
       _data.pokemon = updatedPokemonList;
+    },
+    addPokemonToTrainer: (number) => {
+      const { pokemon } = _data;
+      const pokedexEntry = refData.pokemon[number];
+      console.log(pokedexEntry);
+
+      const pmList = pokemon.list ? cloneDeep(pokemon.list) : [];
+      pmList.push(createPokemonFromDex(number, pokedexEntry));
+      const updatedPokemon = { ...pokemon, list: pmList };
+      _data.pokemon = updatedPokemon;
+      return _data.pokemon;
     }
   }
 };

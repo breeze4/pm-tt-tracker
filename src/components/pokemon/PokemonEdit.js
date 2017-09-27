@@ -17,7 +17,7 @@ const EDITABLE_STATS = {
 }
 
 const PokemonEdit = ({ id, imgSrc, name, type, number, customName, stats, moves,
-  moveRefData, onSaveEdit, onCancelEdit, onStatInputChange }) => {
+  moveRefData, onSaveEdit, onCancelEdit, onCustomNameInputChange, onStatInputChange }) => {
   const { hp, maxHp, level } = stats;
 
   const saveEditButton = (<button onClick={() => onSaveEdit({ id })}>Save</button>);
@@ -27,6 +27,14 @@ const PokemonEdit = ({ id, imgSrc, name, type, number, customName, stats, moves,
     <div className="pm-detail-header">
       {cancelModeButton}
       {saveEditButton}
+    </div>
+  );
+
+  const customNameEdit = (
+    <div className="pm-detail-stat">
+      <span>Name:</span>
+      <input className="pm-detail-stat-edit"
+        onChange={(e) => onCustomNameInputChange(e.target.value || '')} value={customName} />
     </div>
   );
 
@@ -61,6 +69,7 @@ const PokemonEdit = ({ id, imgSrc, name, type, number, customName, stats, moves,
       <div className="pm-detail-description">
 
         <div className="pm-detail-stats">
+          {customNameEdit}
           {statsList}
         </div>
       </div>

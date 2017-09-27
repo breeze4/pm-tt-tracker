@@ -25,7 +25,9 @@ class PokedexContainer extends Component {
       return (
         <li key={number}>
           <Link to={`/pokedex/${number}`}>
-            <PokedexItem {...entry} />
+            <PokedexItem
+              number={number}
+              {...entry} />
           </Link>
         </li>
       );

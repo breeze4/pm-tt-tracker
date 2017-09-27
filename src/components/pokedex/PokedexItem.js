@@ -13,7 +13,7 @@ const PokedexItem = ({ id, number, stats, onSelectPokemon }) => {
   // const { name, image, type } = pokemon[number];
   // const imgSrc = pathToThumbnails(`./${image}`, true);
   return (<div className="pokedex-list-item-container">
-    {'pokedex item'}
+    {number}
   </div >);
 }
 

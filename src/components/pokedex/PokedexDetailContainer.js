@@ -34,6 +34,7 @@ class PokedexDetailContainer extends Component {
           number={number}
           moveRefData={MOVES_REF_DATA}
           imgSrc={imgSrc}
+          onAddToTrainer={this.onAddToTrainer.bind(this)}
         />
       </div>
     );
