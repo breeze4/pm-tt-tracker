@@ -1,10 +1,14 @@
+import store from 'store';
 import cloneDeep from 'lodash/cloneDeep';
+import merge from 'lodash/merge';
 
 import createPokemonFromDex from './createPokemonFromDex';
 
 import PLAYER_DATA from '../SAMPLE_PLAYER_DATA.json';
 import config from '../Config.js';
 const { refData } = config;
+
+const DATA = 'data';
 
 const sortPokemon = (a, b) => {
   if (parseInt(a.number, 10) > parseInt(b.number, 10)) {
@@ -17,9 +21,12 @@ const sortPokemon = (a, b) => {
 };
 
 const api = () => {
-  const _data = PLAYER_DATA;
+  if (!store.get(DATA)) {
+    const _store = store.set(DATA, PLAYER_DATA);
+  }
   return {
     getPokemon: (id) => {
+      const _data = store.get(DATA);
       if (id) {
         const pm = _data.pokemon.list.find((pm) => pm.id === id);
         return cloneDeep(pm);
@@ -27,6 +34,7 @@ const api = () => {
       return _data.pokemon;
     },
     togglePokemonInParty: (id) => {
+      const _data = store.get(DATA);
       const { pokemon } = _data;
 
       const pmList = pokemon.list || [];
@@ -41,6 +49,7 @@ const api = () => {
       return _data.pokemon;
     },
     updatePokemon: (id, updatedPokemon) => {
+      const _data = store.get(DATA);
       const { pokemon } = _data;
 
       const pmList = pokemon.list || [];
@@ -52,17 +61,18 @@ const api = () => {
       });
       const updatedPokemonList = { ...pokemon, list: updatedList };
       _data.pokemon = updatedPokemonList;
+      store.set(DATA, _data);
     },
     addPokemonToTrainer: (number) => {
+      const _data = store.get(DATA);
       const { pokemon } = _data;
       const pokedexEntry = refData.pokemon[number];
-      console.log(pokedexEntry);
 
       const pmList = pokemon.list ? cloneDeep(pokemon.list) : [];
       pmList.push(createPokemonFromDex(number, pokedexEntry));
       const updatedPokemon = { ...pokemon, list: pmList };
       _data.pokemon = updatedPokemon;
-      return _data.pokemon;
+      store.set(DATA, _data);
     }
   }
 };
