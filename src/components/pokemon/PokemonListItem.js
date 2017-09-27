@@ -2,8 +2,6 @@ import React from 'react';
 
 import { Card, CardSection } from '../Card.js';
 
-import '../../components.css';
-
 import config from '../../Config.js';
 const { refData: { pokemon } } = config;
 

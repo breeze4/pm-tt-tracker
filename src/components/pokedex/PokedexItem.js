@@ -33,17 +33,4 @@ const PokedexItem = ({ id, name, image, number, baseStats }) => {
     </Card>);
 }
 
-const styles = {
-  container: {
-
-  },
-  thumbnail: {
-
-  },
-  description: {
-
-  },
-
-}
-
 export default PokedexItem;
