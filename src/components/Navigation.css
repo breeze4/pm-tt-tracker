@@ -19,4 +19,5 @@
 }
 .navbar-item a.active {
   border-bottom: 3px solid coral;
-}
+} /* instead of active border, do active background 
+and a bottom border colored with the route's color */
