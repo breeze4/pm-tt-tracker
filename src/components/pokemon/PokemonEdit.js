@@ -25,8 +25,12 @@ const PokemonEdit = ({ id, imgSrc, name, type, number, customName, stats, moves,
 
   const headerComponent = (
     <div className="pm-detail-header">
-      {cancelModeButton}
-      {saveEditButton}
+      <span>
+        {cancelModeButton}
+      </span>
+      <span>
+        {saveEditButton}
+      </span>
     </div>
   );
 
@@ -67,7 +71,6 @@ const PokemonEdit = ({ id, imgSrc, name, type, number, customName, stats, moves,
     <div className="pm-detail-edit">
       {headerComponent}
       <div className="pm-detail-description">
-
         <div className="pm-detail-stats">
           {customNameEdit}
           {statsList}

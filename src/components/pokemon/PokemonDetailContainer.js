@@ -4,6 +4,7 @@ import { NavLink as Link } from 'react-router-dom';
 // import './Home.css';
 import PokemonDetail from './PokemonDetail.js';
 import PokemonEdit from './PokemonEdit.js';
+import PokemonLevelUp from './PokemonLevelUp';
 
 import api from '../../api/api.js';
 
@@ -17,58 +18,81 @@ const MOVES_REF_DATA = refData.moves;
 
 const pathToImages = require.context('../../../images/pokemon');
 
+const VALID_MODES = ['edit', 'view', 'level'];
+
 class PokemonDetailContainer extends Component {
   constructor(props) {
     super(props);
 
-    const { match: { params: { id, edit } } } = props;
+    const { match: { params: { id, mode } } } = props;
+
+    let currentMode = 'view';
+    if (VALID_MODES.includes(mode)) {
+      currentMode = mode;
+    }
 
     this.state = {
       id: id,
       pokemon: api.getPokemon(id),
-      editMode: !!edit,
+      currentMode: currentMode,
       backupPmData: api.getPokemon(id)
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    const { match: { params: { id, edit } } } = nextProps;
-    this.setState({ editMode: !!edit });
+    const { match: { params: { id, mode } } } = nextProps;
+    let currentMode = 'view';
+    if (VALID_MODES.includes(mode)) {
+      currentMode = mode;
+    }
+    this.setState({ currentMode: currentMode });
   }
 
   render() {
-    const { editMode, id, pokemon } = this.state;
+    const { currentMode, id, pokemon } = this.state;
     const { number, customName } = pokemon;
     const { name, image, type } = POKEMON_REF_DATA[number];
     const imgSrc = pathToImages(`./${image}`, true);
 
-    const pokemonDetailComponent = pokemon ?
-      editMode ? (
-        <PokemonEdit
-          {...pokemon}
-          id={id}
-          editMode={editMode}
-          name={name}
-          customName={customName}
-          imgSrc={imgSrc}
-          type={type}
-          moveRefData={MOVES_REF_DATA}
-          onCancelEdit={this.onCancelEdit.bind(this)}
-          onSaveEdit={this.onSaveEdit.bind(this)}
-          onStatInputChange={this.onStatInputChange.bind(this)}
-          onCustomNameInputChange={this.onCustomNameInputChange.bind(this)}
-        />
-      ) : (
-          <PokemonDetail
-            {...pokemon}
-            id={id}
-            name={name}
-            imgSrc={imgSrc}
-            type={type}
-            moveRefData={MOVES_REF_DATA}
-            onEnterEditMode={this.onEnterEditMode.bind(this)}
-          />
-        ) : null;
+    let pokemonDetailComponent = pokemon ? (
+      <PokemonDetail
+        {...pokemon}
+        id={id}
+        name={name}
+        imgSrc={imgSrc}
+        type={type}
+        moveRefData={MOVES_REF_DATA}
+        onEnterEditMode={this.onEnterEditMode.bind(this)}
+      />
+    ) : null;
+
+    if (currentMode === 'edit') {
+      pokemonDetailComponent = (<PokemonEdit
+        {...pokemon}
+        id={id}
+        editMode={true}
+        name={name}
+        customName={customName}
+        imgSrc={imgSrc}
+        type={type}
+        moveRefData={MOVES_REF_DATA}
+        onCancelEdit={this.onCancelEdit.bind(this)}
+        onSaveEdit={this.onSaveEdit.bind(this)}
+        onStatInputChange={this.onStatInputChange.bind(this)}
+        onCustomNameInputChange={this.onCustomNameInputChange.bind(this)}
+        onLevelUp={this.onLevelUp.bind(this)}
+      />);
+    } else if (currentMode === 'level') {
+      pokemonDetailComponent = (<PokemonLevelUp
+        {...pokemon}
+        id={id}
+        name={name}
+        customName={customName}
+        imgSrc={imgSrc}
+        type={type}
+        moveRefData={MOVES_REF_DATA}
+      />);
+    }
 
     return (
       <div className="PokemonDetail">
@@ -113,6 +137,10 @@ class PokemonDetailContainer extends Component {
   onSelectPokemon(event, id) {
     const updatedPokemon = api.togglePokemonInParty(id);
     this.setState({ pokemon: updatedPokemon });
+  }
+
+  onLevelUp() {
+    console.log('level up!');
   }
 }
 
