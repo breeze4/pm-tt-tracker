@@ -63,6 +63,7 @@ class PokemonDetailContainer extends Component {
         type={type}
         moveRefData={MOVES_REF_DATA}
         onEnterEditMode={this.onEnterEditMode.bind(this)}
+        onEnterLevelMode={this.onEnterLevelMode.bind(this)}
       />
     ) : null;
 
@@ -80,7 +81,6 @@ class PokemonDetailContainer extends Component {
         onSaveEdit={this.onSaveEdit.bind(this)}
         onStatInputChange={this.onStatInputChange.bind(this)}
         onCustomNameInputChange={this.onCustomNameInputChange.bind(this)}
-        onLevelUp={this.onLevelUp.bind(this)}
       />);
     } else if (currentMode === 'level') {
       pokemonDetailComponent = (<PokemonLevelUp
@@ -91,6 +91,7 @@ class PokemonDetailContainer extends Component {
         imgSrc={imgSrc}
         type={type}
         moveRefData={MOVES_REF_DATA}
+        onLevelUp={this.onLevelUp.bind(this)}
       />);
     }
 
@@ -138,9 +139,17 @@ class PokemonDetailContainer extends Component {
     const updatedPokemon = api.togglePokemonInParty(id);
     this.setState({ pokemon: updatedPokemon });
   }
+  
+  onEnterLevelMode() {
+    const { id, pokemon } = this.state;
+    const { history } = this.props;
+    history.push(`/pokemon/${id}/level`);
+  }
 
-  onLevelUp() {
+  onLevelUp(id, feature, payload) {
     console.log('level up!');
+    const updatedPokemon = api.levelUpPokemon(id, feature, payload);
+    this.setState({ pokemon: updatedPokemon });
   }
 }
 

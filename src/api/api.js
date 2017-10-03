@@ -10,6 +10,9 @@ const { refData } = config;
 
 const DATA = 'data';
 
+const MAX_LEVEL = 20;
+const MAX_MOVES = 4;
+
 const sortPokemon = (a, b) => {
   if (parseInt(a.number, 10) > parseInt(b.number, 10)) {
     return 1;
@@ -19,6 +22,39 @@ const sortPokemon = (a, b) => {
     return -1;
   }
 };
+
+// returns true if move was added, false if the pokemon is full on moves
+// 3rd optional parameter is default null and the move will be added to the end
+// if provided, that move will be overwritten with the new move
+const addMoveToPokemon = (pokemon, move, overwriteTarget) => {
+  if (!pokemon || !pokemon.moves || pokemon.moves.length >= MAX_MOVES) {
+    return false;
+  }
+  if (pokemon.moves.length < MAX_MOVES) {
+    pokemon.moves.push(move);
+    return true;
+  }
+  if (overwriteTarget) {
+    const target = pokemon.moves.indexOf(overwriteTarget);
+    if (!target || target < 0) {
+      console.log('not a move this pokemon knows');
+      return false;
+    }
+    pokemon.moves[target] = move;
+    return true;
+  }
+};
+
+const raiseStatsOnPokemon = (pokemon, stat1, stat2) => {
+  if (stat1 && !stat2) {
+    pokemon.stats[stat1] += 2;
+  } else if (stat2 && !stat1) {
+    pokemon.stats[stat2] += 2;
+  } else if (stat1 && stat2) {
+    pokemon.stats[stat1] += 1;
+    pokemon.stats[stat2] += 1;
+  }
+}
 
 const api = () => {
   if (!store.get(DATA)) {
@@ -73,6 +109,45 @@ const api = () => {
       const updatedPokemon = { ...pokemon, list: pmList };
       _data.pokemon = updatedPokemon;
       store.set(DATA, _data);
+    },
+    levelUpPokemon: (id, feature, payload) => {
+      if (!feature || !payload) {
+        console.log('invalid level up');
+        return;
+      }
+      const _data = store.get(DATA);
+      const { pokemon: { list } } = _data;
+      const index = list.findIndex(p => p.id === id);
+      const leveledPm = list[index];
+      const { number, stats: { level } } = leveledPm;
+      if (level + 1 > MAX_LEVEL) {
+        console.log('already max level');
+        return leveledPm;
+      }
+      // validate this is a correct feature
+      const refDataFeature = refData
+        .pokemon[number]
+        .levels
+        .find(l => l.level === level);
+      if (refDataFeature.feature !== feature) {
+        console.log('does not match ref data');
+        return leveledPm;
+      }
+
+      if (feature === 'MOVE') {
+        const { move, overwriteTarget } = payload;
+        const successfullyAddedMove = addMoveToPokemon(leveledPm, move, overwriteTarget);
+        if (!successfullyAddedMove) {
+          console.log('couldn\'t add move to pokemon');
+          return leveledPm;
+        }
+      } else if (feature === 'STATS') {
+        const { raisedStats: { stat1, stat2 } } = payload;
+        raiseStatsOnPokemon(leveledPm, stat1, stat2);
+      }
+      list[index] = leveledPm;
+      store.set(DATA, _data);
+      return leveledPm;
     }
   }
 };
