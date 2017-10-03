@@ -144,6 +144,85 @@
       "defaultMoves": [
         "FIRE_FLAMETHROWER",
         "NORMAL_TAIL_WHIP"
+      ],
+      "levels": [
+        {
+          "level": 2,
+          "feature": "STATS"
+        },
+        {
+          "level": 3,
+          "feature": "MOVE",
+          "move": "FIRE_EMBER"
+        },
+        {
+          "level": 4,
+          "feature": "STATS"
+        },
+        {
+          "level": 5,
+          "feature": "STATS"
+        },
+        {
+          "level": 6,
+          "feature": "STATS"
+        },
+        {
+          "level": 7,
+          "feature": "STATS"
+        },
+        {
+          "level": 8,
+          "feature": "STATS"
+        },
+        {
+          "level": 9,
+          "feature": "STATS"
+        },
+        {
+          "level": 10,
+          "feature": "STATS"
+        },
+        {
+          "level": 11,
+          "feature": "STATS"
+        },
+        {
+          "level": 12,
+          "feature": "STATS"
+        },
+        {
+          "level": 13,
+          "feature": "STATS"
+        },
+        {
+          "level": 14,
+          "feature": "STATS"
+        },
+        {
+          "level": 15,
+          "feature": "STATS"
+        },
+        {
+          "level": 16,
+          "feature": "STATS"
+        },
+        {
+          "level": 17,
+          "feature": "STATS"
+        },
+        {
+          "level": 18,
+          "feature": "STATS"
+        },
+        {
+          "level": 19,
+          "feature": "STATS"
+        },
+        {
+          "level": 20,
+          "feature": "STATS"
+        }
       ]
     }
   },

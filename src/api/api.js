@@ -111,13 +111,13 @@ const api = () => {
       store.set(DATA, _data);
     },
     levelUpPokemon: (id, feature, payload) => {
-      if (!feature || !payload) {
-        console.log('invalid level up');
-        return;
-      }
       const _data = store.get(DATA);
       const { pokemon: { list } } = _data;
       const index = list.findIndex(p => p.id === id);
+      if (index < 0) {
+        console.log('pokemon doesn\'t exist');
+        return leveledPm;
+      }
       const leveledPm = list[index];
       const { number, stats: { level } } = leveledPm;
       if (level + 1 > MAX_LEVEL) {
@@ -125,10 +125,13 @@ const api = () => {
         return leveledPm;
       }
       // validate this is a correct feature
-      const refDataFeature = refData
-        .pokemon[number]
+      if (!feature || !payload) {
+        console.log('invalid level up');
+        return leveledPm;
+      }
+      const refDataFeature = refData.pokemon[number]
         .levels
-        .find(l => l.level === level);
+        .find(l => l.level === level + 1);
       if (refDataFeature.feature !== feature) {
         console.log('does not match ref data');
         return leveledPm;
@@ -142,9 +145,10 @@ const api = () => {
           return leveledPm;
         }
       } else if (feature === 'STATS') {
-        const { raisedStats: { stat1, stat2 } } = payload;
+        const { stat1, stat2 } = payload;
         raiseStatsOnPokemon(leveledPm, stat1, stat2);
       }
+      leveledPm.stats.level += 1;
       list[index] = leveledPm;
       store.set(DATA, _data);
       return leveledPm;

@@ -51,7 +51,7 @@ class PokemonDetailContainer extends Component {
   render() {
     const { currentMode, id, pokemon } = this.state;
     const { number, customName } = pokemon;
-    const { name, image, type } = POKEMON_REF_DATA[number];
+    const { name, image, type, levels } = POKEMON_REF_DATA[number];
     const imgSrc = pathToImages(`./${image}`, true);
 
     let pokemonDetailComponent = pokemon ? (
@@ -87,11 +87,13 @@ class PokemonDetailContainer extends Component {
         {...pokemon}
         id={id}
         name={name}
-        customName={customName}
-        imgSrc={imgSrc}
+        newName={name}
+        level={pokemon.stats.level}
+        newLevel={levels.find(l => l.level === pokemon.stats.level + 1)}
         type={type}
         moveRefData={MOVES_REF_DATA}
         onLevelUp={this.onLevelUp.bind(this)}
+        onCancelLevel={this.onCancelEdit.bind(this)}
       />);
     }
 
@@ -106,7 +108,9 @@ class PokemonDetailContainer extends Component {
     const { id, backupPmData } = this.state;
     const { history } = this.props;
     history.push(`/pokemon/${id}`);
-    this.setState({ pokemon: backupPmData });
+    if (backupPmData) {
+      this.setState({ pokemon: backupPmData });
+    }
   }
 
   onSaveEdit() {
@@ -139,10 +143,12 @@ class PokemonDetailContainer extends Component {
     const updatedPokemon = api.togglePokemonInParty(id);
     this.setState({ pokemon: updatedPokemon });
   }
-  
+
   onEnterLevelMode() {
     const { id, pokemon } = this.state;
     const { history } = this.props;
+    const backupPmData = { ...pokemon };
+    this.setState({ backupPmData });
     history.push(`/pokemon/${id}/level`);
   }
 

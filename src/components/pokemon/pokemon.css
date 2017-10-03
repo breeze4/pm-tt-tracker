@@ -59,10 +59,22 @@
   text-align: left;
   width: 100%;
 }
+.pm-detail-summary {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 60px;
+}
+.pm-detail-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
 
 .pm-detail-moves {
   display: flex;
   flex-direction: column;
+  text-align: left;
 }
 .pm-moves-list {
   display: flex;
