@@ -64,7 +64,8 @@
         },
         {
           "level": 6,
-          "feature": "STATS"
+          "feature": "MOVE",
+          "move": "NORMAL_SMOKESCREEN"
         },
         {
           "level": 7,
@@ -259,6 +260,17 @@
       "damageDice": "1d8",
       "hitBonus": 5,
       "PP": 35
+    },
+    "NORMAL_SMOKESCREEN": {
+      "name": "Smokescreen",
+      "type": "NORMAL",
+      "category": "Physical",
+      "effect": "Lowers the foe's accuracy.",
+      "power": 40,
+      "accuracy": 100,
+      "damageDice": "1d8",
+      "hitBonus": 5,
+      "PP": 20
     },
     "FIRE_EMBER": {
       "name": "Fire Ember",

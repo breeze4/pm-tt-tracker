@@ -10,8 +10,8 @@ const { refData } = config;
 
 const DATA = 'data';
 
-const MAX_LEVEL = 20;
-const MAX_MOVES = 4;
+export const MAX_LEVEL = 20;
+export const MAX_MOVES = 4;
 
 const sortPokemon = (a, b) => {
   if (parseInt(a.number, 10) > parseInt(b.number, 10)) {

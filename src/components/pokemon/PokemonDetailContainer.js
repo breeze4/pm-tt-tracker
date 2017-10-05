@@ -6,7 +6,7 @@ import PokemonDetail from './PokemonDetail.js';
 import PokemonEdit from './PokemonEdit.js';
 import PokemonLevelUp from './PokemonLevelUp';
 
-import api from '../../api/api.js';
+import api, { MAX_LEVEL } from '../../api/api.js';
 
 // import config from '../../Config.js';
 // const { playerData: { pokemon } } = config;
@@ -75,6 +75,7 @@ class PokemonDetailContainer extends Component {
         name={name}
         customName={customName}
         imgSrc={imgSrc}
+        level={pokemon.stats.level}
         type={type}
         moveRefData={MOVES_REF_DATA}
         onCancelEdit={this.onCancelEdit.bind(this)}
@@ -82,7 +83,7 @@ class PokemonDetailContainer extends Component {
         onStatInputChange={this.onStatInputChange.bind(this)}
         onCustomNameInputChange={this.onCustomNameInputChange.bind(this)}
       />);
-    } else if (currentMode === 'level') {
+    } else if (currentMode === 'level' && pokemon.stats.level < MAX_LEVEL) {
       pokemonDetailComponent = (<PokemonLevelUp
         {...pokemon}
         id={id}
