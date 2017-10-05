@@ -23,6 +23,11 @@ const sortPokemon = (a, b) => {
   }
 };
 
+const evolvePokemon = (pokemon, evolvedNumber) => {
+  const evolvedForm = refData.pokemon[evolvedNumber];
+  
+};
+
 // returns true if move was added, false if the pokemon is full on moves
 // 3rd optional parameter is default null and the move will be added to the end
 // if provided, that move will be overwritten with the new move
@@ -147,6 +152,9 @@ const api = () => {
       } else if (feature === 'STATS') {
         const { stat1, stat2 } = payload;
         raiseStatsOnPokemon(leveledPm, stat1, stat2);
+      } else if (feature === 'EVOLUTION') {
+        const { evolved } = payload;
+        evolvePokemon(leveledPm, evolved);
       }
       leveledPm.stats.level += 1;
       list[index] = leveledPm;

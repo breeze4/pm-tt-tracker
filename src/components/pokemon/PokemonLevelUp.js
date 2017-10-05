@@ -50,13 +50,18 @@ const PokemonLevelUp = ({ id, name, newName, level, newLevel, type, newType,
   let feature = newLevel.feature;
   let levelUpButton = null;
   if (feature === 'MOVE') {
+    const overwriteTarget = null;
     levelUpButton = (<button onClick={() =>
-      onLevelUp(id, feature, { move: newLevel.move })}>
-      Level Up</button>);
+      onLevelUp(id, feature, { move: newLevel.move, overwriteTarget })}>
+      Add New Move</button>);
   } else if (feature === 'STATS') {
     levelUpButton = (<button onClick={() =>
       onLevelUp(id, feature, { stat1: 'attack', stat2: 'defense' })}>
-      Level Up</button>);
+      Add Stats</button>);
+  } else if (feature === 'EVOLUTION') {
+    levelUpButton = (<button onClick={() =>
+      onLevelUp(id, feature, { evolvedNumber: newLevel.evolvedNumber })}>
+      Evolve</button>);
   }
 
   return (

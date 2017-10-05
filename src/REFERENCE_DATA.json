@@ -69,7 +69,8 @@
         },
         {
           "level": 7,
-          "feature": "STATS"
+          "feature": "EVOLUTION",
+          "evolvedNumber": "005"
         },
         {
           "level": 8,
