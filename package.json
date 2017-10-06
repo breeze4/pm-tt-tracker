@@ -2,7 +2,7 @@
   "name": "pokemon-tt",
   "version": "0.1.0",
   "private": true,
-  "homepage" : "http://breeze4.github.io/pm-tt-tracker",
+  "homepage" : "http://breeze4.github.io/pm-tt-tracker/build",
   "dependencies": {
     "lodash": "^4.17.4",
     "react": "^15.6.1",
