@@ -29,6 +29,7 @@ export const evolvePokemon = (pokemon, statChange, evolvedNumber) => {
   const { name, image, type } = evolvedForm;
   if (pokemon.name === pokemon.customName) {
     pokemon.name = name;
+    pokemon.customName = name;
   }
   pokemon.image = image;
   pokemon.type = type;

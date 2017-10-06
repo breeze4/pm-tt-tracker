@@ -13,7 +13,11 @@ const PokemonLevelUp = ({ id, name, number, level, newLevel, type, newType,
   stats, moves, moveRefData, onCancelLevel, onLevelUp }) => {
 
   const newLevelFeature = POKEMON_REF_DATA[number].levels.find(l => l.level === level + 1);
-  const newName = POKEMON_REF_DATA[newLevelFeature.evolvedNumber].name;
+  const evolving = newLevelFeature.feature === 'EVOLUTION';
+  let newName = null;
+  if (evolving) {
+    newName = POKEMON_REF_DATA[newLevelFeature.evolvedNumber].name;
+  }
 
   // header
   const cancelButton = (<button onClick={onCancelLevel}>Cancel</button>);

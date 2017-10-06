@@ -73,6 +73,7 @@
           "evolvedNumber": "005",
           "statChange": {
             "hp": 5,
+            "maxHp": 5,
             "attack": 2,
             "defense": 2,
             "specialAttack": 2,
@@ -134,7 +135,17 @@
         },
         {
           "level": 15,
-          "feature": "STATS"
+          "feature": "EVOLUTION",
+          "evolvedNumber": "006",
+          "statChange": {
+            "hp": 10,
+            "maxHp": 10,
+            "attack": 3,
+            "defense": 2,
+            "specialAttack": 3,
+            "specialDefense": 2,
+            "speed": 3
+          }
         },
         {
           "level": 16,
@@ -180,63 +191,6 @@
         "NORMAL_TAIL_WHIP"
       ],
       "levels": [
-        {
-          "level": 2,
-          "feature": "STATS"
-        },
-        {
-          "level": 3,
-          "feature": "MOVE",
-          "move": "FIRE_EMBER"
-        },
-        {
-          "level": 4,
-          "feature": "STATS"
-        },
-        {
-          "level": 5,
-          "feature": "STATS"
-        },
-        {
-          "level": 6,
-          "feature": "STATS"
-        },
-        {
-          "level": 7,
-          "feature": "STATS"
-        },
-        {
-          "level": 8,
-          "feature": "STATS"
-        },
-        {
-          "level": 9,
-          "feature": "STATS"
-        },
-        {
-          "level": 10,
-          "feature": "STATS"
-        },
-        {
-          "level": 11,
-          "feature": "STATS"
-        },
-        {
-          "level": 12,
-          "feature": "STATS"
-        },
-        {
-          "level": 13,
-          "feature": "STATS"
-        },
-        {
-          "level": 14,
-          "feature": "STATS"
-        },
-        {
-          "level": 15,
-          "feature": "STATS"
-        },
         {
           "level": 16,
           "feature": "STATS"
