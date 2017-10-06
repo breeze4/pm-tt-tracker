@@ -25,16 +25,17 @@
       {
         "id": "985123a0-7e4f-11e7-9022-fb7190c856e4",
         "number": "006",
+        "name": "Charizard",
         "customName": "Hubert",
         "party": true,
         "stats": {
-          "hp": 100,
-          "maxHp": 120,
-          "level": 20,
-          "attack": 15,
-          "defense": 15,
-          "specialAttack": 15,
-          "specialDefense": 15,
+          "hp": 15,
+          "maxHp": 10,
+          "level": 1,
+          "attack": 10,
+          "defense": 10,
+          "specialAttack": 10,
+          "specialDefense": 10,
           "speed": 15,
           "captureDifficulty": 10
         },
@@ -48,24 +49,23 @@
       {
         "id": "df7cca36-3d7a-40f4-8f06-ae03cc22f045",
         "number": "004",
-        "customName": "Foxboro",
-        "party": false,
+        "name": "Charmander",
+        "customName": "Charmander",
+        "party": true,
         "stats": {
-          "hp": 20,
-          "maxHp": 120,
-          "level": 20,
-          "attack": 15,
-          "defense": 15,
-          "specialAttack": 15,
-          "specialDefense": 15,
-          "speed": 15,
+          "hp": 15,
+          "maxHp": 10,
+          "level": 1,
+          "attack": 10,
+          "defense": 10,
+          "specialAttack": 10,
+          "specialDefense": 10,
+          "speed": 10,
           "captureDifficulty": 10
         },
         "moves": [
           "TEST",
-          "NORMAL_TAIL_WHIP",
-          "FIRE_FLAMETHROWER",
-          "NORMAL_WRAP"
+          "NORMAL_TAIL_WHIP"
         ]
       }
     ]

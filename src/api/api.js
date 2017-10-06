@@ -23,15 +23,27 @@ const sortPokemon = (a, b) => {
   }
 };
 
-const evolvePokemon = (pokemon, evolvedNumber) => {
+export const evolvePokemon = (pokemon, statChange, evolvedNumber) => {
   const evolvedForm = refData.pokemon[evolvedNumber];
-  
+  // set the number, name (if the default), image, type
+  const { name, image, type } = evolvedForm;
+  if (pokemon.name === pokemon.customName) {
+    pokemon.name = name;
+  }
+  pokemon.image = image;
+  pokemon.type = type;
+  pokemon.number = evolvedNumber;
+  // add to stats
+  Object.keys(statChange).map((changedStat) => {
+    const changeAmount = statChange[changedStat];
+    pokemon.stats[changedStat] += changeAmount;
+  });
 };
 
 // returns true if move was added, false if the pokemon is full on moves
 // 3rd optional parameter is default null and the move will be added to the end
 // if provided, that move will be overwritten with the new move
-const addMoveToPokemon = (pokemon, move, overwriteTarget) => {
+export const addMoveToPokemon = (pokemon, move, overwriteTarget) => {
   if (!pokemon || !pokemon.moves || pokemon.moves.length >= MAX_MOVES) {
     return false;
   }
@@ -50,7 +62,7 @@ const addMoveToPokemon = (pokemon, move, overwriteTarget) => {
   }
 };
 
-const raiseStatsOnPokemon = (pokemon, stat1, stat2) => {
+export const raiseStatsOnPokemon = (pokemon, stat1, stat2) => {
   if (stat1 && !stat2) {
     pokemon.stats[stat1] += 2;
   } else if (stat2 && !stat1) {
@@ -61,9 +73,9 @@ const raiseStatsOnPokemon = (pokemon, stat1, stat2) => {
   }
 }
 
-const api = () => {
+const api = (playerData) => {
   if (!store.get(DATA)) {
-    const _store = store.set(DATA, PLAYER_DATA);
+    store.set(DATA, playerData);
   }
   return {
     getPokemon: (id) => {
@@ -153,8 +165,9 @@ const api = () => {
         const { stat1, stat2 } = payload;
         raiseStatsOnPokemon(leveledPm, stat1, stat2);
       } else if (feature === 'EVOLUTION') {
-        const { evolved } = payload;
-        evolvePokemon(leveledPm, evolved);
+        const { evolvedNumber } = payload;
+        const { statChange } = refDataFeature;
+        evolvePokemon(leveledPm, statChange, evolvedNumber);
       }
       leveledPm.stats.level += 1;
       list[index] = leveledPm;
@@ -164,4 +177,4 @@ const api = () => {
   }
 };
 
-export default api();
+export default api(PLAYER_DATA);

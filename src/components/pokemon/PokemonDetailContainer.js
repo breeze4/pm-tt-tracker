@@ -88,7 +88,7 @@ class PokemonDetailContainer extends Component {
         {...pokemon}
         id={id}
         name={name}
-        newName={name}
+        number={number}
         level={pokemon.stats.level}
         newLevel={levels.find(l => l.level === pokemon.stats.level + 1)}
         type={type}

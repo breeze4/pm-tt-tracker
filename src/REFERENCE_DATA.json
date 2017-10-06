@@ -70,8 +70,40 @@
         {
           "level": 7,
           "feature": "EVOLUTION",
-          "evolvedNumber": "005"
-        },
+          "evolvedNumber": "005",
+          "statChange": {
+            "hp": 5,
+            "attack": 2,
+            "defense": 2,
+            "specialAttack": 2,
+            "specialDefense": 2,
+            "speed": 2
+          }
+        }
+      ]
+    },
+    "005": {
+      "name": "Charmeleon",
+      "image": "005_charmeleon.png",
+      "type": [
+        "FIRE"
+      ],
+      "baseStats": {
+        "hp": 20,
+        "level": 7,
+        "attack": 15,
+        "defense": 15,
+        "specialAttack": 15,
+        "specialDefense": 15,
+        "speed": 15,
+        "captureDifficulty": 10
+      },
+      "defaultMoves": [
+        "NORMAL_SCRATCH",
+        "NORMAL_TAIL_WHIP",
+        "FIRE_FLAMETHROWER"
+      ],
+      "levels": [
         {
           "level": 8,
           "feature": "STATS"

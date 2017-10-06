@@ -5,8 +5,15 @@ import MoveDetail from '../moves/MoveDetail';
 
 import './pokemon.css';
 
-const PokemonLevelUp = ({ id, name, newName, level, newLevel, type, newType,
+import config from '../../Config.js';
+const { refData } = config;
+const POKEMON_REF_DATA = refData.pokemon;
+
+const PokemonLevelUp = ({ id, name, number, level, newLevel, type, newType,
   stats, moves, moveRefData, onCancelLevel, onLevelUp }) => {
+
+  const newLevelFeature = POKEMON_REF_DATA[number].levels.find(l => l.level === level + 1);
+  const newName = POKEMON_REF_DATA[newLevelFeature.evolvedNumber].name;
 
   // header
   const cancelButton = (<button onClick={onCancelLevel}>Cancel</button>);

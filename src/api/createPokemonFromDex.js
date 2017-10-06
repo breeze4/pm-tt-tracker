@@ -6,7 +6,7 @@ const createPokemonFromDex = (number, pokedexEntry) => {
   const createdPokemon = {
     id: uuidv4(),
     number, name, image, type,
-    customName: 'default name',
+    customName: name,
     stats: { ...baseStats, maxHp: baseStats.hp },
     moves: cloneDeep(defaultMoves)
   };
