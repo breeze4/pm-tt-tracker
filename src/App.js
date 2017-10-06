@@ -15,6 +15,9 @@ import PokemonDetailContainer from './components/pokemon/PokemonDetailContainer'
 import Trainer from './components/trainer/Trainer';
 import Home from './components/Home';
 
+import config from './Config.js';
+const { BASE_URL } = config;
+
 class App extends Component {
   render() {
     return (
@@ -38,7 +41,7 @@ class App extends Component {
 }
 
 const AppWithRouter = () => (
-  <Router>
+  <Router basename={BASE_URL}>
     <App />
   </Router>
 );

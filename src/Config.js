@@ -5,10 +5,13 @@ import POKEMON_REFERENCE_DATA from './POKEMON_REFERENCE_DATA.json';
 const mergedRefData = {
   ...REFERENCE_DATA, pokemon: POKEMON_REFERENCE_DATA
 }
+const BASE_URL = window.location.hostname === 'localhost' ?
+  '' : window.location.pathname;
 
 const config = {
   appData: APP_DATA,
-  refData: mergedRefData
+  refData: mergedRefData,
+  BASE_URL
 }
 
 export default config;

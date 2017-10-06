@@ -11,7 +11,7 @@ import api, { MAX_MOVES, MAX_LEVEL } from '../../api/api.js';
 // const { playerData: { pokemon } } = config;
 
 import config from '../../Config.js';
-const { refData } = config;
+const { refData, BASE_URL } = config;
 const POKEMON_REF_DATA = refData.pokemon;
 const MOVES_REF_DATA = refData.moves;
 
@@ -119,7 +119,7 @@ class PokemonDetailContainer extends Component {
   onCancelEdit() {
     const { id, backupPmData } = this.state;
     const { history } = this.props;
-    history.push(`/pokemon/${id}`);
+    history.push(`${BASE_URL}/pokemon/${id}`);
     if (backupPmData) {
       this.setState({ pokemon: backupPmData });
     }
