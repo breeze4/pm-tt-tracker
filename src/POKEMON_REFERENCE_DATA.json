@@ -92,7 +92,8 @@
       },
       {
         "level": 10,
-        "feature": "STATS"
+        "feature": "MOVE",
+        "move": "FIRE_FIRE_SPIN"
       },
       {
         "level": 11,
@@ -104,7 +105,8 @@
       },
       {
         "level": 13,
-        "feature": "STATS"
+        "feature": "MOVE",
+        "move": "NORMAL_SLASH"
       },
       {
         "level": 14,
