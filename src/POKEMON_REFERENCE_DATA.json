@@ -1,0 +1,176 @@
+{
+  "004": {
+    "name": "Charmander",
+    "image": "004_charmander.png",
+    "type": [
+      "FIRE"
+    ],
+    "baseStats": {
+      "hp": 10,
+      "level": 1,
+      "attack": 10,
+      "defense": 10,
+      "specialAttack": 10,
+      "specialDefense": 10,
+      "speed": 10,
+      "captureDifficulty": 10
+    },
+    "defaultMoves": [
+      "NORMAL_SCRATCH",
+      "NORMAL_TAIL_WHIP"
+    ],
+    "levels": [
+      {
+        "level": 2,
+        "feature": "STATS"
+      },
+      {
+        "level": 3,
+        "feature": "MOVE",
+        "move": "FIRE_EMBER"
+      },
+      {
+        "level": 4,
+        "feature": "STATS"
+      },
+      {
+        "level": 5,
+        "feature": "STATS"
+      },
+      {
+        "level": 6,
+        "feature": "MOVE",
+        "move": "NORMAL_SMOKESCREEN"
+      },
+      {
+        "level": 7,
+        "feature": "EVOLUTION",
+        "evolvedNumber": "005",
+        "statChange": {
+          "hp": 5,
+          "maxHp": 5,
+          "attack": 2,
+          "defense": 2,
+          "specialAttack": 2,
+          "specialDefense": 2,
+          "speed": 2
+        }
+      }
+    ]
+  },
+  "005": {
+    "name": "Charmeleon",
+    "image": "005_charmeleon.png",
+    "type": [
+      "FIRE"
+    ],
+    "baseStats": {
+      "hp": 20,
+      "level": 7,
+      "attack": 15,
+      "defense": 15,
+      "specialAttack": 15,
+      "specialDefense": 15,
+      "speed": 15,
+      "captureDifficulty": 10
+    },
+    "defaultMoves": [
+      "NORMAL_SCRATCH",
+      "NORMAL_GROWL",
+      "FIRE_EMBER",
+      "NORMAL_SMOKESCREEN"
+    ],
+    "levels": [
+      {
+        "level": 8,
+        "feature": "MOVE",
+        "move": "DRAGON_DRAGON_RAGE"
+      },
+      {
+        "level": 9,
+        "feature": "STATS"
+      },
+      {
+        "level": 10,
+        "feature": "STATS"
+      },
+      {
+        "level": 11,
+        "feature": "STATS"
+      },
+      {
+        "level": 12,
+        "feature": "STATS"
+      },
+      {
+        "level": 13,
+        "feature": "STATS"
+      },
+      {
+        "level": 14,
+        "feature": "STATS"
+      },
+      {
+        "level": 15,
+        "feature": "EVOLUTION",
+        "evolvedNumber": "006",
+        "statChange": {
+          "hp": 10,
+          "maxHp": 10,
+          "attack": 3,
+          "defense": 2,
+          "specialAttack": 3,
+          "specialDefense": 2,
+          "speed": 3
+        }
+      }
+    ]
+  },
+  "006": {
+    "name": "Charizard",
+    "image": "006_charizard.png",
+    "type": [
+      "FIRE",
+      "FLYING"
+    ],
+    "baseStats": {
+      "hp": 75,
+      "level": 15,
+      "attack": 10,
+      "defense": 10,
+      "specialAttack": 10,
+      "specialDefense": 10,
+      "speed": 10,
+      "captureDifficulty": 10
+    },
+    "defaultMoves": [
+      "NORMAL_SLASH",
+      "FIRE_FIRE_SPIN",
+      "DRAGON_DRAGON_RAGE",
+      "NORMAL_SMOKESCREEN"
+    ],
+    "levels": [
+      {
+        "level": 16,
+        "feature": "MOVE",
+        "move": "FLYING_FLY"
+      },
+      {
+        "level": 17,
+        "feature": "STATS"
+      },
+      {
+        "level": 18,
+        "feature": "STATS"
+      },
+      {
+        "level": 19,
+        "feature": "STATS"
+      },
+      {
+        "level": 20,
+        "feature": "STATS"
+      }
+    ]
+  }
+}

@@ -45,7 +45,7 @@ export const evolvePokemon = (pokemon, statChange, evolvedNumber) => {
 // 3rd optional parameter is default null and the move will be added to the end
 // if provided, that move will be overwritten with the new move
 export const addMoveToPokemon = (pokemon, move, overwriteTarget) => {
-  if (!pokemon || !pokemon.moves || pokemon.moves.length >= MAX_MOVES) {
+  if (!pokemon || !pokemon.moves || (pokemon.moves.length >= MAX_MOVES && !overwriteTarget)) {
     return false;
   }
   if (pokemon.moves.length < MAX_MOVES) {
@@ -54,7 +54,7 @@ export const addMoveToPokemon = (pokemon, move, overwriteTarget) => {
   }
   if (overwriteTarget) {
     const target = pokemon.moves.indexOf(overwriteTarget);
-    if (!target || target < 0) {
+    if (target < 0) {
       console.log('not a move this pokemon knows');
       return false;
     }

@@ -6,7 +6,7 @@ import PokemonDetail from './PokemonDetail.js';
 import PokemonEdit from './PokemonEdit.js';
 import PokemonLevelUp from './PokemonLevelUp';
 
-import api, { MAX_LEVEL } from '../../api/api.js';
+import api, { MAX_MOVES, MAX_LEVEL } from '../../api/api.js';
 
 // import config from '../../Config.js';
 // const { playerData: { pokemon } } = config;
@@ -35,7 +35,8 @@ class PokemonDetailContainer extends Component {
       id: id,
       pokemon: api.getPokemon(id),
       currentMode: currentMode,
-      backupPmData: api.getPokemon(id)
+      backupPmData: api.getPokemon(id),
+      overwriteTarget: null
     }
   }
 
@@ -49,7 +50,7 @@ class PokemonDetailContainer extends Component {
   }
 
   render() {
-    const { currentMode, id, pokemon } = this.state;
+    const { currentMode, id, pokemon, overwriteTarget } = this.state;
     const { number, customName } = pokemon;
     const { name, image, type, levels } = POKEMON_REF_DATA[number];
     const imgSrc = pathToImages(`./${image}`, true);
@@ -93,8 +94,12 @@ class PokemonDetailContainer extends Component {
         newLevel={levels.find(l => l.level === pokemon.stats.level + 1)}
         type={type}
         moveRefData={MOVES_REF_DATA}
+        maxedMoves={pokemon.moves.length === MAX_MOVES}
+        overwriteTarget={overwriteTarget}
         onLevelUp={this.onLevelUp.bind(this)}
         onCancelLevel={this.onCancelEdit.bind(this)}
+        onClearOverwriteMove={this.onClearOverwriteMove.bind(this)}
+        onSelectOverwriteMove={this.onSelectOverwriteMove.bind(this)}
       />);
     }
 
@@ -157,6 +162,15 @@ class PokemonDetailContainer extends Component {
     console.log('level up!');
     const updatedPokemon = api.levelUpPokemon(id, feature, payload);
     this.setState({ pokemon: updatedPokemon });
+  }
+
+  onSelectOverwriteMove(overwriteTarget) {
+    console.log('overwrite');
+    this.setState({ overwriteTarget })
+  }
+  onClearOverwriteMove(overwriteTarget) {
+    console.log('clear overwrite');
+    this.setState({ overwriteTarget: null })
   }
 }
 

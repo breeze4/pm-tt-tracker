@@ -10,7 +10,8 @@ const { refData } = config;
 const POKEMON_REF_DATA = refData.pokemon;
 
 const PokemonLevelUp = ({ id, name, number, level, newLevel, type, newType,
-  stats, moves, moveRefData, onCancelLevel, onLevelUp }) => {
+  stats, moves, moveRefData, maxedMoves, overwriteTarget,
+  onCancelLevel, onLevelUp, onClearOverwriteMove, onSelectOverwriteMove }) => {
 
   const newLevelFeature = POKEMON_REF_DATA[number].levels.find(l => l.level === level + 1);
   const evolving = newLevelFeature.feature === 'EVOLUTION';
@@ -41,7 +42,7 @@ const PokemonLevelUp = ({ id, name, number, level, newLevel, type, newType,
   const movesList = newLevel && newLevel.move ? (
     <div className="pm-detail-moves">
       <span>New Move:</span>
-      <div className="pm-moves-list-item">
+      <div className="pm-moves-list-item new-move">
         <MoveDetail {...moveRefData[newLevel.move]} />
       </div>
       <span>Current Moves:</span>
@@ -51,6 +52,12 @@ const PokemonLevelUp = ({ id, name, number, level, newLevel, type, newType,
             const move = moveRefData[key];
             return (<li key={key} className="pm-moves-list-item">
               <MoveDetail {...move} />
+              {overwriteTarget === key ?
+                (<button className="pm-move-overwrite-button"
+                  onClick={() => onClearOverwriteMove(key)}>Keep</button>) :
+                (<button className="pm-move-overwrite-button"
+                  onClick={() => onSelectOverwriteMove(key)}>Overwrite</button>
+                )}
             </li>);
           })}
         </ul>
@@ -61,10 +68,13 @@ const PokemonLevelUp = ({ id, name, number, level, newLevel, type, newType,
   let feature = newLevel.feature;
   let levelUpButton = null;
   if (feature === 'MOVE') {
-    const overwriteTarget = null;
-    levelUpButton = (<button onClick={() =>
-      onLevelUp(id, feature, { move: newLevel.move, overwriteTarget })}>
-      Add New Move</button>);
+    const disabled = maxedMoves && !overwriteTarget;
+    levelUpButton = disabled ?
+      (<button className="disabled">
+        Select Overwritten Move</button>) :
+      (<button onClick={() =>
+        onLevelUp(id, feature, { move: newLevel.move, overwriteTarget })}>
+        Add New Move</button>);
   } else if (feature === 'STATS') {
     levelUpButton = (<button onClick={() =>
       onLevelUp(id, feature, { stat1: 'attack', stat2: 'defense' })}>

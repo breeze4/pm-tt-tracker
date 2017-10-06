@@ -23,197 +23,6 @@
       "controlLevel": 10
     }
   },
-  "pokemon": {
-    "004": {
-      "name": "Charmander",
-      "image": "004_charmander.png",
-      "type": [
-        "FIRE"
-      ],
-      "baseStats": {
-        "hp": 10,
-        "level": 1,
-        "attack": 10,
-        "defense": 10,
-        "specialAttack": 10,
-        "specialDefense": 10,
-        "speed": 10,
-        "captureDifficulty": 10
-      },
-      "defaultMoves": [
-        "NORMAL_SCRATCH",
-        "NORMAL_TAIL_WHIP"
-      ],
-      "levels": [
-        {
-          "level": 2,
-          "feature": "STATS"
-        },
-        {
-          "level": 3,
-          "feature": "MOVE",
-          "move": "FIRE_EMBER"
-        },
-        {
-          "level": 4,
-          "feature": "STATS"
-        },
-        {
-          "level": 5,
-          "feature": "STATS"
-        },
-        {
-          "level": 6,
-          "feature": "MOVE",
-          "move": "NORMAL_SMOKESCREEN"
-        },
-        {
-          "level": 7,
-          "feature": "EVOLUTION",
-          "evolvedNumber": "005",
-          "statChange": {
-            "hp": 5,
-            "maxHp": 5,
-            "attack": 2,
-            "defense": 2,
-            "specialAttack": 2,
-            "specialDefense": 2,
-            "speed": 2
-          }
-        }
-      ]
-    },
-    "005": {
-      "name": "Charmeleon",
-      "image": "005_charmeleon.png",
-      "type": [
-        "FIRE"
-      ],
-      "baseStats": {
-        "hp": 20,
-        "level": 7,
-        "attack": 15,
-        "defense": 15,
-        "specialAttack": 15,
-        "specialDefense": 15,
-        "speed": 15,
-        "captureDifficulty": 10
-      },
-      "defaultMoves": [
-        "NORMAL_SCRATCH",
-        "NORMAL_TAIL_WHIP",
-        "FIRE_FLAMETHROWER"
-      ],
-      "levels": [
-        {
-          "level": 8,
-          "feature": "STATS"
-        },
-        {
-          "level": 9,
-          "feature": "STATS"
-        },
-        {
-          "level": 10,
-          "feature": "STATS"
-        },
-        {
-          "level": 11,
-          "feature": "STATS"
-        },
-        {
-          "level": 12,
-          "feature": "STATS"
-        },
-        {
-          "level": 13,
-          "feature": "STATS"
-        },
-        {
-          "level": 14,
-          "feature": "STATS"
-        },
-        {
-          "level": 15,
-          "feature": "EVOLUTION",
-          "evolvedNumber": "006",
-          "statChange": {
-            "hp": 10,
-            "maxHp": 10,
-            "attack": 3,
-            "defense": 2,
-            "specialAttack": 3,
-            "specialDefense": 2,
-            "speed": 3
-          }
-        },
-        {
-          "level": 16,
-          "feature": "STATS"
-        },
-        {
-          "level": 17,
-          "feature": "STATS"
-        },
-        {
-          "level": 18,
-          "feature": "STATS"
-        },
-        {
-          "level": 19,
-          "feature": "STATS"
-        },
-        {
-          "level": 20,
-          "feature": "STATS"
-        }
-      ]
-    },
-    "006": {
-      "name": "Charizard",
-      "image": "006_charizard.png",
-      "type": [
-        "FIRE",
-        "FLYING"
-      ],
-      "baseStats": {
-        "hp": 10,
-        "level": 1,
-        "attack": 10,
-        "defense": 10,
-        "specialAttack": 10,
-        "specialDefense": 10,
-        "speed": 10,
-        "captureDifficulty": 10
-      },
-      "defaultMoves": [
-        "FIRE_FLAMETHROWER",
-        "NORMAL_TAIL_WHIP"
-      ],
-      "levels": [
-        {
-          "level": 16,
-          "feature": "STATS"
-        },
-        {
-          "level": 17,
-          "feature": "STATS"
-        },
-        {
-          "level": 18,
-          "feature": "STATS"
-        },
-        {
-          "level": 19,
-          "feature": "STATS"
-        },
-        {
-          "level": 20,
-          "feature": "STATS"
-        }
-      ]
-    }
-  },
   "moves": {
     "TEST": {
       "name": "Test Move Please Ignore",
@@ -224,6 +33,61 @@
       "accuracy": 90,
       "damageDice": "1d4",
       "hitBonus": 4,
+      "PP": 20
+    },
+    "DRAGON_DRAGON_RAGE": {
+      "name": "Dragon Rage",
+      "type": "DRAGON",
+      "category": "Special",
+      "effect": "The foe is hit with a shock wave.",
+      "power": 40,
+      "accuracy": 100,
+      "damageDice": "1d8",
+      "hitBonus": 5,
+      "PP": 10
+    },
+    "FLYING_FLY": {
+      "name": "Fly",
+      "type": "FLYING",
+      "category": "Physical",
+      "effect": "Flies up on 1st turn. Attacks on the 2nd.",
+      "power": 90,
+      "accuracy": 95,
+      "damageDice": "2d8",
+      "hitBonus": 4,
+      "PP": 15
+    },
+    "NORMAL_SCRATCH": {
+      "name": "Scratch",
+      "type": "NORMAL",
+      "category": "Physical",
+      "effect": "Scratches with sharp claws.",
+      "power": 40,
+      "accuracy": 100,
+      "damageDice": "1d8",
+      "hitBonus": 5,
+      "PP": 35
+    },
+    "NORMAL_SLASH": {
+      "name": "Slash",
+      "type": "NORMAL",
+      "category": "Physical",
+      "effect": "Slashes with claws, etc. Critical hit on 18-20.",
+      "power": 70,
+      "accuracy": 100,
+      "damageDice": "1d10",
+      "hitBonus": 5,
+      "PP": 20
+    },
+    "NORMAL_SMOKESCREEN": {
+      "name": "Smokescreen",
+      "type": "NORMAL",
+      "category": "Physical",
+      "effect": "Lowers the foe's accuracy.",
+      "power": 40,
+      "accuracy": 100,
+      "damageDice": "1d8",
+      "hitBonus": 5,
       "PP": 20
     },
     "NORMAL_WRAP": {
@@ -237,28 +101,6 @@
       "hitBonus": 4,
       "PP": 20
     },
-    "NORMAL_SCRATCH": {
-      "name": "Scratch",
-      "type": "NORMAL",
-      "category": "Physical",
-      "effect": "Scratches with sharp claws.",
-      "power": 40,
-      "accuracy": 100,
-      "damageDice": "1d8",
-      "hitBonus": 5,
-      "PP": 35
-    },
-    "NORMAL_SMOKESCREEN": {
-      "name": "Smokescreen",
-      "type": "NORMAL",
-      "category": "Physical",
-      "effect": "Lowers the foe's accuracy.",
-      "power": 40,
-      "accuracy": 100,
-      "damageDice": "1d8",
-      "hitBonus": 5,
-      "PP": 20
-    },
     "FIRE_EMBER": {
       "name": "Fire Ember",
       "type": "FIRE",
@@ -269,6 +111,17 @@
       "damageDice": "1d8",
       "hitBonus": 5,
       "PP": 30
+    },
+    "FIRE_FIRE_SPIN": {
+      "name": "Fire Spin",
+      "type": "FIRE",
+      "category": "Special",
+      "effect": "Traps foe in fire for 2-5 turns.",
+      "power": 35,
+      "accuracy": 85,
+      "damageDice": "1d6",
+      "hitBonus": 4,
+      "PP": 15
     },
     "FIRE_FLAMETHROWER": {
       "name": "Flamethrower",
@@ -313,6 +166,15 @@
     }
   },
   "types": {
+    "DRAGON": {
+      "name": "Dragon",
+      "color": "#4000ff",
+      "goodAgainst": [
+        "DRAGON"
+      ],
+      "badAgainst": [],
+      "noEffect": []
+    },
     "FIRE": {
       "name": "Fire",
       "color": "#F08030",
@@ -326,6 +188,20 @@
         "WATER",
         "ROCK",
         "DRAGON"
+      ],
+      "noEffect": []
+    },
+    "FLYING": {
+      "name": "Flying",
+      "color": "#9966ff",
+      "goodAgainst": [
+        "GRASS",
+        "FIGHTING",
+        "BUG"
+      ],
+      "badAgainst": [
+        "ELECTRIC",
+        "ROCK"
       ],
       "noEffect": []
     },

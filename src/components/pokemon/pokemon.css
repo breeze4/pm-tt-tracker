@@ -110,3 +110,26 @@
   height: 16px;
   border-radius: 2px;
 }
+
+.pm-detail-level-up .pm-moves-list-item {
+  display: flex;
+  flex-direction: row;
+}
+.new-move .move-detail {
+  width: 100%;
+}
+.pm-detail-level-up 
+.pm-detail-moves-list .move-detail {
+  width: 75%;
+}
+.pm-move-overwrite-button {
+  min-width: 25%;
+  width: 25%;
+}
+.disabled {
+  pointer-events: none;
+  cursor: pointer;
+  background-color: white;
+  color: lightgrey;
+  border-color: rgba(211, 211, 211, 0.83);
+}
