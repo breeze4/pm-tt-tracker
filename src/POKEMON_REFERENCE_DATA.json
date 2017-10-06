@@ -161,7 +161,8 @@
       },
       {
         "level": 18,
-        "feature": "STATS"
+        "feature": "MOVE",
+        "move": "FLYING_WING_ATTACK"
       },
       {
         "level": 19,
@@ -169,7 +170,8 @@
       },
       {
         "level": 20,
-        "feature": "STATS"
+        "feature": "MOVE",
+        "move": "FIRE_FLAMETHROWER"
       }
     ]
   }

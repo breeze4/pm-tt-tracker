@@ -57,6 +57,17 @@
       "hitBonus": 4,
       "PP": 15
     },
+    "FLYING_WING_ATTACK": {
+      "name": "Wing Attack",
+      "type": "FLYING",
+      "category": "Physical",
+      "effect": "Strikes the target with wings.",
+      "power": 60,
+      "accuracy": 100,
+      "damageDice": "1d10",
+      "hitBonus": 5,
+      "PP": 35
+    },
     "FIRE_EMBER": {
       "name": "Fire Ember",
       "type": "FIRE",
