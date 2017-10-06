@@ -6,9 +6,6 @@ import './pokedex.css';
 
 import computeRating from '../../api/computeRating';
 
-import config from '../../Config.js';
-const { refData: { pokemon } } = config;
-
 const pathToThumbnails = require.context('../../../images/thumbnails', true);
 
 const PokedexItem = ({ id, name, image, number, baseStats }) => {

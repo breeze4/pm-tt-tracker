@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { NavLink as Link } from 'react-router-dom';
 
 // import './Home.css';
 import PokemonDetail from './PokemonDetail.js';
@@ -36,7 +35,8 @@ class PokemonDetailContainer extends Component {
       pokemon: api.getPokemon(id),
       currentMode: currentMode,
       backupPmData: api.getPokemon(id),
-      overwriteTarget: null
+      overwriteTarget: null,
+      confirmDelete: false
     }
   }
 
@@ -46,11 +46,14 @@ class PokemonDetailContainer extends Component {
     if (VALID_MODES.includes(mode)) {
       currentMode = mode;
     }
-    this.setState({ currentMode: currentMode });
+    this.setState({
+      currentMode: currentMode,
+      pokemon: api.getPokemon(id)
+    });
   }
 
   render() {
-    const { currentMode, id, pokemon, overwriteTarget } = this.state;
+    const { currentMode, id, pokemon, overwriteTarget, confirmDelete } = this.state;
     const { number, customName } = pokemon;
     const { name, image, type, levels } = POKEMON_REF_DATA[number];
     const imgSrc = pathToImages(`./${image}`, true);
@@ -63,6 +66,9 @@ class PokemonDetailContainer extends Component {
         imgSrc={imgSrc}
         type={type}
         moveRefData={MOVES_REF_DATA}
+        confirmDelete={confirmDelete}
+        onDelete={this.onDelete.bind(this)}
+        onConfirmDelete={this.onConfirmDelete.bind(this)}
         onEnterEditMode={this.onEnterEditMode.bind(this)}
         onEnterLevelMode={this.onEnterLevelMode.bind(this)}
       />
@@ -123,7 +129,7 @@ class PokemonDetailContainer extends Component {
     const { id, pokemon } = this.state;
     const { history } = this.props;
     history.push(`/pokemon/${id}`);
-    const updatedPokemon = api.updatePokemon(id, pokemon);
+    api.updatePokemon(id, pokemon);
   }
 
   onEnterEditMode() {
@@ -135,12 +141,12 @@ class PokemonDetailContainer extends Component {
   }
 
   onCustomNameInputChange(customName) {
-    const { id, pokemon } = this.state;
+    const { pokemon } = this.state;
     this.setState({ pokemon: { ...pokemon, customName } });
   }
 
   onStatInputChange(statKey, value) {
-    const { id, pokemon, pokemon: { stats } } = this.state;
+    const { pokemon, pokemon: { stats } } = this.state;
     stats[statKey] = parseInt(value, 10);
     this.setState({ pokemon: { ...pokemon, stats: stats } });
   }
@@ -161,16 +167,29 @@ class PokemonDetailContainer extends Component {
   onLevelUp(id, feature, payload) {
     console.log('level up!');
     const updatedPokemon = api.levelUpPokemon(id, feature, payload);
-    this.setState({ pokemon: updatedPokemon });
+    if (updatedPokemon) {
+      this.setState({ pokemon: updatedPokemon });
+    }
   }
 
   onSelectOverwriteMove(overwriteTarget) {
     console.log('overwrite');
-    this.setState({ overwriteTarget })
+    this.setState({ overwriteTarget });
   }
   onClearOverwriteMove(overwriteTarget) {
     console.log('clear overwrite');
-    this.setState({ overwriteTarget: null })
+    this.setState({ overwriteTarget: null });
+  }
+  onDelete(id) {
+    console.log('delete pm');
+    this.setState({ confirmDelete: true });
+  }
+  onConfirmDelete(id) {
+    console.log('confirm delete pm');
+    const { history } = this.props;
+    this.setState({ confirmDelete: false });
+    api.deletePokemon(id);
+    history.push(`/pokemon`);
   }
 }
 

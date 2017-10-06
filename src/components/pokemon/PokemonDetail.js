@@ -6,13 +6,15 @@ import MoveDetail from '../moves/MoveDetail';
 
 import './pokemon.css';
 
-const PokemonDetail = ({ id, imgSrc, name, type,  number, customName, stats,
-  moves, moveRefData, onEnterEditMode, onEnterLevelMode }) => {
-  const { hp, maxHp, level } = stats;
+const PokemonDetail = ({ id, imgSrc, name, type, number, customName, stats,
+  moves, moveRefData, confirmDelete, onDelete, onConfirmDelete, onEnterEditMode, onEnterLevelMode }) => {
+  const { level } = stats;
 
   const editModeButton = (<button onClick={onEnterEditMode}>Edit</button>);
   const levelUpButton = level < MAX_LEVEL ?
     (<button onClick={onEnterLevelMode}>Level Up</button>) : null;
+  const deleteButton = (<button onClick={() => onDelete(id)}>Delete Pokemon</button>);
+  const confirmDeleteButton = (<button onClick={() => onConfirmDelete(id)}>Confirm Delete?</button>);
 
   const statsList = (
     Object.keys(stats).map((key) => {
@@ -73,6 +75,9 @@ const PokemonDetail = ({ id, imgSrc, name, type,  number, customName, stats,
         <div className="pm-detail-moves-list">
           {movesList}
         </div>
+      </div>
+      <div className="pm-detail-delete">
+        {confirmDelete ? (confirmDeleteButton) : (deleteButton)}
       </div>
     </div>
   )

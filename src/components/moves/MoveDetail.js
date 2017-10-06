@@ -4,8 +4,6 @@ import '../pokemon/pokemon.css';
 
 import config from '../../Config.js';
 const { refData } = config;
-const MOVES_REF_DATA = refData.moves;
-const STAT_REF_DATA = refData.stats;
 const TYPES_DATA = refData.types;
 
 const MoveDetail = (props) => {
@@ -14,7 +12,7 @@ const MoveDetail = (props) => {
 
   const typeData = TYPES_DATA[type];
   const typeLabel = (
-    <span className="move-type-label" style={{ backgroundColor: typeData.color }}>
+    <span className="type-label" style={{ backgroundColor: typeData.color }}>
       {typeData.name}
     </span>
   );

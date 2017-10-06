@@ -7,8 +7,6 @@ import './Navigation.css';
 import config from '../Config.js';
 const { appData: { navigation } } = config;
 
-const NESTED_ROUTES = ['trainer', 'pokemon', 'pokedex'];
-
 class Navigation extends Component {
   render() {
     const navigationLinks = navigation ? navigation.map(({ path, name }) => {

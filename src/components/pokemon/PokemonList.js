@@ -18,7 +18,7 @@ const PokemonList = ({ editMode, list, onSwitchMode, onSelectPokemon }) => {
       </div>
       <ul>
         {list.filter(pm => pm.party).map((pm) => {
-          const { id, number } = pm;
+          const { id } = pm;
           return (
             <li key={id} className="card-container">
               <Link to={`/pokemon/${id}`}>
@@ -39,7 +39,7 @@ const PokemonList = ({ editMode, list, onSwitchMode, onSelectPokemon }) => {
       </div>
       <ul>
         {list.filter(pm => !pm.party).map((pm) => {
-          const { id, number } = pm;
+          const { id } = pm;
           return (
             <li key={id} className="card-container">
               <Link to={`/pokemon/${id}`}>

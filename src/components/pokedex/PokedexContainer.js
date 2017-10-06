@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 
 import PokedexItem from './PokedexItem';
 
-import api from '../../api/api.js';
-
 import './pokedex.css';
 
 import config from '../../Config.js';

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import MoveDetail from '../moves/MoveDetail';
 
@@ -18,7 +17,6 @@ const EDITABLE_STATS = {
 
 const PokemonEdit = ({ id, imgSrc, name, type, number, customName, stats, moves,
   moveRefData, onSaveEdit, onCancelEdit, onCustomNameInputChange, onStatInputChange }) => {
-  const { hp, maxHp, level } = stats;
 
   const saveEditButton = (<button onClick={() => onSaveEdit({ id })}>Save</button>);
   const cancelModeButton = (<button onClick={onCancelEdit}>Cancel</button>);

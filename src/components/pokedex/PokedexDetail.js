@@ -5,9 +5,21 @@ import { Link } from 'react-router-dom';
 import MoveDetail from '../moves/MoveDetail';
 
 import './pokedex.css';
+import config from '../../Config.js';
+const { refData } = config;
+const TYPES_DATA = refData.types;
 
 const PokedexDetail = (props) => {
   const { number, name, imgSrc, type, baseStats, defaultMoves, moveRefData, onAddToTrainer } = props;
+
+  const typeLabels = type.map((t) => {
+    const typeData = TYPES_DATA[t];
+    return (
+      <span key={t} className="type-label" style={{ backgroundColor: typeData.color }}>
+        {typeData.name}
+      </span>
+    );
+  });
 
   const addToTrainerButton = (
     <button onClick={(event) => onAddToTrainer(number)}>Add To My Party</button>);
@@ -48,6 +60,7 @@ const PokedexDetail = (props) => {
           <img src={imgSrc} alt={name} />
           <div className="pd-detail-name">
             {`${name} #${number}`}
+            {typeLabels}
           </div>
         </div>
 

@@ -9,7 +9,7 @@ const pathToThumbnails = require.context('../../../images/thumbnails', true);
 
 const PokemonListItem = ({ id, number, customName, stats, onSelectPokemon }) => {
   const { hp, maxHp, level } = stats;
-  const { name, image, type } = pokemon[number];
+  const { name, image } = pokemon[number];
   const imgSrc = pathToThumbnails(`./${image}`, true);
   return (
     <Card

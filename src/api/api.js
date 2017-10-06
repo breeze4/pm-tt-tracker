@@ -1,6 +1,5 @@
 import store from 'store';
 import cloneDeep from 'lodash/cloneDeep';
-import merge from 'lodash/merge';
 
 import createPokemonFromDex from './createPokemonFromDex';
 
@@ -35,7 +34,7 @@ export const evolvePokemon = (pokemon, statChange, evolvedNumber) => {
   pokemon.type = type;
   pokemon.number = evolvedNumber;
   // add to stats
-  Object.keys(statChange).map((changedStat) => {
+  Object.keys(statChange).forEach((changedStat) => {
     const changeAmount = statChange[changedStat];
     pokemon.stats[changedStat] += changeAmount;
   });
@@ -134,7 +133,7 @@ const api = (playerData) => {
       const index = list.findIndex(p => p.id === id);
       if (index < 0) {
         console.log('pokemon doesn\'t exist');
-        return leveledPm;
+        return null;
       }
       const leveledPm = list[index];
       const { number, stats: { level } } = leveledPm;
@@ -174,6 +173,20 @@ const api = (playerData) => {
       list[index] = leveledPm;
       store.set(DATA, _data);
       return leveledPm;
+    },
+    deletePokemon(id) {
+      const _data = store.get(DATA);
+      const { pokemon } = _data;
+
+      const updatedList = pokemon.list.reduce((result, pm) => {
+        if (pm.id !== id) {
+          result.push(pm);
+        }
+        return result;
+      }, []);
+      const updatedPokemonList = { ...pokemon, list: updatedList };
+      _data.pokemon = updatedPokemonList;
+      store.set(DATA, _data);
     }
   }
 };
