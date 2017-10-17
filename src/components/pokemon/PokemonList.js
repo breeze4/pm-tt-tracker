@@ -13,7 +13,7 @@ const PokemonList = ({ editMode, list, onSwitchMode, onSelectPokemon }) => {
   const pokemonPartyList = list ? (
     <div className="pokemon-list pokemon-party">
       <div className="list-header">
-        <label>Party:</label>
+        <span className="h6">Party:</span>
         {toggleModeButton}
       </div>
       <ul>
@@ -35,7 +35,7 @@ const PokemonList = ({ editMode, list, onSwitchMode, onSelectPokemon }) => {
   const pokemonStorageList = list ? (
     <div className="pokemon-list pokemon-storage">
       <div className="list-header">
-        <label>Storage:</label>
+        <span className="h6">Storage:</span>
       </div>
       <ul>
         {list.filter(pm => !pm.party).map((pm) => {

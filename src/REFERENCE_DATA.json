@@ -190,6 +190,7 @@
     "DRAGON": {
       "name": "Dragon",
       "color": "#4000ff",
+      "fontColor": "white",
       "goodAgainst": [
         "DRAGON"
       ],
@@ -199,6 +200,7 @@
     "FIRE": {
       "name": "Fire",
       "color": "#F08030",
+      "fontColor": "white",
       "goodAgainst": [
         "GRASS",
         "ICE",
@@ -215,6 +217,7 @@
     "FLYING": {
       "name": "Flying",
       "color": "#9966ff",
+      "fontColor": "white",
       "goodAgainst": [
         "GRASS",
         "FIGHTING",
@@ -229,6 +232,7 @@
     "NORMAL": {
       "name": "Normal",
       "color": "#A8A878",
+      "fontColor": "white",
       "goodAgainst": [],
       "badAgainst": [
         "ROCK"

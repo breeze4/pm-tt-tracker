@@ -103,13 +103,6 @@
 .move-detail-effect {
   margin: 1px 0;
 }
-.type-label {
-  padding: 0 4px;
-  background-color: orange;
-  color: white;
-  height: 16px;
-  border-radius: 2px;
-}
 
 .pm-detail-level-up .pm-moves-list-item {
   display: flex;

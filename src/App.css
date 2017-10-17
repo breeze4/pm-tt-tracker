@@ -1,3 +1,7 @@
+.type-label {
+  color: white;
+}
+
 .card-container {
   list-style: none;
   border: 1px solid coral;

@@ -65,14 +65,14 @@
       "FIRE"
     ],
     "baseStats": {
-      "hp": 20,
+      "hp": 35,
       "level": 7,
-      "attack": 15,
-      "defense": 15,
-      "specialAttack": 15,
-      "specialDefense": 15,
-      "speed": 15,
-      "captureDifficulty": 10
+      "attack": 12,
+      "defense": 12,
+      "specialAttack": 12,
+      "specialDefense": 12,
+      "speed": 12,
+      "captureDifficulty": 12
     },
     "defaultMoves": [
       "NORMAL_SCRATCH",
