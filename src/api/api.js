@@ -99,6 +99,7 @@ const api = (playerData) => {
       }).sort(sortPokemon);
       const updatedPokemon = { ...pokemon, list: updatedList };
       _data.pokemon = updatedPokemon;
+      store.set(DATA, _data);
       return _data.pokemon;
     },
     updatePokemon: (id, updatedPokemon) => {

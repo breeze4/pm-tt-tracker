@@ -4,8 +4,8 @@ import {
   Route
 } from 'react-router-dom';
 
+import 'spectre.css/dist/spectre.min.css';
 import './App.css';
-import './components.css';
 
 import Navigation from './components/Navigation';
 import PokedexContainer from './components/pokedex/PokedexContainer';
@@ -21,7 +21,7 @@ const { BASE_URL } = config;
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="app container">
         <Navigation />
         <div className="App-contents">
           <Route exact path="/" component={Home} />

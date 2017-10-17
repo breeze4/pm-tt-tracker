@@ -20,12 +20,13 @@ class PokedexDetailContainer extends Component {
     this.state = {
       number: number,
       pokemon: refData.pokemon[number],
-      moves: refData.moves
+      moves: refData.moves,
+      addedToParty: false
     }
   }
 
   render() {
-    const { number, pokemon } = this.state;
+    const { number, pokemon, addedToParty } = this.state;
     const { image } = pokemon;
     const imgSrc = pathToImages(`./${image}`, true);
     return (
@@ -34,6 +35,7 @@ class PokedexDetailContainer extends Component {
           number={number}
           moveRefData={MOVES_REF_DATA}
           imgSrc={imgSrc}
+          addedToParty={addedToParty}
           onAddToTrainer={this.onAddToTrainer.bind(this)}
         />
       </div>
@@ -41,7 +43,8 @@ class PokedexDetailContainer extends Component {
   }
 
   onAddToTrainer(number) {
-    api.addPokemonToTrainer(number)
+    api.addPokemonToTrainer(number);
+    this.setState({ addedToParty: true });
   }
 }
 

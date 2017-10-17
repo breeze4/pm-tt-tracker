@@ -2,28 +2,31 @@ import React, { Component } from 'react';
 import { NavLink as Link } from 'react-router-dom';
 
 import '../App.css';
-import './Navigation.css';
 
 import config from '../Config.js';
 const { appData: { navigation } } = config;
 
 class Navigation extends Component {
   render() {
-    const navigationLinks = navigation ? navigation.map(({ path, name }) => {
-      return (
-        <li key={path}
-          className="navbar-item">
-          <Link isActive={(match, location) => {
-            return this.isActive(path, name, match, location);
-          }} exact={true} to={`/${path}`}>{name}</Link>
-        </li>
-      )
-    }) : null;
     return (
-      <div className="nav sansserif">
-        <ul className="navbar">
-          {navigationLinks}
-        </ul>
+      <div className="navbar">
+        <div className="navbar-section">
+          <p className="navbar-brand">Pokemon</p>
+        </div>
+        <div className="navbar-section">
+          <ul className="nav">
+            {navigation ? navigation.map(({ path, name }) => {
+              return (
+                <li key={path}
+                  className="nav-item h6">
+                  <Link isActive={(match, location) => {
+                    return this.isActive(path, name, match, location);
+                  }} exact={true} to={`/${path}`}>{name}</Link>
+                </li>
+              )
+            }) : null}
+          </ul>
+        </div>
       </div>
     );
   }

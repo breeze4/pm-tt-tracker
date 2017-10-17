@@ -1,3 +1,6 @@
+
+
+
 .pokemon-list {
   text-align: left;
 }
@@ -10,9 +13,6 @@
 }
 .pokemon-list label {
   padding-left: 7px;
-}
-.pokemon-list button {
-  margin-right: 5px;
 }
 .pokemon-list ul {
   margin: 0;

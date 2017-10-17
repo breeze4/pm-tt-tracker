@@ -69,7 +69,7 @@
       "PP": 35
     },
     "FIRE_EMBER": {
-      "name": "Fire Ember",
+      "name": "Ember",
       "type": "FIRE",
       "category": "Special",
       "effect": "A weak fire attack that may inflict a burn.",

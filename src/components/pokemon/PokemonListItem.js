@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { Card, CardSection } from '../Card.js';
-
 import config from '../../Config.js';
 const { refData: { pokemon } } = config;
 
@@ -12,22 +10,23 @@ const PokemonListItem = ({ id, number, customName, stats, onSelectPokemon }) => 
   const { name, image } = pokemon[number];
   const imgSrc = pathToThumbnails(`./${image}`, true);
   return (
-    <Card
+    <div className="card"
       onClick={(e) => onSelectPokemon(e, id)}>
-      <div className="thumbnail">
-        <img src={imgSrc} alt="" />
+      <div className="card-body columns">
+        <div className="column col-4">
+          <div className="card-image thumbnail">
+            <img src={imgSrc} alt="" />
+          </div></div>
+        <div className="column col-5">
+          <span className="h5 d-block">{customName}</span>
+          <span className="h6 d-block">{`(Lvl ${level})`}</span>
+        </div>
+        <div className="column col-3">
+          <span className="h5 d-block">{`${hp}/${maxHp}`}</span>
+          <span className="h6 d-block">{`HP`}</span>
+        </div>
       </div>
-      <CardSection>
-        <div className="card-text">
-          <span>{customName}</span>
-          <span>{`${name} #${number}`}</span>
-        </div>
-        <div className="card-text">
-          <span>{`Level ${level}`}</span>
-          <span>{`HP ${hp}/${maxHp}`}</span>
-        </div>
-      </CardSection>
-    </Card>
+    </div>
   )
 }
 

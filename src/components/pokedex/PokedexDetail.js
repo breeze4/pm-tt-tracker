@@ -10,7 +10,8 @@ const { refData } = config;
 const TYPES_DATA = refData.types;
 
 const PokedexDetail = (props) => {
-  const { number, name, imgSrc, type, baseStats, defaultMoves, moveRefData, onAddToTrainer } = props;
+  const { number, name, imgSrc, type, baseStats, defaultMoves,
+    moveRefData, addedToParty, onAddToTrainer } = props;
 
   const typeLabels = type.map((t) => {
     const typeData = TYPES_DATA[t];
@@ -21,8 +22,9 @@ const PokedexDetail = (props) => {
     );
   });
 
-  const addToTrainerButton = (
-    <button onClick={(event) => onAddToTrainer(number)}>Add To My Party</button>);
+  const addToTrainerButton = addedToParty ?
+    (<button className="disabled">Added</button>) :
+    (<button onClick={(event) => onAddToTrainer(number)}>Add To My Party</button>);
 
   const statsList = (
     Object.keys(baseStats).map((key) => {

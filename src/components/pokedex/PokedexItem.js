@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { Card, CardSection } from '../Card.js';
-
 import './pokedex.css';
 
 import computeRating from '../../api/computeRating';
@@ -13,21 +11,23 @@ const PokedexItem = ({ id, name, image, number, baseStats }) => {
   const rating = computeRating(baseStats);
   const imgSrc = pathToThumbnails(`./${image}`, true);
   return (
-    <Card>
-      <div className="thumbnail">
-        <img src={imgSrc} alt="" />
+    <div className="card">
+      <div className="card-body columns">
+        <div className="column col-4">
+          <div className="card-image thumbnail">
+            <img src={imgSrc} alt="" />
+          </div>
+        </div>
+        <div className="column col-5">
+          <span className="h5 d-block">{name}</span>
+          <span className="h6 d-block">{`Rating: ${rating}`}</span>
+        </div>
+        <div className="column col-3">
+          <span className="h5 d-block">{`#${number}`}</span>
+          <span className="h6 d-block">{`HP: ${hp}`}</span>
+        </div>
       </div>
-      <CardSection>
-        <div className="card-text">
-          <span>{name}</span>
-          <span>{`#${number}`}</span>
-        </div>
-        <div className="card-text">
-          <span>{`Rating: ${rating}`}</span>
-          <span>{`Base HP: ${hp}`}</span>
-        </div>
-      </CardSection>
-    </Card>);
+    </div>);
 }
 
 export default PokedexItem;
