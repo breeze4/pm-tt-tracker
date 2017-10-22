@@ -110,7 +110,7 @@ class PokemonDetailContainer extends Component {
     }
 
     return (
-      <div className="PokemonDetail">
+      <div className="pokemon-detail">
         {pokemonDetailComponent}
       </div>
     );

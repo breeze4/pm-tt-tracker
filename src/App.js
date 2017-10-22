@@ -10,7 +10,7 @@ import './App.css';
 import Navigation from './components/Navigation';
 import PokedexContainer from './components/pokedex/PokedexContainer';
 import PokedexDetailContainer from './components/pokedex/PokedexDetailContainer';
-import PokemonContainer from './components/pokemon/PokemonContainer';
+import PokemonListContainer from './components/pokemon/PokemonListContainer';
 import PokemonDetailContainer from './components/pokemon/PokemonDetailContainer';
 import Trainer from './components/trainer/Trainer';
 import Home from './components/Home';
@@ -30,7 +30,7 @@ class App extends Component {
             <Route path="/pokedex/:number" component={PokedexDetailContainer} />
           </div>)} />
           <Route path="/pokemon" component={() => (<div>
-            <Route exact path="/pokemon" component={PokemonContainer} />
+            <Route exact path="/pokemon" component={PokemonListContainer} />
             <Route path="/pokemon/:id/:mode?" component={PokemonDetailContainer} />
           </div>)} />
           <Route path="/trainer" component={Trainer} />

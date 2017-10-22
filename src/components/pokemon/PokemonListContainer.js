@@ -5,7 +5,7 @@ import PokemonList from './PokemonList.js';
 
 import api from '../../api/api.js';
 
-class PokemonContainer extends Component {
+class PokemonListContainer extends Component {
   constructor(props) {
     super(props);
 
@@ -26,7 +26,7 @@ class PokemonContainer extends Component {
     ) : null;
 
     return (
-      <div className="PokemonContainer">
+      <div className="pokemon-list-container">
         {pokemonListComponent}
       </div>
     );
@@ -43,4 +43,4 @@ class PokemonContainer extends Component {
   }
 }
 
-export default PokemonContainer;
+export default PokemonListContainer;

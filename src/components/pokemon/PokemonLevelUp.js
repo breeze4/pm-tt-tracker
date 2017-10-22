@@ -2,8 +2,6 @@ import React from 'react';
 
 import MoveDetail from '../moves/MoveDetail';
 
-import './pokemon.css';
-
 import config from '../../Config.js';
 const { refData } = config;
 const POKEMON_REF_DATA = refData.pokemon;

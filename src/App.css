@@ -1,26 +1,7 @@
-.type-label {
-  color: white;
+/* Navbar*/
+.navbar {
+  margin-bottom: 10px;
 }
-
-.card-container {
-  list-style: none;
-  border: 1px solid coral;
-  border-radius: 2px;
-  box-shadow: 2px 1px 2px grey;
-  margin: 3px;
-}
-.card-container .card .card-body {
-  padding: .4rem;
-}
-
-.thumbnail {
-  height: 65px;
-}
-.thumbnail img {
-  height: 65px;
-  width: 65px;
-}
-
 .navbar .nav {
   flex-direction: row;
 }
@@ -34,7 +15,58 @@
 .navbar .nav .nav-item a.active {
   border-bottom: 3px solid coral;
 } 
+.navbar .nav .nav-item a:hover {
+  color: rgb(206, 104, 66);
+}
 
+/* Pokemon/Pokedex details */
+.pokemon-detail .nav {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.pokemon-detail img {
+  height: 150px;
+  width: 150px;
+}
+.pokemon-detail .panel .panel-header,
+.panel .panel-footer {
+  padding: .4rem;
+}
+.pokemon-detail .panel .panel-body {
+  padding: 0 .4rem .8rem .4rem;
+}
+.pokemon-detail .card-header {
+  display: flex;
+  justify-content: space-between;
+  padding: .4rem;
+}
+
+/* Generic components */
+.type-label {
+  color: white;
+}
+
+.app .card {
+  border-color: rgb(206, 104, 66);
+  list-style: none;
+  border: 1px solid coral;
+  border-radius: 4px;
+  box-shadow: 2px 1px 2px grey;
+}
+.app .card .card-body {
+  padding: .4rem;
+}
+
+.thumbnail {
+  height: 65px;
+}
+.thumbnail img {
+  height: 65px;
+  width: 65px;
+}
+
+/* App-wide styling */
 .app a {
   color: coral;
 }

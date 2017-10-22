@@ -1,7 +1,5 @@
 import React from 'react';
 
-import '../pokemon/pokemon.css';
-
 import config from '../../Config.js';
 const { refData } = config;
 const TYPES_DATA = refData.types;
@@ -25,16 +23,16 @@ const MoveDetail = (props) => {
   }
 
   return (
-    <div className="move-detail">
-      <div className="move-detail-name">
-        <span><strong>{name}</strong></span>
+    <li className="card">
+      <div className="card-header">
+        <span className="h6">{name}</span>
         {typeLabel}
       </div>
-      <div className="move-detail-effect">
+      <div className="card-body">
         <span>{effect}</span>
+        {moveDescription}
       </div>
-      {moveDescription}
-    </div>
+    </li>
   );
 };
 

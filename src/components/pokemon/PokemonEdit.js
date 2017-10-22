@@ -2,8 +2,6 @@ import React from 'react';
 
 import MoveDetail from '../moves/MoveDetail';
 
-import './pokemon.css';
-
 const EDITABLE_STATS = {
   "hp": true,
   "level": true,
