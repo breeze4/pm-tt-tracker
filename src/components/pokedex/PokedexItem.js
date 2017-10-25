@@ -1,12 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './pokedex.css';
 
+import TypeLabel from '../TypeLabel';
 import computeRating from '../../api/computeRating';
-
-import config from '../../Config.js';
-const { refData } = config;
-const TYPES_DATA = refData.types;
 
 const pathToThumbnails = require.context('../../../images/thumbnails', true);
 
@@ -15,33 +13,28 @@ const PokedexItem = ({ id, name, image, number, type, baseStats }) => {
   const rating = computeRating(baseStats);
   const imgSrc = pathToThumbnails(`./${image}`, true);
 
-  const typeLabels = type.map((t) => {
-    const typeData = TYPES_DATA[t];
-    return (
-      <span key={t} className="type-label label"
-        style={{ backgroundColor: typeData.color }}>
-        {typeData.name}
-      </span>
-    );
-  });
   return (
-    <div className="card">
-      <div className="card-body columns">
-        <div className="column col-4">
-          <div className="card-image thumbnail">
-            <img src={imgSrc} alt="" />
+    <li className="tile">
+      <Link className="tile-content" to={`/pokedex/${number}`}>
+        <div className="card">
+          <div className="card-body columns">
+            <div className="column col-4">
+              <div className="card-image thumbnail">
+                <img src={imgSrc} alt="" />
+              </div>
+            </div>
+            <div className="column col-5">
+              <span className="h5 d-block">{name}</span>
+              <span className="h6 d-block">{`Rating: ${rating}`}</span>
+            </div>
+            <div className="column col-3">
+              <span className="h5 d-block">{`#${number}`}</span>
+              <span className="d-block"><TypeLabel type={type}/></span>
+            </div>
           </div>
         </div>
-        <div className="column col-5">
-          <span className="h5 d-block">{name}</span>
-          <span className="h6 d-block">{`Rating: ${rating}`}</span>
-        </div>
-        <div className="column col-3">
-          <span className="h5 d-block">{`#${number}`}</span>
-          <span className="d-block">{typeLabels}</span>
-        </div>
-      </div>
-    </div>);
+      </Link>
+    </li>);
 }
 
 export default PokedexItem;

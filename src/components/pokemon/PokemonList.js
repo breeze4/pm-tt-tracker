@@ -5,13 +5,13 @@ import PokemonListItem from './PokemonListItem';
 
 const PokemonList = ({ editMode, list, onSwitchMode, onSelectPokemon }) => {
   const toggleModeButton = editMode
-    ? (<button className="btn" onClick={onSwitchMode}>Save</button>)
-    : (<button className="btn" onClick={onSwitchMode}>Edit</button>);
+    ? (<span className="nav-item btn" onClick={onSwitchMode}>Save</span>)
+    : (<span className="nav-item btn" onClick={onSwitchMode}>Edit</span>);
 
   const pokemonPartyList = list ? (
-    <div className="pokemon-list pokemon-party">
-      <div className="list-header">
-        <span className="h6">Party:</span>
+    <div className="pokemon-list">
+      <div className="nav">
+        <span className="nav-item h6">Party:</span>
         {toggleModeButton}
       </div>
       <ul>

@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import MoveDetail from '../moves/MoveDetail';
+import TypeLabel from '../TypeLabel';
 
 import './pokedex.css';
 import config from '../../Config.js';
@@ -12,15 +13,6 @@ const TYPES_DATA = refData.types;
 const PokedexDetail = (props) => {
   const { number, name, imgSrc, type, baseStats, defaultMoves,
     moveRefData, addedToParty, onAddToTrainer } = props;
-
-  const typeLabels = type.map((t) => {
-    const typeData = TYPES_DATA[t];
-    return (
-      <span key={t} className="type-label" style={{ backgroundColor: typeData.color }}>
-        {typeData.name}
-      </span>
-    );
-  });
 
   const addToTrainerButton = addedToParty ?
     (<button className="disabled">Added</button>) :
@@ -40,9 +32,9 @@ const PokedexDetail = (props) => {
       <ul className="pm-moves-list">
         {defaultMoves.map((key) => {
           const move = moveRefData[key];
-          return (<li key={key} className="pm-moves-list-item">
-            <MoveDetail {...move} />
-          </li>);
+          return (
+            <MoveDetail key={key} {...move} />
+          );
         })}
       </ul>
     </div>
@@ -62,7 +54,7 @@ const PokedexDetail = (props) => {
           <img src={imgSrc} alt={name} />
           <div className="pd-detail-name">
             {`${name} #${number}`}
-            {typeLabels}
+            <TypeLabel type={type} />
           </div>
         </div>
 

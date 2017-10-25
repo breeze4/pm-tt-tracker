@@ -47,7 +47,7 @@ const PokemonLevelUp = ({ id, name, number, level, newLevel, type, newType,
         <ul className="pm-moves-list">
           {moves.map((key) => {
             const move = moveRefData[key];
-            return (<li key={key} className="pm-moves-list-item">
+            return (<div key={key} className="pm-moves-list-item">
               <MoveDetail {...move} />
               {overwriteTarget === key ?
                 (<button className="pm-move-overwrite-button"
@@ -55,7 +55,7 @@ const PokemonLevelUp = ({ id, name, number, level, newLevel, type, newType,
                 (<button className="pm-move-overwrite-button"
                   onClick={() => onSelectOverwriteMove(key)}>Overwrite</button>
                 )}
-            </li>);
+            </div>);
           })}
         </ul>
       </div>

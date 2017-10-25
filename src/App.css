@@ -41,10 +41,24 @@
   justify-content: space-between;
   padding: .4rem;
 }
+.pokemon-list {
+  margin-bottom: .4rem;
+}
+.pokemon-list .nav {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
 
 /* Generic components */
+.type-label-container {
+  display: flex;
+  flex-wrap: wrap;
+}
 .type-label {
   color: white;
+  padding: 0 .2rem;
+  margin: .1rem;
 }
 
 .app .card {

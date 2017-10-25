@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 
 import PokedexItem from './PokedexItem';
 
-import api from '../../api/api.js';
 import computeRating from '../../api/computeRating';
-
-import './pokedex.css';
 
 import config from '../../Config.js';
 const { refData } = config;
@@ -23,8 +19,13 @@ class PokedexContainer extends Component {
   }
 
   onRatingFilterChange(event) {
-    console.log('selected rating: ', event.target.value);
-    this.setState({ ratingFilter: parseInt(event.target.value, 10) });
+    const rating = event.target.value || 'ALL';
+    console.log('selected rating: ', rating);
+    if (rating === 'ALL') {
+      this.setState({ ratingFilter: rating });
+    } else {
+      this.setState({ ratingFilter: parseInt(rating, 10) });
+    }
   }
 
   onTypeFilterChange(event) {
@@ -67,13 +68,9 @@ class PokedexContainer extends Component {
       .map((number) => {
         const entry = pokedex[number];
         return (
-          <li key={number} className="card-container ">
-            <Link to={`/pokedex/${number}`}>
-              <PokedexItem
-                number={number}
-                {...entry} />
-            </Link>
-          </li>
+          <PokedexItem key={number}
+            number={number}
+            {...entry} />
         );
       });
     return (
