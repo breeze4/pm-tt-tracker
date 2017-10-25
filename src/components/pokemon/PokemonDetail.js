@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { MAX_LEVEL } from '../../api/api';
 import MoveDetail from '../moves/MoveDetail';
 import StatsList from '../stats/StatsList';
+import TypeLabel from '../TypeLabel';
 import { DISPLAY_STATS } from './PokemonEdit';
 
 import config from '../../Config.js';
@@ -63,8 +64,14 @@ const PokemonDetail = ({ id, imgSrc, name, type, number, customName, stats,
         <div className="panel-body columns">
           <div className="column col-6">
             <img src={imgSrc} alt={name} />
-            <div className="pm-detail-name">
-              {`${name} #${number}`}
+            <div className="columns">
+              <div className="column col-7">
+                <div className="columns">
+                  <span className="h6 col-12 text-center">{name}</span>
+                  <span className="h6 col-12 text-center">{`#${number}`}</span>
+                </div>
+              </div>
+              <TypeLabel classes={['column', 'col-5']} type={type} />
             </div>
           </div>
           <StatsList classes={['column', 'col-6']} stats={stats} />

@@ -18,7 +18,7 @@ const MoveDetail = (props) => {
   let moveDescription;
   if (damageDice) {
     moveDescription = (
-      <span>{`To Hit: +${hitBonus}, Damage: ${damageDice}`}</span>
+      <span className="column col-12">{`To Hit: +${hitBonus}, Damage: ${damageDice}`}</span>
     );
   }
 
@@ -29,8 +29,10 @@ const MoveDetail = (props) => {
         {typeLabel}
       </div>
       <div className="card-body">
-        <span>{effect}</span>
-        {moveDescription}
+        <div className="columns text-small">
+          <span className="column col-12">{effect}</span>
+          {moveDescription}
+        </div>
       </div>
     </li>
   );

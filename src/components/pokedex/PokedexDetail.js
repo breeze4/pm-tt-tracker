@@ -51,8 +51,7 @@ const PokedexDetail = (props) => {
             <img src={imgSrc} alt={name} />
             <div className="columns">
               <span className="h4 column col-6">{`#${number}`}</span>
-              <TypeLabel classes={['column', 'col-6']}
-                className="column col-6" type={type} />
+              <TypeLabel classes={['column', 'col-6']} type={type} />
             </div>
           </div>
           <StatsList classes={['column', 'col-6']} stats={baseStats} />
