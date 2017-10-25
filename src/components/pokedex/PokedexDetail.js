@@ -20,16 +20,6 @@ const PokedexDetail = (props) => {
     (<button className="btn" onClick={(event) => onAddToTrainer(number)}>
       Add To My Party</button>);
 
-  const movesList = (
-    <ul className="">
-      {defaultMoves.map((key) => {
-        const move = moveRefData[key];
-        return (
-          <MoveDetail key={key} {...move} />
-        );
-      })}
-    </ul>
-  );
   return (
     <div className="pokemon-detail">
       <div className="nav">
@@ -56,15 +46,19 @@ const PokedexDetail = (props) => {
           </div>
           <StatsList classes={['column', 'col-6']} stats={baseStats} />
         </div>
-
         <div className="panel-header">
           <span className="h6">
             {`Moves`}
           </span>
         </div>
-        <div className="panel-body">
-          {movesList}
-        </div>
+        <ul className="panel-body">
+          {defaultMoves.map((key) => {
+            const move = moveRefData[key];
+            return (
+              <MoveDetail key={key} {...move} />
+            );
+          })}
+        </ul>
       </div>
     </div>
   );
