@@ -2,7 +2,7 @@ import React from 'react';
 
 import MoveDetail from '../moves/MoveDetail';
 
-const EDITABLE_STATS = {
+export const DISPLAY_STATS = {
   "hp": true,
   "level": true,
   "attack": true,
@@ -39,7 +39,7 @@ const PokemonEdit = ({ id, imgSrc, name, type, number, customName, stats, moves,
   );
 
   const statsList = (
-    Object.keys(stats).filter((key) => EDITABLE_STATS[key]).map((key) => {
+    Object.keys(stats).filter((key) => DISPLAY_STATS[key]).map((key) => {
       const stat = stats[key];
       return (
         <div key={key} className="pm-detail-stat">
@@ -56,9 +56,9 @@ const PokemonEdit = ({ id, imgSrc, name, type, number, customName, stats, moves,
       <ul className="pm-moves-list">
         {moves.map((key) => {
           const move = moveRefData[key];
-          return (<li key={key} className="pm-moves-list-item">
-            <MoveDetail {...move} />
-          </li>);
+          return (
+            <MoveDetail key={key} {...move} />
+          );
         })}
       </ul>
     </div>

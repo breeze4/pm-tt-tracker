@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom';
 
 import { MAX_LEVEL } from '../../api/api';
 import MoveDetail from '../moves/MoveDetail';
+import { DISPLAY_STATS } from './PokemonEdit';
+
+import config from '../../Config.js';
+const { refData } = config;
 
 const PokemonDetail = ({ id, imgSrc, name, type, number, customName, stats,
   moves, moveRefData, confirmDelete, onDelete, onConfirmDelete, onEnterEditMode, onEnterLevelMode }) => {
@@ -15,12 +19,17 @@ const PokemonDetail = ({ id, imgSrc, name, type, number, customName, stats,
   const confirmDeleteButton = (<button className="btn" onClick={() => onConfirmDelete(id)}>Confirm Delete?</button>);
 
   const statsList = (
-    Object.keys(stats).map((key) => {
-      const stat = stats[key];
-      return (<div key={key} className="pm-detail-stat">
-        {`${key}: ${stat}`}
-      </div>);
-    })
+    Object.keys(stats)
+      .filter((key) => DISPLAY_STATS[key])
+      .map((key) => {
+        const stat = stats[key];
+        return (<div key={key} className="columns">
+          <span className="column col-9">
+            {`${key}:`}</span>
+          <span className="column col-3">
+            {stat}</span>
+        </div>);
+      })
   );
 
   const movesList = (
@@ -58,11 +67,7 @@ const PokemonDetail = ({ id, imgSrc, name, type, number, customName, stats,
             </div>
           </div>
           <div className="column col-6">
-            <div className="pm-detail-custom-name">
-            </div>
-            <div className="pm-detail-stats">
-              {statsList}
-            </div>
+            {statsList}
           </div>
         </div>
         <div className="panel-header">
