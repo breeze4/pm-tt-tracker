@@ -167,6 +167,15 @@
     }
   },
   "stats": {
+    "HP": {
+      "name": "Health"
+    },
+    "MAX_HP": {
+      "name": "Max Health"
+    },
+    "LVL": {
+      "name": "Level"
+    },
     "ATK": {
       "name": "Attack"
     },
@@ -182,7 +191,7 @@
     "SPD": {
       "name": "Speed"
     },
-    "CAP": {
+    "CAP_DC": {
       "name": "Capture Difficulty"
     }
   },

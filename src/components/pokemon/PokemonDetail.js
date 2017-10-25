@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { MAX_LEVEL } from '../../api/api';
 import MoveDetail from '../moves/MoveDetail';
+import StatsList from '../stats/StatsList';
 import { DISPLAY_STATS } from './PokemonEdit';
 
 import config from '../../Config.js';
@@ -10,10 +11,10 @@ const { refData } = config;
 
 const PokemonDetail = ({ id, imgSrc, name, type, number, customName, stats,
   moves, moveRefData, confirmDelete, onDelete, onConfirmDelete, onEnterEditMode, onEnterLevelMode }) => {
-  const { level } = stats;
+  const { LVL } = stats;
 
   const editModeButton = (<button className="btn" onClick={onEnterEditMode}>Edit</button>);
-  const levelUpButton = level < MAX_LEVEL ?
+  const levelUpButton = LVL < MAX_LEVEL ?
     (<button className="btn" onClick={onEnterLevelMode}>Level Up</button>) : null;
   const deleteButton = (<button className="btn" onClick={() => onDelete(id)}>Delete Pokemon</button>);
   const confirmDeleteButton = (<button className="btn" onClick={() => onConfirmDelete(id)}>Confirm Delete?</button>);
@@ -66,9 +67,7 @@ const PokemonDetail = ({ id, imgSrc, name, type, number, customName, stats,
               {`${name} #${number}`}
             </div>
           </div>
-          <div className="column col-6">
-            {statsList}
-          </div>
+          <StatsList classes={['column', 'col-6']} stats={stats} />
         </div>
         <div className="panel-header">
           <span className="h6">{`Moves`}</span>

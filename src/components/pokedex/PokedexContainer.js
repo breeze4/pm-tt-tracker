@@ -97,7 +97,7 @@ class PokedexContainer extends Component {
           </div>
         </div>
         <span className="h6">Pokedex:</span>
-        <ul className="Pokedex-list">
+        <ul className="pokemon-list">
           {pokedexListItems}
         </ul>
       </div>

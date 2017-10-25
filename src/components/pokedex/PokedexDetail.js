@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import MoveDetail from '../moves/MoveDetail';
+import StatsList from '../stats/StatsList';
 import TypeLabel from '../TypeLabel';
 
 import './pokedex.css';
@@ -15,60 +16,54 @@ const PokedexDetail = (props) => {
     moveRefData, addedToParty, onAddToTrainer } = props;
 
   const addToTrainerButton = addedToParty ?
-    (<button className="disabled">Added</button>) :
-    (<button onClick={(event) => onAddToTrainer(number)}>Add To My Party</button>);
-
-  const statsList = (
-    Object.keys(baseStats).map((key) => {
-      const stat = baseStats[key];
-      return (<div key={key} className="pd-detail-stat">
-        {`${key}: ${stat}`}
-      </div>);
-    })
-  );
+    (<button className="btn disabled">Added</button>) :
+    (<button className="btn" onClick={(event) => onAddToTrainer(number)}>
+      Add To My Party</button>);
 
   const movesList = (
-    <div className="pm-detail-moves-list">
-      <ul className="pm-moves-list">
-        {defaultMoves.map((key) => {
-          const move = moveRefData[key];
-          return (
-            <MoveDetail key={key} {...move} />
-          );
-        })}
-      </ul>
-    </div>
+    <ul className="">
+      {defaultMoves.map((key) => {
+        const move = moveRefData[key];
+        return (
+          <MoveDetail key={key} {...move} />
+        );
+      })}
+    </ul>
   );
   return (
-    <div className="pd-detail">
-      <div className="pd-detail-header">
-        <Link to={'/pokedex'}>
-          {`< Pokedex`}
-        </Link>
-        {addToTrainerButton}
+    <div className="pokemon-detail">
+      <div className="nav">
+        <span className="nav-item h6">
+          <Link to={'/pokedex'}>
+            {`< Pokedex`}
+          </Link>
+        </span>
+        <span className="nav-item btn-group">
+          {addToTrainerButton}
+        </span>
       </div>
-
-      <div className="pd-detail-description">
-
-        <div className="pd-detail-left">
-          <img src={imgSrc} alt={name} />
-          <div className="pd-detail-name">
-            {`${name} #${number}`}
-            <TypeLabel type={type} />
+      <div className="panel">
+        <div className="panel-header">
+          <span className="h4">{name}</span>
+        </div>
+        <div className="panel-body columns">
+          <div className="column col-6">
+            <img src={imgSrc} alt={name} />
+            <div className="columns">
+              <span className="h4 column col-6">{`#${number}`}</span>
+              <TypeLabel classes={['column', 'col-6']}
+                className="column col-6" type={type} />
+            </div>
           </div>
+          <StatsList classes={['column', 'col-6']} stats={baseStats} />
         </div>
 
-        <div className="pd-detail-right">
-          <div className="pd-detail-stats">
-            {statsList}
-          </div>
+        <div className="panel-header">
+          <span className="h6">
+            {`Moves`}
+          </span>
         </div>
-      </div>
-      <div className="pd-detail-moves">
-        <div className="pd-detail-header">
-          {`Moves`}
-        </div>
-        <div className="pd-detail-moves-list">
+        <div className="panel-body">
           {movesList}
         </div>
       </div>

@@ -3,14 +3,14 @@ import React from 'react';
 import MoveDetail from '../moves/MoveDetail';
 
 export const DISPLAY_STATS = {
-  "hp": true,
-  "level": true,
-  "attack": true,
-  "defense": true,
-  "specialAttack": true,
-  "specialDefense": true,
-  "speed": true,
-  "captureDifficulty": false
+  "HP": true,
+  "LVL": true,
+  "ATK": true,
+  "DEF": true,
+  "SPC_ATK": true,
+  "SPC_DEF": true,
+  "SPD": true,
+  "CAP_DC": false
 }
 
 const PokemonEdit = ({ id, imgSrc, name, type, number, customName, stats, moves,

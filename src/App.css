@@ -13,10 +13,10 @@
   }
 }
 .navbar .nav .nav-item a.active {
-  border-bottom: 3px solid coral;
+  border-bottom: 3px solid #5755d9;
 } 
 .navbar .nav .nav-item a:hover {
-  color: rgb(206, 104, 66);
+  color: #5755d9;
 }
 
 /* Pokemon/Pokedex details */
@@ -49,6 +49,9 @@
   justify-content: space-between;
   align-items: center;
 }
+.pokemon-detail .card:last-child {
+  margin-bottom: .4rem;
+}
 
 /* Generic components */
 .type-label-container {
@@ -59,12 +62,13 @@
   color: white;
   padding: 0 .2rem;
   margin: .1rem;
+  height: 1.2rem;
+  min-width: 2.5rem;
+  text-align: center;
 }
 
 .app .card {
-  border-color: rgb(206, 104, 66);
   list-style: none;
-  border: 1px solid coral;
   border-radius: 4px;
   box-shadow: 2px 1px 2px grey;
 }
@@ -82,11 +86,8 @@
 
 /* App-wide styling */
 .app a {
-  color: coral;
 }
 .app .btn {
-  color: coral;
-  border-color: rgb(206, 104, 66);
 }
 a:-webkit-any-link {
   color: inherit;
@@ -104,4 +105,7 @@ ul {
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
+}
+.text-small {
+  font-size: .8em;
 }

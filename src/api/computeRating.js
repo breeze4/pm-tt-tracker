@@ -6,10 +6,10 @@
 // 5-star	14
 
 const computeRating = (stats) => {
-  const { hp, attack, defense, specialAttack, specialDefense, speed } = stats;
+  const { HP, ATK, DEF, SPC_ATK, SPC_DEF, SPD } = stats;
   const average = (
-    attack + defense + specialAttack + specialDefense + speed) / 6
-    + hp / 30;
+    ATK + DEF + SPC_ATK + SPC_DEF + SPD) / 6
+    + HP / 30;
   if (average < 8) {
     return 1;
   } else if (average < 10) {

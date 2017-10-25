@@ -4,7 +4,7 @@ import config from '../Config.js';
 const { refData } = config;
 const TYPES_DATA = refData.types;
 
-const TypeLabel = ({ type }) => {
+const TypeLabel = ({ classes, type }) => {
   const typeLabels = type.map((t) => {
     const typeData = TYPES_DATA[t];
     return (
@@ -14,8 +14,10 @@ const TypeLabel = ({ type }) => {
     );
   });
 
+  const mergedClasses = ['type-label-container'].concat(classes);
+
   return (
-    <div className="type-label-container">
+    <div className={mergedClasses.join(' ')}>
       { typeLabels }
     </div>
   );

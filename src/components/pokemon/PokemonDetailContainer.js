@@ -82,7 +82,6 @@ class PokemonDetailContainer extends Component {
         name={name}
         customName={customName}
         imgSrc={imgSrc}
-        level={pokemon.stats.level}
         type={type}
         moveRefData={MOVES_REF_DATA}
         onCancelEdit={this.onCancelEdit.bind(this)}
@@ -90,14 +89,14 @@ class PokemonDetailContainer extends Component {
         onStatInputChange={this.onStatInputChange.bind(this)}
         onCustomNameInputChange={this.onCustomNameInputChange.bind(this)}
       />);
-    } else if (currentMode === 'level' && pokemon.stats.level < MAX_LEVEL) {
+    } else if (currentMode === 'level' && pokemon.stats.LVL < MAX_LEVEL) {
       pokemonDetailComponent = (<PokemonLevelUp
         {...pokemon}
         id={id}
         name={name}
         number={number}
-        level={pokemon.stats.level}
-        newLevel={levels.find(l => l.level === pokemon.stats.level + 1)}
+        LVL={pokemon.stats.LVL}
+        newLevel={levels.find(l => l.LVL === pokemon.stats.LVL + 1)}
         type={type}
         moveRefData={MOVES_REF_DATA}
         maxedMoves={pokemon.moves.length === MAX_MOVES}

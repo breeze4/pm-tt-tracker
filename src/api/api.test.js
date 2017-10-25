@@ -10,15 +10,15 @@ const FIRST_LEVEL_PM = JSON.parse(`{
   "customName": "Charmander",
   "party": true,
   "stats": {
-    "hp": 15,
-    "maxHp": 10,
-    "level": 1,
-    "attack": 10,
-    "defense": 10,
-    "specialAttack": 10,
-    "specialDefense": 10,
-    "speed": 10,
-    "captureDifficulty": 10
+    "HP": 15,
+    "MAX_HP": 10,
+    "LVL": 1,
+    "ATK": 10,
+    "DEF": 10,
+    "SPC_ATK": 10,
+    "SPC_DEF": 10,
+    "SPD": 10,
+    "CAP_DC": 10
   },
   "moves": [
     "TEST",
@@ -33,15 +33,15 @@ const MAX_LEVEL_PM = JSON.parse(`{
   "customName": "Foxboro",
   "party": false,
   "stats": {
-    "hp": 20,
-    "maxHp": 120,
-    "level": 20,
-    "attack": 15,
-    "defense": 15,
-    "specialAttack": 15,
-    "specialDefense": 15,
-    "speed": 15,
-    "captureDifficulty": 10
+    "HP": 20,
+    "MAX_HP": 120,
+    "LVL": 20,
+    "ATK": 15,
+    "DEF": 15,
+    "SPC_ATK": 15,
+    "SPC_DEF": 15,
+    "SPD": 15,
+    "CAP_DC": 10
   },
   "moves": [
     "TEST",
@@ -64,12 +64,12 @@ describe('api: ', () => {
   });
   it('api evolves charmander to charmeleon', () => {
     const statChange = JSON.parse(`{
-      "hp": 5,
-      "attack": 2,
-      "defense": 2,
-      "specialAttack": 2,
-      "specialDefense": 2,
-      "speed": 2
+      "HP": 5,
+      "ATK": 2,
+      "DEF": 2,
+      "SPC_ATK": 2,
+      "SPC_DEF": 2,
+      "SPD": 2
     }`);
     expect(level1Pm.name).toBe('Charmander');
     expect(level1Pm.number).toBe('004');

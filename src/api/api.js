@@ -137,8 +137,8 @@ const api = (playerData) => {
         return null;
       }
       const leveledPm = list[index];
-      const { number, stats: { level } } = leveledPm;
-      if (level + 1 > MAX_LEVEL) {
+      const { number, stats: { LVL } } = leveledPm;
+      if (LVL + 1 > MAX_LEVEL) {
         console.log('already max level');
         return leveledPm;
       }
@@ -149,7 +149,7 @@ const api = (playerData) => {
       }
       const refDataFeature = refData.pokemon[number]
         .levels
-        .find(l => l.level === level + 1);
+        .find(l => l.LVL === LVL + 1);
       if (refDataFeature.feature !== feature) {
         console.log('does not match ref data');
         return leveledPm;
@@ -170,7 +170,7 @@ const api = (playerData) => {
         const { statChange } = refDataFeature;
         evolvePokemon(leveledPm, statChange, evolvedNumber);
       }
-      leveledPm.stats.level += 1;
+      leveledPm.stats.LVL += 1;
       list[index] = leveledPm;
       store.set(DATA, _data);
       return leveledPm;

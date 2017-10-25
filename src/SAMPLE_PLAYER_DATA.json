@@ -29,15 +29,15 @@
         "customName": "Hubert",
         "party": true,
         "stats": {
-          "hp": 15,
-          "maxHp": 10,
-          "level": 1,
-          "attack": 10,
-          "defense": 10,
-          "specialAttack": 10,
-          "specialDefense": 10,
-          "speed": 15,
-          "captureDifficulty": 10
+          "HP": 100,
+          "MAX_HP": 100,
+          "LVL": 16,
+          "ATK": 10,
+          "DEF": 10,
+          "SPC_ATK": 10,
+          "SPC_DEF": 10,
+          "SPD": 15,
+          "CAP_DC": 10
         },
         "moves": [
           "TEST",
@@ -53,15 +53,15 @@
         "customName": "Charmander",
         "party": true,
         "stats": {
-          "hp": 15,
-          "maxHp": 10,
-          "level": 1,
-          "attack": 10,
-          "defense": 10,
-          "specialAttack": 10,
-          "specialDefense": 10,
-          "speed": 10,
-          "captureDifficulty": 10
+          "HP": 15,
+          "MAX_HP": 15,
+          "LVL": 1,
+          "ATK": 10,
+          "DEF": 10,
+          "SPC_ATK": 10,
+          "SPC_DEF": 10,
+          "SPD": 10,
+          "CAP_DC": 10
         },
         "moves": [
           "TEST",

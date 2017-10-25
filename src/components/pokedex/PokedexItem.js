@@ -9,7 +9,7 @@ import computeRating from '../../api/computeRating';
 const pathToThumbnails = require.context('../../../images/thumbnails', true);
 
 const PokedexItem = ({ id, name, image, number, type, baseStats }) => {
-  const { hp } = baseStats;
+  const { HP } = baseStats;
   const rating = computeRating(baseStats);
   const imgSrc = pathToThumbnails(`./${image}`, true);
 
@@ -28,7 +28,7 @@ const PokedexItem = ({ id, name, image, number, type, baseStats }) => {
               <span className="h6 d-block">{`Rating: ${rating}`}</span>
             </div>
             <div className="column col-3">
-              <span className="h5 d-block">{`#${number}`}</span>
+              <span className="h6 d-block">{`#${number}`}</span>
               <span className="d-block"><TypeLabel type={type}/></span>
             </div>
           </div>

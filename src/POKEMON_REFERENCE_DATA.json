@@ -6,14 +6,14 @@
       "FIRE"
     ],
     "baseStats": {
-      "hp": 10,
-      "level": 1,
-      "attack": 10,
-      "defense": 10,
-      "specialAttack": 10,
-      "specialDefense": 10,
-      "speed": 10,
-      "captureDifficulty": 10
+      "HP": 10,
+      "LVL": 1,
+      "ATK": 10,
+      "DEF": 10,
+      "SPC_ATK": 10,
+      "SPC_DEF": 10,
+      "SPD": 10,
+      "CAP_DC": 10
     },
     "defaultMoves": [
       "NORMAL_SCRATCH",
@@ -21,39 +21,39 @@
     ],
     "levels": [
       {
-        "level": 2,
+        "LVL": 2,
         "feature": "STATS"
       },
       {
-        "level": 3,
+        "LVL": 3,
         "feature": "MOVE",
         "move": "FIRE_EMBER"
       },
       {
-        "level": 4,
+        "LVL": 4,
         "feature": "STATS"
       },
       {
-        "level": 5,
+        "LVL": 5,
         "feature": "STATS"
       },
       {
-        "level": 6,
+        "LVL": 6,
         "feature": "MOVE",
         "move": "NORMAL_SMOKESCREEN"
       },
       {
-        "level": 7,
+        "LVL": 7,
         "feature": "EVOLUTION",
         "evolvedNumber": "005",
         "statChange": {
-          "hp": 5,
-          "maxHp": 5,
-          "attack": 2,
-          "defense": 2,
-          "specialAttack": 2,
-          "specialDefense": 2,
-          "speed": 2
+          "HP": 5,
+          "MAX_HP": 5,
+          "ATK": 2,
+          "DEF": 2,
+          "SPC_ATK": 2,
+          "SPC_DEF": 2,
+          "SPD": 2
         }
       }
     ]
@@ -65,14 +65,14 @@
       "FIRE"
     ],
     "baseStats": {
-      "hp": 35,
-      "level": 7,
-      "attack": 12,
-      "defense": 12,
-      "specialAttack": 12,
-      "specialDefense": 12,
-      "speed": 12,
-      "captureDifficulty": 12
+      "HP": 35,
+      "LVL": 7,
+      "ATK": 12,
+      "DEF": 12,
+      "SPC_ATK": 12,
+      "SPC_DEF": 12,
+      "SPD": 12,
+      "CAP_DC": 12
     },
     "defaultMoves": [
       "NORMAL_SCRATCH",
@@ -82,48 +82,48 @@
     ],
     "levels": [
       {
-        "level": 8,
+        "LVL": 8,
         "feature": "MOVE",
         "move": "DRAGON_DRAGON_RAGE"
       },
       {
-        "level": 9,
+        "LVL": 9,
         "feature": "STATS"
       },
       {
-        "level": 10,
+        "LVL": 10,
         "feature": "MOVE",
         "move": "FIRE_FIRE_SPIN"
       },
       {
-        "level": 11,
+        "LVL": 11,
         "feature": "STATS"
       },
       {
-        "level": 12,
+        "LVL": 12,
         "feature": "STATS"
       },
       {
-        "level": 13,
+        "LVL": 13,
         "feature": "MOVE",
         "move": "NORMAL_SLASH"
       },
       {
-        "level": 14,
+        "LVL": 14,
         "feature": "STATS"
       },
       {
-        "level": 15,
+        "LVL": 15,
         "feature": "EVOLUTION",
         "evolvedNumber": "006",
         "statChange": {
-          "hp": 10,
-          "maxHp": 10,
-          "attack": 3,
-          "defense": 2,
-          "specialAttack": 3,
-          "specialDefense": 2,
-          "speed": 3
+          "HP": 10,
+          "MAX_HP": 10,
+          "ATK": 3,
+          "DEF": 2,
+          "SPC_ATK": 3,
+          "SPC_DEF": 2,
+          "SPD": 3
         }
       }
     ]
@@ -136,14 +136,14 @@
       "FLYING"
     ],
     "baseStats": {
-      "hp": 75,
-      "level": 15,
-      "attack": 10,
-      "defense": 10,
-      "specialAttack": 10,
-      "specialDefense": 10,
-      "speed": 10,
-      "captureDifficulty": 10
+      "HP": 75,
+      "LVL": 15,
+      "ATK": 10,
+      "DEF": 10,
+      "SPC_ATK": 10,
+      "SPC_DEF": 10,
+      "SPD": 10,
+      "CAP_DC": 10
     },
     "defaultMoves": [
       "NORMAL_SLASH",
@@ -153,25 +153,25 @@
     ],
     "levels": [
       {
-        "level": 16,
+        "LVL": 16,
         "feature": "MOVE",
         "move": "FLYING_FLY"
       },
       {
-        "level": 17,
+        "LVL": 17,
         "feature": "STATS"
       },
       {
-        "level": 18,
+        "LVL": 18,
         "feature": "MOVE",
         "move": "FLYING_WING_ATTACK"
       },
       {
-        "level": 19,
+        "LVL": 19,
         "feature": "STATS"
       },
       {
-        "level": 20,
+        "LVL": 20,
         "feature": "MOVE",
         "move": "FIRE_FLAMETHROWER"
       }

@@ -6,11 +6,11 @@ import config from '../../Config.js';
 const { refData } = config;
 const POKEMON_REF_DATA = refData.pokemon;
 
-const PokemonLevelUp = ({ id, name, number, level, newLevel, type, newType,
+const PokemonLevelUp = ({ id, name, number, LVL, newLevel, type, newType,
   stats, moves, moveRefData, maxedMoves, overwriteTarget,
   onCancelLevel, onLevelUp, onClearOverwriteMove, onSelectOverwriteMove }) => {
 
-  const newLevelFeature = POKEMON_REF_DATA[number].levels.find(l => l.level === level + 1);
+  const newLevelFeature = POKEMON_REF_DATA[number].levels.find(l => l.LVL === LVL + 1);
   const evolving = newLevelFeature.feature === 'EVOLUTION';
   let newName = null;
   if (evolving) {
@@ -95,12 +95,12 @@ const PokemonLevelUp = ({ id, name, number, level, newLevel, type, newType,
       <div className="pm-detail-summary">
         <div>
           <span>{name}</span>
-          <span>{level}</span>
+          <span>{LVL}</span>
         </div>
         <span>=></span>
         <div>
           <span>{newName}</span>
-          <span>{level + 1}</span>
+          <span>{LVL + 1}</span>
         </div>
       </div>
       <div className="pm-detail-description">
