@@ -21,17 +21,17 @@ const StatLine = ({ classes, statAlreadyIncreased,
     <span className="column col-2">
       {`${STATS_DATA[statKey].name}:`}
     </span>
-    <span className="column col-1">
+    <span className="column col-2">
       {baseStatValue}
     </span>
-    <span className="column col-3 btn-group">
+    <span className="column col-4 btn-group">
       {onDecreaseStatButton}
       {onAddStatButton}
     </span>
     <span className="column col-2">
       {`${STATS_DATA[statKey].name}:`}
     </span>
-    <span className="column col-1">
+    <span className="column col-2">
       {statValue}
     </span>
   </li>)

@@ -163,8 +163,12 @@ const api = (playerData) => {
           return leveledPm;
         }
       } else if (feature === 'STATS') {
-        const { stat1, stat2 } = payload;
-        raiseStatsOnPokemon(leveledPm, stat1, stat2);
+        const { statIncreaseKeys } = payload;
+        if (statIncreaseKeys.length != 2) {
+          console.log('need to have 2 keys in stat increase array', statIncreaseKeys);
+          return leveledPm;
+        }
+        raiseStatsOnPokemon(leveledPm, statIncreaseKeys[0], statIncreaseKeys[1]);
       } else if (feature === 'EVOLUTION') {
         const { evolvedNumber } = payload;
         const { statChange } = refDataFeature;

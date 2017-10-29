@@ -196,7 +196,7 @@ class PokemonDetailContainer extends Component {
     console.log('level up!');
     const updatedPokemon = api.levelUpPokemon(id, feature, payload);
     if (updatedPokemon) {
-      this.setState({ pokemon: updatedPokemon });
+      this.setState({ pokemon: updatedPokemon, statIncreaseKeys: [], statPoints: 2 });
     }
   }
 

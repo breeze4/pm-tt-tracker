@@ -62,7 +62,7 @@ const PokemonLevelUp = ({ id, name, number, LVL, newLevel, type, newType,
     if (statPoints == 0) {
       btnClasses.push('btn-primary');
       levelUpButton = (<button className={btnClasses.join(' ')} onClick={() =>
-        onLevelUp(id, feature, { stat1: 'attack', stat2: 'defense' })}>
+        onLevelUp(id, feature, { statIncreaseKeys })}>
         Level Up</button>);
     } else {
       btnClasses.push('disabled');
