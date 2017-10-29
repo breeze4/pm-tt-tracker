@@ -41,6 +41,9 @@
   justify-content: space-between;
   padding: .4rem;
 }
+.pokemon-detail .panel {
+  margin-bottom: .4rem;
+}
 .pokemon-list {
   margin-bottom: .4rem;
 }
@@ -51,6 +54,9 @@
 }
 .pokemon-detail .card:last-child {
   margin-bottom: .4rem;
+}
+.stat-line {
+  height: 1.75rem;
 }
 
 /* Generic components */
@@ -68,7 +74,6 @@
 }
 
 .app .card {
-  list-style: none;
   border-radius: 4px;
   box-shadow: 2px 1px 2px grey;
 }
@@ -88,6 +93,9 @@
 .app a {
 }
 .app .btn {
+}
+.app li {
+  list-style: none;
 }
 a:-webkit-any-link {
   color: inherit;

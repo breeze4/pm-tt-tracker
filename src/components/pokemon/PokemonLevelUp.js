@@ -1,14 +1,15 @@
 import React from 'react';
 
 import MoveDetail from '../moves/MoveDetail';
+import StatsIncrease from '../stats/StatsIncrease';
 
 import config from '../../Config.js';
 const { refData } = config;
 const POKEMON_REF_DATA = refData.pokemon;
 
 const PokemonLevelUp = ({ id, name, number, LVL, newLevel, type, newType,
-  stats, moves, moveRefData, maxedMoves, overwriteTarget,
-  onCancelLevel, onLevelUp, onClearOverwriteMove, onSelectOverwriteMove }) => {
+  stats, originalStats, statIncreaseKeys, statPoints, moves, moveRefData, maxedMoves, overwriteTarget,
+  onCancelLevel, onLevelUp, onClearOverwriteMove, onSelectOverwriteMove, onChangeStat }) => {
 
   const newLevelFeature = POKEMON_REF_DATA[number].levels.find(l => l.LVL === LVL + 1);
   const evolving = newLevelFeature.feature === 'EVOLUTION';
@@ -18,23 +19,7 @@ const PokemonLevelUp = ({ id, name, number, LVL, newLevel, type, newType,
   }
 
   // header
-  const cancelButton = (<button onClick={onCancelLevel}>Cancel</button>);
-
-  // level up details: stats or move
-  const statsBeforeList = (
-    Object.keys(stats).map((key) => {
-      const stat = stats[key];
-      return (<div key={key} className="pm-detail-stat">
-        {`${key}: ${stat}`}
-      </div>);
-    }));
-  const statsAfterList = (
-    Object.keys(stats).map((key) => {
-      const stat = stats[key];
-      return (<div key={key} className="pm-detail-stat">
-        {`${key}: ${stat}`}
-      </div>);
-    }));
+  const cancelButton = (<button className="btn" onClick={onCancelLevel}>Cancel</button>);
 
   const movesList = newLevel && newLevel.move ? (
     <div className="pm-detail-moves">
@@ -50,9 +35,9 @@ const PokemonLevelUp = ({ id, name, number, LVL, newLevel, type, newType,
             return (<div key={key} className="pm-moves-list-item">
               <MoveDetail {...move} />
               {overwriteTarget === key ?
-                (<button className="pm-move-overwrite-button"
+                (<button className="btn" className="pm-move-overwrite-button"
                   onClick={() => onClearOverwriteMove(key)}>Keep</button>) :
-                (<button className="pm-move-overwrite-button"
+                (<button className="btn" className="pm-move-overwrite-button"
                   onClick={() => onSelectOverwriteMove(key)}>Overwrite</button>
                 )}
             </div>);
@@ -67,59 +52,73 @@ const PokemonLevelUp = ({ id, name, number, LVL, newLevel, type, newType,
   if (feature === 'MOVE') {
     const disabled = maxedMoves && !overwriteTarget;
     levelUpButton = disabled ?
-      (<button className="disabled">
+      (<button className="btn disabled">
         Select Overwritten Move</button>) :
-      (<button onClick={() =>
+      (<button className="btn" onClick={() =>
         onLevelUp(id, feature, { move: newLevel.move, overwriteTarget })}>
         Add New Move</button>);
   } else if (feature === 'STATS') {
-    levelUpButton = (<button onClick={() =>
-      onLevelUp(id, feature, { stat1: 'attack', stat2: 'defense' })}>
-      Add Stats</button>);
+    const btnClasses = ['btn'];
+    if (statPoints == 0) {
+      btnClasses.push('btn-primary');
+      levelUpButton = (<button className={btnClasses.join(' ')} onClick={() =>
+        onLevelUp(id, feature, { stat1: 'attack', stat2: 'defense' })}>
+        Level Up</button>);
+    } else {
+      btnClasses.push('disabled');
+      levelUpButton = (<button className={btnClasses.join(' ')}>
+        Level Up</button>);
+    }
   } else if (feature === 'EVOLUTION') {
-    levelUpButton = (<button onClick={() =>
+    levelUpButton = (<button className="btn" onClick={() =>
       onLevelUp(id, feature, { evolvedNumber: newLevel.evolvedNumber })}>
       Evolve</button>);
   }
 
   return (
-    <div className="pm-detail-level-up">
-      <div className="pm-detail-header">
-        <span>
+    <div className="">
+      <div className="nav">
+        <span className="nav-item">
           {cancelButton}
         </span>
-        <span>
+        <span className="nav-item">
           {levelUpButton}
         </span>
       </div>
-      <div className="pm-detail-summary">
-        <div>
-          <span>{name}</span>
-          <span>{LVL}</span>
+      <div className="panel">
+        <div className="panel-header">
+          <span className="h4">Level Up</span>
         </div>
-        <span>=></span>
-        <div>
-          <span>{newName}</span>
-          <span>{LVL + 1}</span>
-        </div>
-      </div>
-      <div className="pm-detail-description">
-        <div className="pm-detail-left">
-          <div className="pm-detail-stats">
-            {statsBeforeList}
+        <div className="panel-body columns text-center">
+          <div className="column col-4">
+            <div className="columns">
+              <span className="column col-12">{name}</span>
+              <span className="column col-12">{LVL}</span>
+            </div>
+          </div>
+          <div className="column col-4">
+            <div className="columns">
+              <span className="column col-12">=></span>
+              <span className="column col-12">{statPoints} points</span>
+            </div>
+          </div>
+          <div className="column col-4">
+            <div className="columns">
+              <span className="column col-12">{newName || name}</span>
+              <span className="column col-12">{LVL + 1}</span>
+            </div>
           </div>
         </div>
-        <div className="pm-detail-center">
-          <span style={{ height: '50%' }}>+2</span>
-          <span style={{ height: '50%' }}>=></span>
-        </div>
-        <div className="pm-detail-right">
-          <div className="pm-detail-stats">
-            {statsAfterList}
-          </div>
-        </div>
+        <StatsIncrease
+          classes={['panel-body']}
+          stats={stats}
+          statPoints={statPoints}
+          originalStats={originalStats}
+          statIncreaseKeys={statIncreaseKeys}
+          onChangeStat={onChangeStat} 
+          />
+        {movesList}
       </div>
-      {movesList}
     </div>
   );
 }

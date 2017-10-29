@@ -36,6 +36,8 @@ class PokemonDetailContainer extends Component {
       currentMode: currentMode,
       backupPmData: api.getPokemon(id),
       overwriteTarget: null,
+      statPoints: 2,
+      statIncreaseKeys: [],
       confirmDelete: false
     }
   }
@@ -53,7 +55,8 @@ class PokemonDetailContainer extends Component {
   }
 
   render() {
-    const { currentMode, id, pokemon, overwriteTarget, confirmDelete } = this.state;
+    const { currentMode, id, pokemon, overwriteTarget, statIncreaseKeys,
+      statPoints, backupPmData, confirmDelete } = this.state;
     const { number, customName } = pokemon;
     const { name, image, type, levels } = POKEMON_REF_DATA[number];
     const imgSrc = pathToImages(`./${image}`, true);
@@ -101,10 +104,14 @@ class PokemonDetailContainer extends Component {
         moveRefData={MOVES_REF_DATA}
         maxedMoves={pokemon.moves.length === MAX_MOVES}
         overwriteTarget={overwriteTarget}
+        statPoints={statPoints}
+        originalStats={backupPmData.stats}
+        statIncreaseKeys={statIncreaseKeys}
         onLevelUp={this.onLevelUp.bind(this)}
         onCancelLevel={this.onCancelEdit.bind(this)}
         onClearOverwriteMove={this.onClearOverwriteMove.bind(this)}
         onSelectOverwriteMove={this.onSelectOverwriteMove.bind(this)}
+        onChangeStat={this.onChangeStat.bind(this)}
       />);
     }
 
@@ -148,6 +155,28 @@ class PokemonDetailContainer extends Component {
     const { pokemon, pokemon: { stats } } = this.state;
     stats[statKey] = parseInt(value, 10);
     this.setState({ pokemon: { ...pokemon, stats: stats } });
+  }
+
+  onChangeStat(statKey, change) {
+    const { pokemon, pokemon: { stats }, statPoints, statIncreaseKeys } = this.state;
+    stats[statKey] += change;
+    let updatedKeys = statIncreaseKeys;
+    let updatedStatPoints = statPoints - change;
+    if (change < 0 && statIncreaseKeys.includes(statKey)) {
+      // if the stat has already been increased and is now being decreased
+      // only remove the first one, leave the other one there
+      const firstIndex = statIncreaseKeys.findIndex(key => key == statKey);
+      updatedKeys.splice(firstIndex, 1);
+    } else if (change > 0) {
+      // if stat is being increased and isn't in the list
+      updatedKeys.push(statKey);
+    }
+
+    this.setState({
+      pokemon: { ...pokemon, stats: stats },
+      statPoints: updatedStatPoints,
+      statIncreaseKeys: updatedKeys
+    });
   }
 
   onSelectPokemon(event, id) {

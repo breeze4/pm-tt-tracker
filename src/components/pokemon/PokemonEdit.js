@@ -13,6 +13,17 @@ export const DISPLAY_STATS = {
   "CAP_DC": false
 }
 
+export const LEVEL_UP_STATS = {
+  "HP": true,
+  "LVL": false,
+  "ATK": true,
+  "DEF": true,
+  "SPC_ATK": true,
+  "SPC_DEF": true,
+  "SPD": true,
+  "CAP_DC": false
+}
+
 const PokemonEdit = ({ id, imgSrc, name, type, number, customName, stats, moves,
   moveRefData, onSaveEdit, onCancelEdit, onCustomNameInputChange, onStatInputChange }) => {
 
