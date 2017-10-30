@@ -21,6 +21,18 @@ const PokemonLevelUp = ({ id, name, number, LVL, newLevel, type, newType,
   // header
   const cancelButton = (<button className="btn" onClick={onCancelLevel}>Cancel</button>);
 
+  let showMoveButton = newLevel && newLevel.move && maxedMoves
+
+  const getMoveButton = (key) => {
+    if (overwriteTarget === key) {
+      return (<button className="btn" className="pm-move-overwrite-button"
+        onClick={() => onClearOverwriteMove(key)}>Keep</button>);
+    } else {
+      return (<button className="btn" className="pm-move-overwrite-button"
+        onClick={() => onSelectOverwriteMove(key)}>Overwrite</button>);
+    }
+  }
+
   const movesList = newLevel && newLevel.move ? (
     <div className="pm-detail-moves">
       <span>New Move:</span>
@@ -34,12 +46,7 @@ const PokemonLevelUp = ({ id, name, number, LVL, newLevel, type, newType,
             const move = moveRefData[key];
             return (<div key={key} className="pm-moves-list-item">
               <MoveDetail {...move} />
-              {overwriteTarget === key ?
-                (<button className="btn" className="pm-move-overwrite-button"
-                  onClick={() => onClearOverwriteMove(key)}>Keep</button>) :
-                (<button className="btn" className="pm-move-overwrite-button"
-                  onClick={() => onSelectOverwriteMove(key)}>Overwrite</button>
-                )}
+              {showMoveButton ? (getMoveButton(key)) : null}
             </div>);
           })}
         </ul>
@@ -115,8 +122,8 @@ const PokemonLevelUp = ({ id, name, number, LVL, newLevel, type, newType,
           statPoints={statPoints}
           originalStats={originalStats}
           statIncreaseKeys={statIncreaseKeys}
-          onChangeStat={onChangeStat} 
-          />
+          onChangeStat={onChangeStat}
+        />
         {movesList}
       </div>
     </div>
