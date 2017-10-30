@@ -7,6 +7,7 @@ const TYPES_DATA = refData.types;
 const MoveDetail = (props) => {
   const { effect, name, type } = props;
   const { damageDice, hitBonus } = props;
+  const { classes, children } = props;
 
   const typeData = TYPES_DATA[type];
   const typeLabel = (
@@ -22,8 +23,9 @@ const MoveDetail = (props) => {
     );
   }
 
+  const moveClasses = ['card'].concat(classes);
   return (
-    <li className="card">
+    <li className={moveClasses.join(' ')}>
       <div className="card-header">
         <span className="h6">{name}</span>
         {typeLabel}
@@ -33,6 +35,9 @@ const MoveDetail = (props) => {
           <span className="column col-12">{effect}</span>
           {moveDescription}
         </div>
+      </div>
+      <div className="card-body">
+        {children}
       </div>
     </li>
   );

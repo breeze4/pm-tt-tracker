@@ -38,7 +38,8 @@ class PokemonDetailContainer extends Component {
       overwriteTarget: null,
       statPoints: 2,
       statIncreaseKeys: [],
-      confirmDelete: false
+      confirmDelete: false,
+      originalStats: api.getPokemon(id).stats
     }
   }
 
@@ -56,7 +57,7 @@ class PokemonDetailContainer extends Component {
 
   render() {
     const { currentMode, id, pokemon, overwriteTarget, statIncreaseKeys,
-      statPoints, backupPmData, confirmDelete } = this.state;
+      statPoints, backupPmData, originalStats, confirmDelete } = this.state;
     const { number, customName } = pokemon;
     const { name, image, type, levels } = POKEMON_REF_DATA[number];
     const imgSrc = pathToImages(`./${image}`, true);
@@ -105,7 +106,7 @@ class PokemonDetailContainer extends Component {
         maxedMoves={pokemon.moves.length === MAX_MOVES}
         overwriteTarget={overwriteTarget}
         statPoints={statPoints}
-        originalStats={backupPmData.stats}
+        originalStats={originalStats}
         statIncreaseKeys={statIncreaseKeys}
         onLevelUp={this.onLevelUp.bind(this)}
         onCancelLevel={this.onCancelEdit.bind(this)}
@@ -196,7 +197,11 @@ class PokemonDetailContainer extends Component {
     console.log('level up!');
     const updatedPokemon = api.levelUpPokemon(id, feature, payload);
     if (updatedPokemon) {
-      this.setState({ pokemon: updatedPokemon, statIncreaseKeys: [], statPoints: 2 });
+      this.setState({ 
+        pokemon: updatedPokemon,
+        originalStats: updatedPokemon.stats,
+        statIncreaseKeys: [], 
+        statPoints: 2 });
     }
   }
 

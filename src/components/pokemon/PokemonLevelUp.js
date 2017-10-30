@@ -21,20 +21,22 @@ const PokemonLevelUp = ({ id, name, number, LVL, newLevel, type, newType,
   // header
   const cancelButton = (<button className="btn" onClick={onCancelLevel}>Cancel</button>);
 
-  let showMoveButton = newLevel && newLevel.move && maxedMoves
+  let showMoveButton = newLevel && newLevel.move && maxedMoves;
+  const moveDetailClasses = showMoveButton ? [] : [];
+  const moveButtonClasses = showMoveButton ? [] : [];
 
   const getMoveButton = (key) => {
     if (overwriteTarget === key) {
-      return (<button className="btn" className="pm-move-overwrite-button"
+      return (<button className="btn btn-primary"
         onClick={() => onClearOverwriteMove(key)}>Keep</button>);
     } else {
-      return (<button className="btn" className="pm-move-overwrite-button"
+      return (<button className="btn"
         onClick={() => onSelectOverwriteMove(key)}>Overwrite</button>);
     }
   }
 
   const movesList = newLevel && newLevel.move ? (
-    <div className="pm-detail-moves">
+    <div className="panel-body">
       <span>New Move:</span>
       <div className="pm-moves-list-item new-move">
         <MoveDetail {...moveRefData[newLevel.move]} />
@@ -44,10 +46,15 @@ const PokemonLevelUp = ({ id, name, number, LVL, newLevel, type, newType,
         <ul className="pm-moves-list">
           {moves.map((key) => {
             const move = moveRefData[key];
-            return (<div key={key} className="pm-moves-list-item">
-              <MoveDetail {...move} />
-              {showMoveButton ? (getMoveButton(key)) : null}
-            </div>);
+            return (
+              <MoveDetail key={key} classes={moveDetailClasses} {...move}>
+                {showMoveButton ? (
+                  <span className="float-right">
+                    {getMoveButton(key)}
+                  </span>
+                ) : null}
+              </MoveDetail>
+            );
           })}
         </ul>
       </div>
@@ -56,25 +63,44 @@ const PokemonLevelUp = ({ id, name, number, LVL, newLevel, type, newType,
 
   let feature = newLevel.feature;
   let levelUpButton = null;
+  let statsBlock = null;
+  let buttonText = 'Can\'t use';
   if (feature === 'MOVE') {
-    const disabled = maxedMoves && !overwriteTarget;
+    const disabled = (maxedMoves && !overwriteTarget);
+
+    if (disabled) {
+      buttonText = 'Select Overwritten Move';
+    } else {
+      buttonText = 'Add New Move';
+    }
+
     levelUpButton = disabled ?
       (<button className="btn disabled">
-        Select Overwritten Move</button>) :
-      (<button className="btn" onClick={() =>
+        {buttonText}</button>) :
+      (<button className="btn btn-primary" onClick={() =>
         onLevelUp(id, feature, { move: newLevel.move, overwriteTarget })}>
-        Add New Move</button>);
+        {buttonText}</button>);
   } else if (feature === 'STATS') {
+    statsBlock = (
+      <StatsIncrease
+        classes={['panel-body']}
+        stats={stats}
+        statPoints={statPoints}
+        originalStats={originalStats}
+        statIncreaseKeys={statIncreaseKeys}
+        onChangeStat={onChangeStat}
+      />);
     const btnClasses = ['btn'];
+    buttonText = 'Add Stats';
     if (statPoints == 0) {
       btnClasses.push('btn-primary');
       levelUpButton = (<button className={btnClasses.join(' ')} onClick={() =>
         onLevelUp(id, feature, { statIncreaseKeys })}>
-        Level Up</button>);
+        {buttonText}</button>);
     } else {
       btnClasses.push('disabled');
       levelUpButton = (<button className={btnClasses.join(' ')}>
-        Level Up</button>);
+        {buttonText}</button>);
     }
   } else if (feature === 'EVOLUTION') {
     levelUpButton = (<button className="btn" onClick={() =>
@@ -116,14 +142,7 @@ const PokemonLevelUp = ({ id, name, number, LVL, newLevel, type, newType,
             </div>
           </div>
         </div>
-        <StatsIncrease
-          classes={['panel-body']}
-          stats={stats}
-          statPoints={statPoints}
-          originalStats={originalStats}
-          statIncreaseKeys={statIncreaseKeys}
-          onChangeStat={onChangeStat}
-        />
+        {statsBlock}
         {movesList}
       </div>
     </div>
