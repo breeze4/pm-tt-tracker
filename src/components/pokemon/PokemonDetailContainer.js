@@ -14,6 +14,7 @@ import config from '../../Config.js';
 const { refData } = config;
 const POKEMON_REF_DATA = refData.pokemon;
 const MOVES_REF_DATA = refData.moves;
+const HP_INCREASE_REF_DATA = refData.hpIncreases;
 
 const pathToImages = require.context('../../../images/pokemon');
 
@@ -159,8 +160,16 @@ class PokemonDetailContainer extends Component {
   }
 
   onChangeStat(statKey, change) {
-    const { pokemon, pokemon: { stats }, statPoints, statIncreaseKeys } = this.state;
-    stats[statKey] += change;
+    const { pokemon, pokemon: { number, stats }, statPoints, statIncreaseKeys } = this.state;
+    if (statKey === 'HP') {
+      const hpIncreaseKey = POKEMON_REF_DATA[number].hpIncrease;
+      const hpIncrease = HP_INCREASE_REF_DATA[hpIncreaseKey];
+      if (change > 0) stats[statKey] + hpIncrease;
+      else if (change < 0) stats[statKey] - hpIncrease;
+    }
+    else {
+      stats[statKey] += change;
+    }
     let updatedKeys = statIncreaseKeys;
     let updatedStatPoints = statPoints - change;
     if (change < 0 && statIncreaseKeys.includes(statKey)) {

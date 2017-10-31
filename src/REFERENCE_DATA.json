@@ -192,6 +192,13 @@
       "name": "Capture Difficulty"
     }
   },
+  "hpIncreases": {
+    "LOW": 6,
+    "LOW-MED": 6,
+    "MED": 6,
+    "MED-HIGH": 6,
+    "HIGH": 6
+  },
   "types": {
     "DRAGON": {
       "name": "Dragon",

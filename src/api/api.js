@@ -6,6 +6,8 @@ import createPokemonFromDex from './createPokemonFromDex';
 import PLAYER_DATA from '../SAMPLE_PLAYER_DATA.json';
 import config from '../Config.js';
 const { refData } = config;
+const POKEMON_REF_DATA = refData.pokemon;
+const HP_INCREASE_REF_DATA = refData.hpIncreases;
 
 const DATA = 'data';
 
@@ -63,6 +65,10 @@ export const addMoveToPokemon = (pokemon, move, overwriteTarget) => {
 };
 
 export const raiseStatsOnPokemon = (pokemon, stat1, stat2) => {
+  const { number } = pokemon;
+  const hpIncreaseKey = POKEMON_REF_DATA[number].hpIncrease;
+  const hpIncrease = HP_INCREASE_REF_DATA[hpIncreaseKey];
+  pokemon.stats['HP'] += hpIncrease;
   if (stat1 && !stat2) {
     pokemon.stats[stat1] += 2;
   } else if (stat2 && !stat1) {

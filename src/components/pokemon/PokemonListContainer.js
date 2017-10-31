@@ -14,10 +14,6 @@ class PokemonListContainer extends Component {
       pokemon: api.getPokemon()
     }
   }
-  componentWillReceiveProps(nextProps) {
-    console.log(nextProps);
-
-  }
   render() {
     const { pokemon } = this.state;
     const pokemonListComponent = pokemon && pokemon.list ? (

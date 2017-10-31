@@ -19,6 +19,7 @@
       "NORMAL_SCRATCH",
       "NORMAL_TAIL_WHIP"
     ],
+    "hpIncrease": "LOW",
     "levels": [
       {
         "LVL": 2,
@@ -48,7 +49,6 @@
         "evolvedNumber": "005",
         "statChange": {
           "HP": 5,
-          "MAX_HP": 5,
           "ATK": 2,
           "DEF": 2,
           "SPC_ATK": 2,
@@ -80,6 +80,7 @@
       "FIRE_EMBER",
       "NORMAL_SMOKESCREEN"
     ],
+    "hpIncrease": "MED",
     "levels": [
       {
         "LVL": 8,
@@ -118,7 +119,6 @@
         "evolvedNumber": "006",
         "statChange": {
           "HP": 10,
-          "MAX_HP": 10,
           "ATK": 3,
           "DEF": 2,
           "SPC_ATK": 3,
@@ -151,6 +151,7 @@
       "DRAGON_DRAGON_RAGE",
       "NORMAL_SMOKESCREEN"
     ],
+    "hpIncrease": "MED-HIGH",
     "levels": [
       {
         "LVL": 16,

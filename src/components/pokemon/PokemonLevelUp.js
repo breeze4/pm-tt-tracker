@@ -88,6 +88,7 @@ const PokemonLevelUp = ({ id, name, number, LVL, newLevel, type, newType,
         statPoints={statPoints}
         originalStats={originalStats}
         statIncreaseKeys={statIncreaseKeys}
+        hpIncreaseKey={POKEMON_REF_DATA[number].hpIncrease}
         onChangeStat={onChangeStat}
       />);
     const btnClasses = ['btn'];
