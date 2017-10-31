@@ -11,7 +11,6 @@ const FIRST_LEVEL_PM = JSON.parse(`{
   "party": true,
   "stats": {
     "HP": 15,
-    "MAX_HP": 10,
     "LVL": 1,
     "ATK": 10,
     "DEF": 10,
@@ -34,7 +33,6 @@ const MAX_LEVEL_PM = JSON.parse(`{
   "party": false,
   "stats": {
     "HP": 20,
-    "MAX_HP": 120,
     "LVL": 20,
     "ATK": 15,
     "DEF": 15,

@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import partition from 'lodash/partition';
 
 import PokemonListItem from './PokemonListItem';
 
 const PokemonList = ({ editMode, list, onSwitchMode, onSelectPokemon }) => {
   const toggleModeButton = editMode
-    ? (<span className="nav-item btn" onClick={onSwitchMode}>Save</span>)
-    : (<span className="nav-item btn" onClick={onSwitchMode}>Edit</span>);
+    ? (<span className="nav-item btn btn-primary" onClick={onSwitchMode}>Save</span>)
+    : (<span className="nav-item btn" onClick={onSwitchMode}>Manage</span>);
 
   const pokemonPartyList = list ? (
     <div className="pokemon-list">
@@ -20,7 +21,13 @@ const PokemonList = ({ editMode, list, onSwitchMode, onSelectPokemon }) => {
           return (
             <PokemonListItem key={id}
               onSelectPokemon={editMode ? onSelectPokemon : () => { }}
-              {...pm} />
+              {...pm}>
+              {editMode ? (
+                  <span className="float-right">
+                    <button className="btn">Move to Storage</button>
+                  </span>
+                ) : null}
+            </PokemonListItem>
           );
         })}
       </ul>
@@ -28,7 +35,7 @@ const PokemonList = ({ editMode, list, onSwitchMode, onSelectPokemon }) => {
   ) : null;
   const pokemonStorageList = list ? (
     <div className="pokemon-list pokemon-storage">
-      <div className="list-header">
+      <div className="nav">
         <span className="h6">Storage:</span>
       </div>
       <ul>
@@ -37,7 +44,13 @@ const PokemonList = ({ editMode, list, onSwitchMode, onSelectPokemon }) => {
           return (
             <PokemonListItem key={id}
               onSelectPokemon={editMode ? onSelectPokemon : () => { }}
-              {...pm} />
+              {...pm}>
+              {editMode ? (
+                  <span className="float-right">
+                    <button className="btn">Move to Party</button>
+                  </span>
+                ) : null}
+            </PokemonListItem>
           );
         })}
       </ul>

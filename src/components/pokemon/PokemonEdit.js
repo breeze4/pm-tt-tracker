@@ -2,6 +2,10 @@ import React from 'react';
 
 import MoveDetail from '../moves/MoveDetail';
 
+import config from '../../Config.js';
+const { refData } = config;
+const STATS_DATA = refData.stats;
+
 export const DISPLAY_STATS = {
   "HP": true,
   "LVL": true,
@@ -27,68 +31,68 @@ export const LEVEL_UP_STATS = {
 const PokemonEdit = ({ id, imgSrc, name, type, number, customName, stats, moves,
   moveRefData, onSaveEdit, onCancelEdit, onCustomNameInputChange, onStatInputChange }) => {
 
-  const saveEditButton = (<button onClick={() => onSaveEdit({ id })}>Save</button>);
-  const cancelModeButton = (<button onClick={onCancelEdit}>Cancel</button>);
-
-  const headerComponent = (
-    <div className="pm-detail-header">
-      <span>
-        {cancelModeButton}
-      </span>
-      <span>
-        {saveEditButton}
-      </span>
-    </div>
-  );
-
-  const customNameEdit = (
-    <div className="pm-detail-stat">
-      <span>Name:</span>
-      <input className="pm-detail-stat-edit"
-        onChange={(e) => onCustomNameInputChange(e.target.value || '')} value={customName} />
-    </div>
-  );
+  const saveEditButton = (<button className="btn btn-primary" onClick={() => onSaveEdit({ id })}>Save</button>);
+  const cancelModeButton = (<button className="btn" onClick={onCancelEdit}>Cancel</button>);
 
   const statsList = (
-    Object.keys(stats).filter((key) => DISPLAY_STATS[key]).map((key) => {
+    Object.keys(stats).filter((key) => LEVEL_UP_STATS[key]).map((key) => {
       const stat = stats[key];
       return (
-        <div key={key} className="pm-detail-stat">
-          <span>{`${key}:`}</span>
-          <input className="pm-detail-stat-edit"
-            onChange={(e) => onStatInputChange(key, e.target.value || 0)} value={stat} />
-        </div>
+        <li key={key} className="form-group columns">
+          <div className="column col-6">
+            <span className="form-label">{`${STATS_DATA[key].name}:`}</span>
+          </div>
+          <div className="column col-6">
+            <input className="form-input"
+              onChange={(e) => onStatInputChange(key, e.target.value || 0)} value={stat} />
+          </div>
+        </li>
       );
     })
   );
 
-  const movesList = (
-    <div className="pm-detail-moves-list">
-      <ul className="pm-moves-list">
-        {moves.map((key) => {
-          const move = moveRefData[key];
-          return (
-            <MoveDetail key={key} {...move} />
-          );
-        })}
-      </ul>
-    </div>
-  );
   return (
-    <div className="pm-detail-edit">
-      {headerComponent}
-      <div className="pm-detail-description">
-        <div className="pm-detail-stats">
-          {customNameEdit}
-          {statsList}
-        </div>
+    <div className="pokemon-edit">
+      <div className="nav">
+        <span className="nav-item">
+          {cancelModeButton}
+        </span>
+        <span className="nav-item">
+          {saveEditButton}
+        </span>
       </div>
-      <div className="pm-detail-moves">
-        <div className="pm-detail-header">
-          {`Moves`}
+
+      <div className="panel">
+        <div className="panel-header">
+          <span className="h4">Edit</span>
         </div>
-        <div className="pm-detail-moves-list">
-          {movesList}
+        <div className="panel-body form-horizontal">
+          <div className="form-group columns">
+            <div className="column col-6">
+              <span className="form-label">Name:</span>
+            </div>
+            <div className="column col-6">
+              <input className="form-input"
+                onChange={(e) => onCustomNameInputChange(e.target.value || '')}
+                value={customName} />
+            </div>
+          </div>
+          <ul className="">
+            {statsList}
+          </ul>
+        </div>
+        <div className="panel-header">
+          <span className="h4">{`Moves`}</span>
+        </div>
+        <div className="panel-boddy">
+          <ul className="">
+            {moves.map((key) => {
+              const move = moveRefData[key];
+              return (
+                <MoveDetail key={key} {...move} />
+              );
+            })}
+          </ul>
         </div>
       </div>
     </div>

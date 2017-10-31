@@ -58,6 +58,9 @@
 .stat-line {
   height: 1.75rem;
 }
+.pokemon-edit .form-horizontal .form-group {
+
+}
 
 /* Generic components */
 .type-label-container {

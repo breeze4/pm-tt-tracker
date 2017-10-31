@@ -30,7 +30,6 @@
         "party": true,
         "stats": {
           "HP": 100,
-          "MAX_HP": 100,
           "LVL": 16,
           "ATK": 10,
           "DEF": 10,
@@ -54,7 +53,6 @@
         "party": true,
         "stats": {
           "HP": 15,
-          "MAX_HP": 15,
           "LVL": 1,
           "ATK": 10,
           "DEF": 10,

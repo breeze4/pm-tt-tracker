@@ -170,9 +170,6 @@
     "HP": {
       "name": "Health"
     },
-    "MAX_HP": {
-      "name": "Max Health"
-    },
     "LVL": {
       "name": "Level"
     },

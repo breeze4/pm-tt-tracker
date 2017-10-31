@@ -8,8 +8,9 @@ const { refData: { pokemon } } = config;
 
 const pathToThumbnails = require.context('../../../images/thumbnails', true);
 
-const PokemonListItem = ({ id, number, customName, stats, onSelectPokemon }) => {
-  const { HP, MAX_HP, LVL } = stats;
+const PokemonListItem = ({ id, number, customName, stats,
+  onSelectPokemon, children }) => {
+  const { HP, LVL } = stats;
   const { name, image, type } = pokemon[number];
   const imgSrc = pathToThumbnails(`./${image}`, true);
   return (
@@ -28,9 +29,12 @@ const PokemonListItem = ({ id, number, customName, stats, onSelectPokemon }) => 
               <span className="h6 d-block">{`Level ${LVL}`}</span>
             </div>
             <div className="column col-3">
-              <span className="h6 d-block">{`${HP}/${MAX_HP}`}</span>
+              <span className="h6 d-block">{`${HP} HP`}</span>
               <span className="h6 d-block"><TypeLabel type={type} /></span>
             </div>
+          </div>
+          <div className="card-body">
+            {children}
           </div>
         </div>
       </Link>
