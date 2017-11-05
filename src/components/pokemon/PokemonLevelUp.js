@@ -80,7 +80,7 @@ const PokemonLevelUp = ({ id, name, number, LVL, newLevel, type, newType,
       (<button className="btn btn-primary" onClick={() =>
         onLevelUp(id, feature, { move: newLevel.move, overwriteTarget })}>
         {buttonText}</button>);
-  } else if (feature === 'STATS') {
+  } else  {
     statsBlock = (
       <StatsIncrease
         classes={['panel-body']}
@@ -92,22 +92,25 @@ const PokemonLevelUp = ({ id, name, number, LVL, newLevel, type, newType,
         onChangeStat={onChangeStat}
       />);
     const btnClasses = ['btn'];
-    buttonText = 'Add Stats';
+    let payload = null;
+    if (feature === 'STATS') {
+      buttonText = 'Add Stats';
+      payload = { statIncreaseKeys };
+    } else if (feature === 'EVOLUTION') {
+      buttonText = 'Evolve';
+      payload = { evolvedNumber: newLevel.evolvedNumber };
+    }
     if (statPoints == 0) {
       btnClasses.push('btn-primary');
       levelUpButton = (<button className={btnClasses.join(' ')} onClick={() =>
-        onLevelUp(id, feature, { statIncreaseKeys })}>
+        onLevelUp(id, feature, payload)}>
         {buttonText}</button>);
     } else {
       btnClasses.push('disabled');
       levelUpButton = (<button className={btnClasses.join(' ')}>
         {buttonText}</button>);
     }
-  } else if (feature === 'EVOLUTION') {
-    levelUpButton = (<button className="btn" onClick={() =>
-      onLevelUp(id, feature, { evolvedNumber: newLevel.evolvedNumber })}>
-      Evolve</button>);
-  }
+  } 
 
   return (
     <div className="">

@@ -170,7 +170,7 @@ const api = (playerData) => {
         }
       } else if (feature === 'STATS') {
         const { statIncreaseKeys } = payload;
-        if (statIncreaseKeys.length != 2) {
+        if (statIncreaseKeys.length !== 2) {
           console.log('need to have 2 keys in stat increase array', statIncreaseKeys);
           return leveledPm;
         }
