@@ -24,7 +24,7 @@ const sortPokemon = (a, b) => {
   }
 };
 
-export const evolvePokemon = (pokemon, statChange, evolvedNumber) => {
+export const evolvePokemon = (pokemon, statIncreaseKeys, evolvedNumber) => {
   const evolvedForm = refData.pokemon[evolvedNumber];
   // set the number, name (if the default), image, type
   const { name, image, type } = evolvedForm;
@@ -36,10 +36,7 @@ export const evolvePokemon = (pokemon, statChange, evolvedNumber) => {
   pokemon.type = type;
   pokemon.number = evolvedNumber;
   // add to stats
-  Object.keys(statChange).forEach((changedStat) => {
-    const changeAmount = statChange[changedStat];
-    pokemon.stats[changedStat] += changeAmount;
-  });
+  raiseStatsOnPokemon(pokemon, statIncreaseKeys);
 };
 
 // returns true if move was added, false if the pokemon is full on moves
@@ -64,19 +61,18 @@ export const addMoveToPokemon = (pokemon, move, overwriteTarget) => {
   }
 };
 
-export const raiseStatsOnPokemon = (pokemon, stat1, stat2) => {
+export const raiseStatsOnPokemon = (pokemon, statIncreaseKeys) => {
+  if (statIncreaseKeys.length < 1) {
+    console.log('need to have at least 2 keys in stat increase array', statIncreaseKeys);
+    return pokemon;
+  }
   const { number } = pokemon;
   const hpIncreaseKey = POKEMON_REF_DATA[number].hpIncrease;
   const hpIncrease = HP_INCREASE_REF_DATA[hpIncreaseKey];
   pokemon.stats['HP'] += hpIncrease;
-  if (stat1 && !stat2) {
-    pokemon.stats[stat1] += 2;
-  } else if (stat2 && !stat1) {
-    pokemon.stats[stat2] += 2;
-  } else if (stat1 && stat2) {
-    pokemon.stats[stat1] += 1;
-    pokemon.stats[stat2] += 1;
-  }
+  statIncreaseKeys.forEach((stat) => {
+    pokemon.stats[stat] += 1;
+  });
 }
 
 const api = (playerData) => {
@@ -170,15 +166,10 @@ const api = (playerData) => {
         }
       } else if (feature === 'STATS') {
         const { statIncreaseKeys } = payload;
-        if (statIncreaseKeys.length !== 2) {
-          console.log('need to have 2 keys in stat increase array', statIncreaseKeys);
-          return leveledPm;
-        }
-        raiseStatsOnPokemon(leveledPm, statIncreaseKeys[0], statIncreaseKeys[1]);
+        raiseStatsOnPokemon(leveledPm, statIncreaseKeys);
       } else if (feature === 'EVOLUTION') {
-        const { evolvedNumber } = payload;
-        const { statChange } = refDataFeature;
-        evolvePokemon(leveledPm, statChange, evolvedNumber);
+        const { evolvedNumber, statIncreaseKeys } = payload;
+        evolvePokemon(leveledPm, statIncreaseKeys, evolvedNumber);
       }
       leveledPm.stats.LVL += 1;
       list[index] = leveledPm;

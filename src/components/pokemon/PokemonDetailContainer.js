@@ -15,6 +15,7 @@ const { refData } = config;
 const POKEMON_REF_DATA = refData.pokemon;
 const MOVES_REF_DATA = refData.moves;
 const HP_INCREASE_REF_DATA = refData.hpIncreases;
+const STAT_INCREASE_REF_DATA = refData.statIncreases;
 
 const pathToImages = require.context('../../../images/pokemon');
 
@@ -31,13 +32,18 @@ class PokemonDetailContainer extends Component {
       currentMode = mode;
     }
 
+    const currentPm = api.getPokemon(id);
+    const { levels } = POKEMON_REF_DATA[currentPm.number];
+    const newLevel = levels.find(l => l.LVL === currentPm.stats.LVL + 1);
+    const availableStatPoints = STAT_INCREASE_REF_DATA[newLevel.statIncreases];
+
     this.state = {
       id: id,
       pokemon: api.getPokemon(id),
       currentMode: currentMode,
       backupPmData: api.getPokemon(id),
       overwriteTarget: null,
-      statPoints: 2,
+      remainingStatPoints: availableStatPoints,
       statIncreaseKeys: [],
       confirmDelete: false,
       originalStats: api.getPokemon(id).stats
@@ -58,10 +64,12 @@ class PokemonDetailContainer extends Component {
 
   render() {
     const { currentMode, id, pokemon, overwriteTarget, statIncreaseKeys,
-      statPoints, backupPmData, originalStats, confirmDelete } = this.state;
-    const { number, customName } = pokemon;
+      remainingStatPoints, backupPmData, originalStats, confirmDelete } = this.state;
+    const { number, customName, stats: { LVL } } = pokemon;
     const { name, image, type, levels } = POKEMON_REF_DATA[number];
     const imgSrc = pathToImages(`./${image}`, true);
+
+    const newLevel = levels.find(l => l.LVL === LVL + 1);
 
     let pokemonDetailComponent = pokemon ? (
       <PokemonDetail
@@ -101,12 +109,12 @@ class PokemonDetailContainer extends Component {
         name={name}
         number={number}
         LVL={pokemon.stats.LVL}
-        newLevel={levels.find(l => l.LVL === pokemon.stats.LVL + 1)}
+        newLevel={newLevel}
         type={type}
         moveRefData={MOVES_REF_DATA}
         maxedMoves={pokemon.moves.length === MAX_MOVES}
         overwriteTarget={overwriteTarget}
-        statPoints={statPoints}
+        statPoints={remainingStatPoints}
         originalStats={originalStats}
         statIncreaseKeys={statIncreaseKeys}
         onLevelUp={this.onLevelUp.bind(this)}
@@ -160,7 +168,7 @@ class PokemonDetailContainer extends Component {
   }
 
   onChangeStat(statKey, change) {
-    const { pokemon, pokemon: { number, stats }, statPoints, statIncreaseKeys } = this.state;
+    const { pokemon, pokemon: { number, stats }, remainingStatPoints, statIncreaseKeys } = this.state;
     if (statKey === 'HP') {
       const hpIncreaseKey = POKEMON_REF_DATA[number].hpIncrease;
       const hpIncrease = HP_INCREASE_REF_DATA[hpIncreaseKey];
@@ -171,7 +179,7 @@ class PokemonDetailContainer extends Component {
       stats[statKey] += change;
     }
     let updatedKeys = statIncreaseKeys;
-    let updatedStatPoints = statPoints - change;
+    let updatedStatPoints = remainingStatPoints - change;
     if (change < 0 && statIncreaseKeys.includes(statKey)) {
       // if the stat has already been increased and is now being decreased
       // only remove the first one, leave the other one there
@@ -184,7 +192,7 @@ class PokemonDetailContainer extends Component {
 
     this.setState({
       pokemon: { ...pokemon, stats: stats },
-      statPoints: updatedStatPoints,
+      remainingStatPoints: updatedStatPoints,
       statIncreaseKeys: updatedKeys
     });
   }
@@ -206,11 +214,15 @@ class PokemonDetailContainer extends Component {
     console.log('level up!');
     const updatedPokemon = api.levelUpPokemon(id, feature, payload);
     if (updatedPokemon) {
-      this.setState({ 
+      const { levels } = POKEMON_REF_DATA[updatedPokemon.number];
+      const newLevel = levels.find(l => l.LVL === updatedPokemon.stats.LVL + 1);
+      const availableStatPoints = STAT_INCREASE_REF_DATA[newLevel.statIncreases];
+      this.setState({
         pokemon: updatedPokemon,
         originalStats: updatedPokemon.stats,
-        statIncreaseKeys: [], 
-        statPoints: 2 });
+        statIncreaseKeys: [],
+        remainingStatPoints: availableStatPoints
+      });
     }
   }
 

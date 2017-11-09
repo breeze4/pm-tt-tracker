@@ -98,9 +98,9 @@ const PokemonLevelUp = ({ id, name, number, LVL, newLevel, type, newType,
       payload = { statIncreaseKeys };
     } else if (feature === 'EVOLUTION') {
       buttonText = 'Evolve';
-      payload = { evolvedNumber: newLevel.evolvedNumber };
+      payload = { evolvedNumber: newLevel.evolvedNumber, statIncreaseKeys };
     }
-    if (statPoints == 0) {
+    if (statPoints === 0) {
       btnClasses.push('btn-primary');
       levelUpButton = (<button className={btnClasses.join(' ')} onClick={() =>
         onLevelUp(id, feature, payload)}>
@@ -136,7 +136,7 @@ const PokemonLevelUp = ({ id, name, number, LVL, newLevel, type, newType,
           <div className="column col-4">
             <div className="columns">
               <span className="column col-12">=></span>
-              <span className="column col-12">{statPoints} points</span>
+              <span className="column col-12">{statPoints &&`${statPoints} points`}</span>
             </div>
           </div>
           <div className="column col-4">

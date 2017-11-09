@@ -23,7 +23,8 @@
     "levels": [
       {
         "LVL": 2,
-        "feature": "STATS"
+        "feature": "STATS",
+        "statIncreases": "LOW"
       },
       {
         "LVL": 3,
@@ -32,11 +33,13 @@
       },
       {
         "LVL": 4,
-        "feature": "STATS"
+        "feature": "STATS",
+        "statIncreases": "LOW"
       },
       {
         "LVL": 5,
-        "feature": "STATS"
+        "feature": "STATS",
+        "statIncreases": "LOW"
       },
       {
         "LVL": 6,
@@ -47,14 +50,7 @@
         "LVL": 7,
         "feature": "EVOLUTION",
         "evolvedNumber": "005",
-        "statChange": {
-          "HP": 5,
-          "ATK": 2,
-          "DEF": 2,
-          "SPC_ATK": 2,
-          "SPC_DEF": 2,
-          "SPD": 2
-        }
+        "statIncreases": "MED"
       }
     ]
   },
@@ -89,7 +85,8 @@
       },
       {
         "LVL": 9,
-        "feature": "STATS"
+        "feature": "STATS",
+        "statIncreases": "MED"
       },
       {
         "LVL": 10,
@@ -98,11 +95,13 @@
       },
       {
         "LVL": 11,
-        "feature": "STATS"
+        "feature": "STATS",
+        "statIncreases": "MED"
       },
       {
         "LVL": 12,
-        "feature": "STATS"
+        "feature": "STATS",
+        "statIncreases": "MED"
       },
       {
         "LVL": 13,
@@ -111,20 +110,14 @@
       },
       {
         "LVL": 14,
-        "feature": "STATS"
+        "feature": "STATS",
+        "statIncreases": "MED"
       },
       {
         "LVL": 15,
         "feature": "EVOLUTION",
         "evolvedNumber": "006",
-        "statChange": {
-          "HP": 10,
-          "ATK": 3,
-          "DEF": 2,
-          "SPC_ATK": 3,
-          "SPC_DEF": 2,
-          "SPD": 3
-        }
+        "statIncreases": "HIGH"
       }
     ]
   },
@@ -160,7 +153,8 @@
       },
       {
         "LVL": 17,
-        "feature": "STATS"
+        "feature": "STATS",
+        "statIncreases": "HIGH"
       },
       {
         "LVL": 18,
@@ -169,7 +163,8 @@
       },
       {
         "LVL": 19,
-        "feature": "STATS"
+        "feature": "STATS",
+        "statIncreases": "HIGH"
       },
       {
         "LVL": 20,

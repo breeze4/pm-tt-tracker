@@ -194,9 +194,14 @@
   },
   "hpIncreases": {
     "LOW": 6,
-    "LOW-MED": 6,
-    "MED": 6,
-    "MED-HIGH": 6,
+    "LOW-MED": 8,
+    "MED": 10,
+    "MED-HIGH": 12,
+    "HIGH": 14
+  },
+  "statIncreases": {
+    "LOW": 2,
+    "MED": 4,
     "HIGH": 6
   },
   "types": {
