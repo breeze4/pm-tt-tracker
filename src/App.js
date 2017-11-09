@@ -41,7 +41,7 @@ class App extends Component {
                 if (api.pokemonExists(id))
                   return (<PokemonDetailContainer {...props} />)
                 else
-                  return (<Redirect to="/pokemon" />)
+                  return (<Redirect push to="/pokemon" />)
               }}
               onEnter={api.pokemonExist} />
           </div>)} />
