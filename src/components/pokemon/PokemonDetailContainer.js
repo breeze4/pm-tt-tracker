@@ -35,7 +35,10 @@ class PokemonDetailContainer extends Component {
     const currentPm = api.getPokemon(id);
     const { levels } = POKEMON_REF_DATA[currentPm.number];
     const newLevel = levels.find(l => l.LVL === currentPm.stats.LVL + 1);
-    const availableStatPoints = STAT_INCREASE_REF_DATA[newLevel.statIncreases];
+    let availableStatPoints = null;
+    if (newLevel) {
+      availableStatPoints = STAT_INCREASE_REF_DATA[newLevel.statIncreases];
+    }
 
     this.state = {
       id: id,
@@ -216,7 +219,10 @@ class PokemonDetailContainer extends Component {
     if (updatedPokemon) {
       const { levels } = POKEMON_REF_DATA[updatedPokemon.number];
       const newLevel = levels.find(l => l.LVL === updatedPokemon.stats.LVL + 1);
-      const availableStatPoints = STAT_INCREASE_REF_DATA[newLevel.statIncreases];
+      let availableStatPoints = null;
+      if (newLevel) {
+        availableStatPoints = STAT_INCREASE_REF_DATA[newLevel.statIncreases];
+      }
       this.setState({
         pokemon: updatedPokemon,
         originalStats: updatedPokemon.stats,
