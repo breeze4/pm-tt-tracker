@@ -27,7 +27,7 @@ class App extends Component {
       <div className="app container">
         <Navigation />
         <div className="App-contents">
-          <Route exact path="/" component={Home} />
+          <Route exact path="/" component={PokemonListContainer} />
           <Route path="/pokedex" component={() => (<div>
             <Route exact path="/pokedex" component={PokedexContainer} />
             <Route path="/pokedex/:number"

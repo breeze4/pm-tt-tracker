@@ -7,10 +7,8 @@ import React, { Component } from 'react';
 class Trainer extends Component {
   render() {
     return (
-      <div className="Trainer">
-        Trainer
-        <ul className="Trainer-list">
-        </ul>
+      <div className="trainer">
+        Trainer stats not available yet.
       </div>
     );
   }

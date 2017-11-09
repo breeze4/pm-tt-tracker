@@ -7,10 +7,8 @@ import './Home.css';
 class Home extends Component {
   render() {
     return (
-      <div className="Home">
-        Home
-        <ul className="Home-list">
-        </ul>
+      <div className="home">
+        Trainer stats not available yet.
       </div>
     );
   }

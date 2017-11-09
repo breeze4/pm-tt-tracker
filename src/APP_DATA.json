@@ -1,10 +1,6 @@
 {
   "navigation": [
     {
-      "path": "",
-      "name": "Home"
-    },
-    {
       "path": "trainer",
       "name": "Trainer"
     },
