@@ -24,8 +24,9 @@ const VALID_MODES = ['edit', 'view', 'level'];
 class PokemonDetailContainer extends Component {
   constructor(props) {
     super(props);
+    console.log(props);
 
-    const { match: { params: { id, mode } } } = props;
+    const { match: { params: { id, mode } }, history } = props;
 
     let currentMode = 'view';
     if (VALID_MODES.includes(mode)) {

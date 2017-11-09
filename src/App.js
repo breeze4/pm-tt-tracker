@@ -3,9 +3,12 @@ import {
   BrowserRouter as Router,
   Route
 } from 'react-router-dom';
+import { Redirect } from 'react-router';
 
 import 'spectre.css/dist/spectre.min.css';
 import './App.css';
+
+import api from './api/api.js';
 
 import Navigation from './components/Navigation';
 import PokedexContainer from './components/pokedex/PokedexContainer';
@@ -27,11 +30,20 @@ class App extends Component {
           <Route exact path="/" component={Home} />
           <Route path="/pokedex" component={() => (<div>
             <Route exact path="/pokedex" component={PokedexContainer} />
-            <Route path="/pokedex/:number" component={PokedexDetailContainer} />
+            <Route path="/pokedex/:number"
+              component={PokedexDetailContainer} />
           </div>)} />
           <Route path="/pokemon" component={() => (<div>
             <Route exact path="/pokemon" component={PokemonListContainer} />
-            <Route path="/pokemon/:id/:mode?" component={PokemonDetailContainer} />
+            <Route path="/pokemon/:id/:mode?"
+              render={(props) => {
+                const { match: { params: { id } } } = props;
+                if (api.pokemonExists(id))
+                  return (<PokemonDetailContainer {...props} />)
+                else
+                  return (<Redirect to="/pokemon" />)
+              }}
+              onEnter={api.pokemonExist} />
           </div>)} />
           <Route path="/trainer" component={Trainer} />
         </div>

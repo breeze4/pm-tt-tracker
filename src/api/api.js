@@ -10,6 +10,7 @@ const POKEMON_REF_DATA = refData.pokemon;
 const HP_INCREASE_REF_DATA = refData.hpIncreases;
 
 const DATA = 'data';
+const API_VERSION = 'BETA';
 
 export const MAX_LEVEL = 20;
 export const MAX_MOVES = 4;
@@ -75,11 +76,20 @@ export const raiseStatsOnPokemon = (pokemon, statIncreaseKeys) => {
   });
 }
 
+const existingDataInvalid = () => {
+  const existingStore = store.get(DATA);
+  return !existingStore || existingStore.API_VERSION !== API_VERSION;
+};
+
 const api = (playerData) => {
-  if (!store.get(DATA)) {
+  if (existingDataInvalid()) {
     store.set(DATA, playerData);
   }
   return {
+    pokemonExists: (id) => {
+      const _data = store.get(DATA);
+      return !!_data.pokemon.list.find((pm) => pm.id === id);
+    },
     getPokemon: (id) => {
       const _data = store.get(DATA);
       if (id) {
