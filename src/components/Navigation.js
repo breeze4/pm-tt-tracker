@@ -11,7 +11,7 @@ class Navigation extends Component {
     return (
       <div className="navbar">
         <div className="navbar-section">
-          <p className="navbar-brand">Pokemon</p>
+          <p className="navbar-brand">PokeTop</p>
         </div>
         <div className="navbar-section">
           <ul className="nav">

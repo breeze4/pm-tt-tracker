@@ -1,5 +1,5 @@
 {
-  "name": "pokemon-tt",
+  "name": "poketop",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -21,6 +21,6 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "predeploy": "npm run build && cp ./build/index.html ./build/200.html",
-    "deploy": "surge --project build --domain https://pm-tt-tracker.surge.sh"
+    "deploy": "surge --project build --domain https://poketop.surge.sh"
   }
 }

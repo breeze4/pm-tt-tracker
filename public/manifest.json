@@ -1,6 +1,6 @@
 {
-  "short_name": "PM TTracker",
-  "name": "Pokemon Tabletop Tracker",
+  "short_name": "PokeTop",
+  "name": "PokeTop - Pokemon Tabletop Tracker",
   "icons": [
     {
       "src": "favicon.ico",
