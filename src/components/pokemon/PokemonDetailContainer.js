@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import cloneDeep from 'lodash/cloneDeep';
 
 // import './Home.css';
 import PokemonDetail from './PokemonDetail.js';
@@ -154,7 +155,7 @@ class PokemonDetailContainer extends Component {
   onEnterEditMode() {
     const { id, pokemon } = this.state;
     const { history } = this.props;
-    const backupPmData = { ...pokemon };
+    const backupPmData = cloneDeep(pokemon);
     this.setState({ backupPmData });
     history.push(`/pokemon/${id}/edit`);
   }
