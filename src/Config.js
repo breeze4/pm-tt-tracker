@@ -6,7 +6,7 @@ const mergedRefData = {
   ...REFERENCE_DATA, pokemon: POKEMON_REFERENCE_DATA
 }
 const BASE_URL = window.location.hostname === 'localhost' ?
-  '' : window.location.pathname;
+  '' : '/pm-tt-tracker/';
 
 const config = {
   appData: APP_DATA,
