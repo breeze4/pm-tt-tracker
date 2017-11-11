@@ -30,7 +30,6 @@ const StatsList = ({ classes, stats }) => {
       .filter((key) => DISPLAY_STATS[key])
       .map((key) => {
         const stat = stats[key];
-        console.log(key);
         return (<li key={key} className="columns text-small text-right">
           <span className="column col-8">
             {`${STATS_DATA[key].name}:`}</span>
