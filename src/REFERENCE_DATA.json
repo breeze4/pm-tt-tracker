@@ -35,6 +35,16 @@
       "accuracyBonus": 4,
       "PP": 20
     },
+    "BUG_LEECH_LIFE": {
+      "name": "Leech Life",
+      "type": "BUG",
+      "category": "Special",
+      "effect": "An attack that steals half the damage inflicted.",
+      "damageDice": "1d6",
+      "accuracy": 100,
+      "accuracyBonus": 5,
+      "PP": 15
+    },
     "DRAGON_DRAGON_RAGE": {
       "name": "Dragon Rage",
       "type": "DRAGON",
@@ -177,6 +187,17 @@
       "accuracyBonus": 5,
       "PP": 15
     },
+    "GROUND_MUD_SLAP": {
+      "name": "Mud Slap",
+      "type": "GROUND",
+      "category": "Physical",
+      "effect": "Hurls mud in the foe's face to reduce its accuracy. -1 to hit.",
+      "power": 20,
+      "accuracy": 100,
+      "damageDice": "1d4",
+      "accuracyBonus": 5,
+      "PP": 15
+    },
     "GROUND_SAND_ATTACK": {
       "name": "Sand Attack",
       "type": "GROUND",
@@ -185,6 +206,16 @@
       "accuracy": 100,
       "accuracyBonus": 5,
       "PP": 15
+    },
+    "NORMAL_DEFENSE_CURL": {
+      "name": "Defense Curl",
+      "type": "NORMAL",
+      "effect": "Curls up to conceal weak spots and raise Defense by 1.",
+      "changedStat": "DEF",
+      "changedStatAmount": 1,
+      "accuracy": 100,
+      "accuracyBonus": 5,
+      "PP": 40
     },
     "NORMAL_GROWL": {
       "name": "Growl",
@@ -203,6 +234,38 @@
       "changedStat": "SPC_ATK",
       "changedStatAmount": 2,
       "PP": 40
+    },
+    "NORMAL_HARDEN": {
+      "name": "Harden",
+      "type": "NORMAL",
+      "effect": "Stiffens the body's muscles to raise Defense by 1.",
+      "changedStat": "DEF",
+      "changedStatAmount": 1,
+      "accuracy": 100,
+      "accuracyBonus": 5,
+      "PP": 40
+    },
+    "NORMAL_HYPER_FANG": {
+      "name": "Hyper Fang",
+      "type": "NORMAL",
+      "category": "Physical",
+      "effect": "Rabid attack with sharp fangs. Causes flinching on 18-20.",
+      "power": 35,
+      "accuracy": 90,
+      "damageDice": "2d8",
+      "accuracyBonus": 3,
+      "PP": 35
+    },
+    "NORMAL_POUND": {
+      "name": "Pound",
+      "type": "NORMAL",
+      "category": "Physical",
+      "effect": "Pounds foe with limbs.",
+      "power": 40,
+      "accuracy": 100,
+      "damageDice": "1d6",
+      "accuracyBonus": 5,
+      "PP": 35
     },
     "NORMAL_PROTECT": {
       "name": "Protect",
@@ -263,6 +326,15 @@
       "accuracyBonus": 5,
       "PP": 20
     },
+    "NORMAL_SUPERSONIC": {
+      "name": "Supersonic",
+      "type": "NORMAL",
+      "category": "Status",
+      "effect": "Emits bizarre sound waves that may confuse the foe.",
+      "accuracy": 55,
+      "accuracyBonus": 2,
+      "PP": 40
+    },
     "NORMAL_TACKLE": {
       "name": "Tackle",
       "type": "NORMAL",
@@ -288,11 +360,32 @@
       "name": "Wrap",
       "type": "NORMAL",
       "category": "Physical",
-      "effect": "Squeezes the foe for 2-5 turns.",
+      "effect": "Squeezes the foe for 1d4 turns.",
       "power": 15,
       "accuracy": 90,
       "damageDice": "1d4",
       "accuracyBonus": 4,
+      "PP": 20
+    },
+    "POISON_POISON_GAS": {
+      "name": "Poison Gas",
+      "type": "POISON",
+      "category": "Physical",
+      "effect": "Envelops the foe in a toxic gas that poisons for 1d4 turns.",
+      "power": 15,
+      "accuracy": 55,
+      "damageDice": "1d4",
+      "accuracyBonus": 3,
+      "PP": 20
+    },
+    "ROCK_ROCK_THROW": {
+      "name": "Rock Throw",
+      "type": "ROCK",
+      "category": "Physical",
+      "effect": "Throws small rocks to strike the foe.",
+      "accuracy": 90,
+      "accuracyBonus": 4,
+      "damageDice": "1d8",
       "PP": 20
     },
     "WATER_BUBBLE": {
@@ -376,6 +469,22 @@
     "HIGH": 6
   },
   "types": {
+    "BUG": {
+      "name": "Bug",
+      "color": "#A8B820",
+      "fontColor": "white",
+      "goodAgainst": [
+        "GRASS",
+        "POISON",
+        "PSYCHIC"
+      ],
+      "badAgainst": [
+        "FIRE",
+        "FIGHTING",
+        "FLYING"
+      ],
+      "noEffect": []
+    },
     "DRAGON": {
       "name": "Dragon",
       "color": "#4000ff",
@@ -480,6 +589,22 @@
         "GROUND",
         "ROCK",
         "GHOST"
+      ],
+      "noEffect": []
+    },
+    "ROCK": {
+      "name": "Rock",
+      "color": "#B8A038",
+      "fontColor": "white",
+      "goodAgainst": [
+        "FIRE",
+        "ICE",
+        "FLYING",
+        "BUG"
+      ],
+      "badAgainst": [
+        "FIGHTING",
+        "GROUND"
       ],
       "noEffect": []
     },

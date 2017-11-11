@@ -567,5 +567,201 @@
         "move": "NORMAL_QUICK_ATTACK"
       }
     ]
+  },
+  "019": {
+    "name": "Rattata",
+    "image": "019_rattata.png",
+    "type": [
+      "NORMAL"
+    ],
+    "baseStats": {
+      "HP": 10,
+      "LVL": 1,
+      "ATK": 10,
+      "DEF": 10,
+      "SPC_ATK": 10,
+      "SPC_DEF": 10,
+      "SPD": 10,
+      "CAP_DC": 10
+    },
+    "defaultMoves": [
+      "NORMAL_TACKLE",
+      "NORMAL_TAIL_WHIP"
+    ],
+    "hpIncrease": "LOW",
+    "levels": [
+      {
+        "LVL": 2,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 3,
+        "feature": "MOVE",
+        "move": "NORMAL_QUICK_ATTACK"
+      },
+      {
+        "LVL": 4,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 5,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 6,
+        "feature": "MOVE",
+        "move": "NORMAL_HYPER_FANG"
+      }
+    ]
+  },
+  "041": {
+    "name": "Zubat",
+    "image": "041_zubat.png",
+    "type": [
+      "POISON", "FLYING"
+    ],
+    "baseStats": {
+      "HP": 10,
+      "LVL": 1,
+      "ATK": 10,
+      "DEF": 10,
+      "SPC_ATK": 10,
+      "SPC_DEF": 10,
+      "SPD": 10,
+      "CAP_DC": 10
+    },
+    "defaultMoves": [
+      "BUG_LEECH_LIFE",
+      "NORMAL_SUPERSONIC"
+    ],
+    "hpIncrease": "LOW",
+    "levels": [
+      {
+        "LVL": 2,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 3,
+        "feature": "MOVE",
+        "move": "NORMAL_QUICK_ATTACK"
+      },
+      {
+        "LVL": 4,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 5,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 6,
+        "feature": "MOVE",
+        "move": "FLYING_WING_ATTACK"
+      }
+    ]
+  },
+  "074": {
+    "name": "Geodude",
+    "image": "074_geodude.png",
+    "type": [
+      "ROCK", "GROUND"
+    ],
+    "baseStats": {
+      "HP": 10,
+      "LVL": 1,
+      "ATK": 10,
+      "DEF": 10,
+      "SPC_ATK": 10,
+      "SPC_DEF": 10,
+      "SPD": 10,
+      "CAP_DC": 10
+    },
+    "defaultMoves": [
+      "NORMAL_TACKLE",
+      "NORMAL_DEFENSE_CURL"
+    ],
+    "hpIncrease": "LOW",
+    "levels": [
+      {
+        "LVL": 2,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 3,
+        "feature": "MOVE",
+        "move": "GROUND_SAND_ATTACK"
+      },
+      {
+        "LVL": 4,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 5,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 6,
+        "feature": "MOVE",
+        "move": "ROCK_ROCK_THROW"
+      }
+    ]
+  },
+  "088": {
+    "name": "Grimer",
+    "image": "088_grimer.png",
+    "type": [
+      "POISON"
+    ],
+    "baseStats": {
+      "HP": 10,
+      "LVL": 1,
+      "ATK": 10,
+      "DEF": 10,
+      "SPC_ATK": 10,
+      "SPC_DEF": 10,
+      "SPD": 10,
+      "CAP_DC": 10
+    },
+    "defaultMoves": [
+      "NORMAL_POUND",
+      "POISON_POISON_GAS"
+    ],
+    "hpIncrease": "LOW",
+    "levels": [
+      {
+        "LVL": 2,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 3,
+        "feature": "MOVE",
+        "move": "NORMAL_HARDEN"
+      },
+      {
+        "LVL": 4,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 5,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 6,
+        "feature": "MOVE",
+        "move": "GROUND_MUD_SLAP"
+      }
+    ]
   }
 }
