@@ -7,8 +7,11 @@ import config from '../../Config.js';
 const { refData } = config;
 const STATS_DATA = refData.stats;
 
-export const StatValue = (stat) => {
+export const StatValue = (stat, key) => {
   if (!stat) return null;
+  if (key === 'LVL' || key === 'HP') {
+    return stat;
+  }
 
   let modifier = calculateModifier(stat);
   let modifierSign;
@@ -32,7 +35,7 @@ const StatsList = ({ classes, stats }) => {
           <span className="column col-8">
             {`${STATS_DATA[key].name}:`}</span>
           <span className="column col-4">
-            {key === 'HP' ? stat : StatValue(stat)}</span>
+            {StatValue(stat, key)}</span>
         </li>);
       })
   );
