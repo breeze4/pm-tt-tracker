@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { DISPLAY_STATS } from '../pokemon/PokemonEdit';
+import { StatValue } from './StatsList.js';
 
 import config from '../../Config.js';
 const { refData } = config;
@@ -8,7 +9,7 @@ const STATS_DATA = refData.stats;
 
 const StatLine = (props) => {
   const { classes, fixed,
-    statKey, statValue, baseStatValue } = props;
+    statKey, statValue, baseStatValue, showModifier } = props;
 
   let onDecreaseStatButton = null;
   let onAddStatButton = null;
@@ -30,7 +31,7 @@ const StatLine = (props) => {
       {`${STATS_DATA[statKey].name}:`}
     </span>
     <span className="column col-2">
-      {baseStatValue}
+      {showModifier ? StatValue(baseStatValue) : baseStatValue}
     </span>
     <span className="column col-4 btn-group">
       {onDecreaseStatButton}
@@ -40,7 +41,7 @@ const StatLine = (props) => {
       {`${STATS_DATA[statKey].name}:`}
     </span>
     <span className="column col-2">
-      {statValue}
+      {showModifier ? StatValue(statValue) : statValue}
     </span>
   </li>)
 }

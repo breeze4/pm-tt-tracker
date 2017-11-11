@@ -28,6 +28,7 @@ const StatsIncrease = ({ classes, originalStats, stats, statPoints, hpIncreaseKe
             statPoints={statPoints}
             statAlreadyIncreased={statAlreadyIncreased}
             onChangeStat={onChangeStat}
+            showModifier={true}
           />);
       })
   );
@@ -35,13 +36,14 @@ const StatsIncrease = ({ classes, originalStats, stats, statPoints, hpIncreaseKe
   const hpIncrease = HP_INCREASE_REF_DATA[hpIncreaseKey];
   const healthLine = (
     <StatLine
-    key={hpKey}
-    classes={['columns']}
-    fixed={true}
-    statKey={hpKey}
-    statValue={originalStats[hpKey] + hpIncrease}
-    baseStatValue={originalStats[hpKey]}
-  />
+      key={hpKey}
+      classes={['columns']}
+      fixed={true}
+      statKey={hpKey}
+      statValue={originalStats[hpKey] + hpIncrease}
+      baseStatValue={originalStats[hpKey]}
+      showModifier={false}
+    />
   );
   return (
     <div className={classes.join(' ')}>
