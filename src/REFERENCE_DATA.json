@@ -373,6 +373,23 @@
       ],
       "noEffect": [
       ]
+    },
+    "WATER": {
+      "name": "Water",
+      "color": "#6890F0",
+      "fontColor": "white",
+      "goodAgainst": [
+        "FIRE",
+        "GROUND",
+        "ROCK"
+      ],
+      "badAgainst": [
+        "WATER",
+        "GRASS",
+        "DRAGON"
+      ],
+      "noEffect": [
+      ]
     }
   },
   "items": {
