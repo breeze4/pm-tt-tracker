@@ -101,6 +101,71 @@
       "accuracyBonus": 5,
       "PP": 15
     },
+    "GRASS_LEECH_SEED": {
+      "name": "Leech Seed",
+      "type": "GRASS",
+      "category": "Special",
+      "effect": "Steals HP from the foe on every turn.",
+      "effectCondition": "LEECH",
+      "damageDice": "1d6",
+      "accuracy": 100,
+      "accuracyBonus": 4,
+      "PP": 15
+    },
+    "GRASS_POISON_POWDER": {
+      "name": "Poison Powder",
+      "type": "POISON",
+      "category": "Special",
+      "effect": "Scatters a toxic powder that may poison the foe.",
+      "effectCondition": "POISON",
+      "damageDice": "1d6",
+      "accuracy": 75,
+      "accuracyBonus": 3,
+      "PP": 10
+    },
+    "GRASS_SLEEP_POWDER": {
+      "name": "Sleep Powder",
+      "type": "GRASS",
+      "category": "Special",
+      "effect": "Scatters a powder that may cause the foe to sleep.",
+      "effectCondition": "SLEEP",
+      "accuracy": 75,
+      "accuracyBonus": 3,
+      "PP": 5
+    },
+    "GRASS_SOLAR_BEAM": {
+      "name": "Solar Beam",
+      "type": "GRASS",
+      "category": "Special",
+      "effect": "Absorbs sunlight in the 1st turn, then attacks next turn.",
+      "power": 45,
+      "accuracy": 100,
+      "damageDice": "2d12",
+      "accuracyBonus": 5,
+      "PP": 5
+    },
+    "GRASS_RAZOR_LEAF": {
+      "name": "Razor Leaf",
+      "type": "GRASS",
+      "category": "Physical",
+      "effect": "Cuts the enemy with leaves. Crits on 19-20.",
+      "power": 55,
+      "accuracy": 100,
+      "damageDice": "1d8",
+      "accuracyBonus": 4,
+      "PP": 15
+    },
+    "GRASS_VINE_WHIP": {
+      "name": "Vine Whip",
+      "type": "GRASS",
+      "category": "Physical",
+      "effect": "Whips the foe with slender vines.",
+      "power": 35,
+      "accuracy": 100,
+      "damageDice": "1d6",
+      "accuracyBonus": 5,
+      "PP": 15
+    },
     "NORMAL_GROWL": {
       "name": "Growl",
       "type": "NORMAL",
@@ -110,6 +175,20 @@
       "accuracy": 100,
       "accuracyBonus": 5,
       "PP": 40
+    },
+    "NORMAL_GROWTH": {
+      "name": "Growth",
+      "type": "NORMAL",
+      "effect": "Raises the Special Attack score by 2.",
+      "changedStat": "SPC_ATK",
+      "changedStatAmount": 2,
+      "PP": 40
+    },
+    "NORMAL_PROTECT": {
+      "name": "Protect",
+      "type": "NORMAL",
+      "effect": "Completely foils an opponent's attack. If used consecutively, its success rate decreases.",
+      "PP": 5
     },
     "NORMAL_SCRATCH": {
       "name": "Scratch",
@@ -232,6 +311,25 @@
       ],
       "noEffect": []
     },
+    "GRASS": {
+      "name": "Grass",
+      "color": "#78C850",
+      "fontColor": "white",
+      "goodAgainst": [
+        "WATER",
+        "GROUND",
+        "ROCK"
+      ],
+      "badAgainst": [
+        "FIRE",
+        "GRASS",
+        "POISON",
+        "FLYING",
+        "BUG",
+        "DRAGON"
+      ],
+      "noEffect": []
+    },
     "FLYING": {
       "name": "Flying",
       "color": "#9966ff",
@@ -257,6 +355,23 @@
       ],
       "noEffect": [
         "GHOST"
+      ]
+    },
+    "POISON": {
+      "name": "Poison",
+      "color": "#A040A0",
+      "fontColor": "white",
+      "goodAgainst": [
+        "GRASS",
+        "BUG"
+      ],
+      "badAgainst": [
+        "POISON",
+        "GROUND",
+        "ROCK",
+        "GHOST"
+      ],
+      "noEffect": [
       ]
     }
   },

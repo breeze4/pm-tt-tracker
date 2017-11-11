@@ -1,4 +1,177 @@
 {
+  "001": {
+    "name": "Bulbasaur",
+    "image": "001_bulbasaur.png",
+    "type": [
+      "GRASS", "POISON"
+    ],
+    "baseStats": {
+      "HP": 10,
+      "LVL": 1,
+      "ATK": 10,
+      "DEF": 10,
+      "SPC_ATK": 10,
+      "SPC_DEF": 10,
+      "SPD": 10,
+      "CAP_DC": 10
+    },
+    "defaultMoves": [
+      "NORMAL_SCRATCH",
+      "NORMAL_TAIL_WHIP"
+    ],
+    "hpIncrease": "LOW",
+    "levels": [
+      {
+        "LVL": 2,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 3,
+        "feature": "MOVE",
+        "move": "GRASS_VINE_WHIP"
+      },
+      {
+        "LVL": 4,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 5,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 6,
+        "feature": "MOVE",
+        "move": "GRASS_SLEEP_POWDER"
+      },
+      {
+        "LVL": 7,
+        "feature": "EVOLUTION",
+        "evolvedNumber": "002",
+        "statIncreases": "MED"
+      }
+    ]
+  },
+  "002": {
+    "name": "Ivysaur",
+    "image": "002_ivysaur.png",
+    "type": [
+      "GRASS", "POISON"
+    ],
+    "baseStats": {
+      "HP": 35,
+      "LVL": 7,
+      "ATK": 12,
+      "DEF": 12,
+      "SPC_ATK": 12,
+      "SPC_DEF": 12,
+      "SPD": 12,
+      "CAP_DC": 12
+    },
+    "defaultMoves": [
+      "NORMAL_SCRATCH",
+      "NORMAL_GROWL",
+      "GRASS_VINE_WHIP",
+      "GRASS_SLEEP_POWDER"
+    ],
+    "hpIncrease": "MED",
+    "levels": [
+      {
+        "LVL": 8,
+        "feature": "MOVE",
+        "move": "GRASS_POISON_POWDER"
+      },
+      {
+        "LVL": 9,
+        "feature": "STATS",
+        "statIncreases": "MED"
+      },
+      {
+        "LVL": 10,
+        "feature": "MOVE",
+        "move": "GRASS_RAZOR_LEAF"
+      },
+      {
+        "LVL": 11,
+        "feature": "STATS",
+        "statIncreases": "MED"
+      },
+      {
+        "LVL": 12,
+        "feature": "STATS",
+        "statIncreases": "MED"
+      },
+      {
+        "LVL": 13,
+        "feature": "MOVE",
+        "move": "NORMAL_GROWTH"
+      },
+      {
+        "LVL": 14,
+        "feature": "STATS",
+        "statIncreases": "MED"
+      },
+      {
+        "LVL": 15,
+        "feature": "EVOLUTION",
+        "evolvedNumber": "003",
+        "statIncreases": "HIGH"
+      }
+    ]
+  },
+  "003": {
+    "name": "Venusaur",
+    "image": "003_venusaur.png",
+    "type": [
+      "GRASS", "POISON"
+    ],
+    "baseStats": {
+      "HP": 75,
+      "LVL": 15,
+      "ATK": 10,
+      "DEF": 10,
+      "SPC_ATK": 10,
+      "SPC_DEF": 10,
+      "SPD": 10,
+      "CAP_DC": 10
+    },
+    "defaultMoves": [
+      "GRASS_VINE_WHIP",
+      "GRASS_POISON_POWDER",
+      "GRASS_RAZOR_LEAF",
+      "NORMAL_GROWTH"
+    ],
+    "hpIncrease": "MED-HIGH",
+    "levels": [
+      {
+        "LVL": 16,
+        "feature": "STATS",
+        "statIncreases": "HIGH"
+      },
+      {
+        "LVL": 17,
+        "feature": "MOVE",
+        "move": "GRASS_LEECH_SEED"
+      },
+      {
+        "LVL": 18,
+        "feature": "STATS",
+        "statIncreases": "HIGH"
+      },
+      {
+        "LVL": 19,
+        "feature": "MOVE",
+        "move": "GRASS_SOLAR_BEAM"
+      },
+      {
+        "LVL": 20,
+        "feature": "STATS",
+        "statIncreases": "HIGH"
+      }
+    ]
+  },
   "004": {
     "name": "Charmander",
     "image": "004_charmander.png",

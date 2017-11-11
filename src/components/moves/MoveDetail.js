@@ -16,9 +16,9 @@ const DamageDetail = ({ damageDice, hitBonus, damageBonus }) => {
 const MoveDetail = (props) => {
   const { move, stats } = props;
   const moveData = MOVE_REF_DATA[move];
-  const { effect, name, type } = moveData;
+  const { effect, name, type, category } = moveData;
   const { damageDice, accuracyBonus } = moveData;
-  const { classes, children } = moveData;
+  const { classes, children } = props;
 
   let moveDescription;
   if (damageDice) {
@@ -31,8 +31,13 @@ const MoveDetail = (props) => {
   return (
     <li className={moveClasses.join(' ')}>
       <div className="card-header">
-        <span className="h6">{name}</span>
-        <TypeLabel type={[type]} />
+        <div>
+          <span className="h6">{name}</span>
+        </div>
+        <div>
+          <span>{category}</span>
+          <TypeLabel type={[type]} />
+        </div>
       </div>
       <div className="card-body">
         <div className="columns text-small">

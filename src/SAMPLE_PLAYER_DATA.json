@@ -24,30 +24,7 @@
     },
     "list": [
       {
-        "id": "985123a0-7e4f-11e7-9022-fb7190c856e4",
-        "number": "006",
-        "name": "Charizard",
-        "customName": "Sickly Hubert",
-        "party": true,
-        "stats": {
-          "HP": 100,
-          "LVL": 16,
-          "ATK": 10,
-          "DEF": 10,
-          "SPC_ATK": 10,
-          "SPC_DEF": 10,
-          "SPD": 15,
-          "CAP_DC": 10
-        },
-        "moves": [
-          "TEST",
-          "NORMAL_TAIL_WHIP",
-          "FIRE_FLAMETHROWER",
-          "NORMAL_WRAP"
-        ]
-      },
-      {
-        "id": "df7cca36-3d7a-40f4-8f06-ae03cc22f045",
+        "id": "0",
         "number": "004",
         "name": "Charmander",
         "customName": "Charmander",
