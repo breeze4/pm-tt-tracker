@@ -19,8 +19,9 @@ const calculateMoveModifiers = (move, stats) => {
       break;
   }
   const statScore = stats[statKey];
-  const totalBonus = calculateModifier(statScore) + accuracyBonus;
-  return totalBonus;
+  const statBonus = calculateModifier(statScore);
+  const totalBonus = statBonus + accuracyBonus;
+  return { hitBonus: totalBonus, damageBonus: statBonus };
 }
 
 export default calculateMoveModifiers;

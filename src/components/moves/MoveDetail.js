@@ -7,9 +7,9 @@ import config from '../../Config.js';
 const { refData } = config;
 const MOVE_REF_DATA = refData.moves;
 
-const DamageDetail = ({ damageDice, hitBonus }) => {
+const DamageDetail = ({ damageDice, hitBonus, damageBonus }) => {
   return (<span className="column col-12">
-    {`To Hit: +${hitBonus}, Damage: ${damageDice}`}
+    {`To Hit: +${hitBonus}, Damage: ${damageDice} +${damageBonus}`}
   </span>);
 }
 
@@ -23,8 +23,8 @@ const MoveDetail = (props) => {
   let moveDescription;
   if (damageDice) {
     // hit bonus = accuracy of move + attack bonus from pokemon
-    const hitBonus = calculateMoveModifiers(move, stats);
-    moveDescription = DamageDetail({ damageDice, hitBonus });
+    const { hitBonus, damageBonus } = calculateMoveModifiers(move, stats);
+    moveDescription = DamageDetail({ damageDice, hitBonus, damageBonus });
   }
 
   const moveClasses = ['card'].concat(classes);
