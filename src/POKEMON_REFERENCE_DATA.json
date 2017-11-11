@@ -16,8 +16,8 @@
       "CAP_DC": 10
     },
     "defaultMoves": [
-      "NORMAL_SCRATCH",
-      "NORMAL_TAIL_WHIP"
+      "NORMAL_TACKLE",
+      "NORMAL_GROWL"
     ],
     "hpIncrease": "LOW",
     "levels": [
@@ -71,7 +71,7 @@
       "CAP_DC": 12
     },
     "defaultMoves": [
-      "NORMAL_SCRATCH",
+      "NORMAL_TACKLE",
       "NORMAL_GROWL",
       "GRASS_VINE_WHIP",
       "GRASS_SLEEP_POWDER"
@@ -363,7 +363,7 @@
       "CAP_DC": 10
     },
     "defaultMoves": [
-      "NORMAL_SCRATCH",
+      "NORMAL_TACKLE",
       "NORMAL_TAIL_WHIP"
     ],
     "hpIncrease": "LOW",
@@ -376,7 +376,7 @@
       {
         "LVL": 3,
         "feature": "MOVE",
-        "move": "GRASS_VINE_WHIP"
+        "move": "WATER_BUBBLE"
       },
       {
         "LVL": 4,
@@ -391,12 +391,12 @@
       {
         "LVL": 6,
         "feature": "MOVE",
-        "move": "GRASS_SLEEP_POWDER"
+        "move": "WATER_WITHDRAW"
       },
       {
         "LVL": 7,
         "feature": "EVOLUTION",
-        "evolvedNumber": "002",
+        "evolvedNumber": "008",
         "statIncreases": "MED"
       }
     ]
@@ -418,17 +418,17 @@
       "CAP_DC": 12
     },
     "defaultMoves": [
-      "NORMAL_SCRATCH",
-      "NORMAL_GROWL",
-      "GRASS_VINE_WHIP",
-      "GRASS_SLEEP_POWDER"
+      "NORMAL_TACKLE",
+      "NORMAL_TAIL_WHIP",
+      "WATER_BUBBLE",
+      "WATER_WITHDRAW"
     ],
     "hpIncrease": "MED",
     "levels": [
       {
         "LVL": 8,
         "feature": "MOVE",
-        "move": "GRASS_POISON_POWDER"
+        "move": "WATER_WATER_GUN"
       },
       {
         "LVL": 9,
@@ -438,7 +438,7 @@
       {
         "LVL": 10,
         "feature": "MOVE",
-        "move": "GRASS_RAZOR_LEAF"
+        "move": "NORMAL_PROTECT"
       },
       {
         "LVL": 11,
@@ -485,22 +485,22 @@
       "CAP_DC": 10
     },
     "defaultMoves": [
-      "GRASS_VINE_WHIP",
-      "GRASS_POISON_POWDER",
-      "GRASS_RAZOR_LEAF",
-      "NORMAL_GROWTH"
+      "WATER_WATER_GUN",
+      "NORMAL_PROTECT",
+      "NORMAL_GROWTH",
+      "WATER_WITHDRAW"
     ],
     "hpIncrease": "MED-HIGH",
     "levels": [
       {
         "LVL": 16,
-        "feature": "STATS",
-        "statIncreases": "HIGH"
+        "feature": "MOVE",
+        "move": "NORMAL_SKULL_BASH"
       },
       {
         "LVL": 17,
-        "feature": "MOVE",
-        "move": "GRASS_LEECH_SEED"
+        "feature": "STATS",
+        "statIncreases": "HIGH"
       },
       {
         "LVL": 18,
@@ -510,7 +510,7 @@
       {
         "LVL": 19,
         "feature": "MOVE",
-        "move": "GRASS_SOLAR_BEAM"
+        "move": "WATER_HYDRO_PUMP"
       },
       {
         "LVL": 20,

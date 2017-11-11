@@ -201,6 +201,17 @@
       "accuracyBonus": 5,
       "PP": 35
     },
+    "NORMAL_SKULL_BASH": {
+      "name": "Skull Bash",
+      "type": "NORMAL",
+      "category": "Physical",
+      "effect": "Tucks in the head, then attacks on the next turn.",
+      "power": 70,
+      "accuracy": 100,
+      "damageDice": "2d12",
+      "accuracyBonus": 5,
+      "PP": 5
+    },
     "NORMAL_SLASH": {
       "name": "Slash",
       "type": "NORMAL",
@@ -223,6 +234,17 @@
       "accuracyBonus": 5,
       "PP": 20
     },
+    "NORMAL_TACKLE": {
+      "name": "Tackle",
+      "type": "NORMAL",
+      "category": "Physical",
+      "effect": "Charges the foe with a full-body tackle.",
+      "power": 35,
+      "accuracy": 95,
+      "damageDice": "1d6",
+      "accuracyBonus": 4,
+      "PP": 35
+    },
     "NORMAL_TAIL_WHIP": {
       "name": "Tail Whip",
       "type": "NORMAL",
@@ -242,6 +264,47 @@
       "accuracy": 90,
       "damageDice": "1d4",
       "accuracyBonus": 4,
+      "PP": 20
+    },
+    "WATER_BUBBLE": {
+      "name": "Bubble",
+      "type": "WATER",
+      "category": "Special",
+      "effect": "An attack using bubbles. May lower the foe's Speed.",
+      "changedStat": "SPD",
+      "changedStatAmount": 1,
+      "accuracy": 100,
+      "accuracyBonus": 5,
+      "damageDice": "1d6",
+      "PP": 20
+    },
+    "WATER_HYDRO_PUMP": {
+      "name": "Hydro Pump",
+      "type": "WATER",
+      "category": "Special",
+      "effect": "Blasts water at high power to strike the foe.",
+      "accuracy": 100,
+      "accuracyBonus": 4,
+      "damageDice": "2d10",
+      "PP": 20
+    },
+    "WATER_WATER_GUN": {
+      "name": "Water Gun",
+      "type": "WATER",
+      "category": "Special",
+      "effect": "Squirts water to attack the foe.",
+      "accuracy": 100,
+      "accuracyBonus": 5,
+      "damageDice": "1d8",
+      "PP": 20
+    },
+    "WATER_WITHDRAW": {
+      "name": "Withdraw",
+      "type": "WATER",
+      "category": "Status",
+      "effect": "Withdraws the body into its hard shell to raise Defense.",
+      "changedStat": "DEF",
+      "changedStatAmount": 1,
       "PP": 20
     }
   },
@@ -371,8 +434,7 @@
         "ROCK",
         "GHOST"
       ],
-      "noEffect": [
-      ]
+      "noEffect": []
     },
     "WATER": {
       "name": "Water",
@@ -388,8 +450,7 @@
         "GRASS",
         "DRAGON"
       ],
-      "noEffect": [
-      ]
+      "noEffect": []
     }
   },
   "items": {
