@@ -57,6 +57,17 @@
       "accuracyBonus": 4,
       "PP": 15
     },
+    "FLYING_GUST": {
+      "name": "Gust",
+      "type": "FLYING",
+      "category": "Physical",
+      "effect": "Strikes the foe with a gust of wind whipped up by wings.",
+      "power": 40,
+      "accuracy": 100,
+      "damageDice": "1d6",
+      "accuracyBonus": 5,
+      "PP": 35
+    },
     "FLYING_WING_ATTACK": {
       "name": "Wing Attack",
       "type": "FLYING",
@@ -166,6 +177,15 @@
       "accuracyBonus": 5,
       "PP": 15
     },
+    "GROUND_SAND_ATTACK": {
+      "name": "Sand Attack",
+      "type": "GROUND",
+      "category": "Status",
+      "effect": "Reduces single foe's accuracy by throwing sand. -2 to hit.",
+      "accuracy": 100,
+      "accuracyBonus": 5,
+      "PP": 15
+    },
     "NORMAL_GROWL": {
       "name": "Growl",
       "type": "NORMAL",
@@ -189,6 +209,17 @@
       "type": "NORMAL",
       "effect": "Completely foils an opponent's attack. If used consecutively, its success rate decreases.",
       "PP": 5
+    },
+    "NORMAL_QUICK_ATTACK": {
+      "name": "Quick Attack",
+      "type": "NORMAL",
+      "category": "Physical",
+      "effect": "An extremely fast attack that always strikes first.",
+      "power": 40,
+      "accuracy": 100,
+      "damageDice": "1d8",
+      "accuracyBonus": 5,
+      "PP": 30
     },
     "NORMAL_SCRATCH": {
       "name": "Scratch",
@@ -227,10 +258,8 @@
       "name": "Smokescreen",
       "type": "NORMAL",
       "category": "Physical",
-      "effect": "Lowers the foe's accuracy.",
-      "power": 40,
+      "effect": "Lowers all foe's accuracy. -1 to hit.",
       "accuracy": 100,
-      "damageDice": "1d8",
       "accuracyBonus": 5,
       "PP": 20
     },
@@ -392,6 +421,24 @@
         "DRAGON"
       ],
       "noEffect": []
+    },
+    "GROUND": {
+      "name": "Ground",
+      "color": "#E0C068",
+      "fontColor": "white",
+      "goodAgainst": [
+        "FIRE",
+        "ELECTRIC",
+        "POISON",
+        "ROCK"
+      ],
+      "badAgainst": [
+        "GRASS",
+        "BUG"
+      ],
+      "noEffect": [
+        "FLYING"
+      ]
     },
     "FLYING": {
       "name": "Flying",

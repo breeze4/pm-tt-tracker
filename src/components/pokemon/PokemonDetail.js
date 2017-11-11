@@ -11,11 +11,11 @@ import config from '../../Config.js';
 const { refData } = config;
 
 const PokemonDetail = ({ id, imgSrc, name, type, number, customName, stats,
-  moves, confirmDelete, onDelete, onConfirmDelete, onEnterEditMode, onEnterLevelMode }) => {
+  moves, newLevel, confirmDelete, onDelete, onConfirmDelete, onEnterEditMode, onEnterLevelMode }) => {
   const { LVL } = stats;
 
   const editModeButton = (<button className="btn" onClick={onEnterEditMode}>Edit</button>);
-  const levelUpButton = LVL < MAX_LEVEL ?
+  const levelUpButton = LVL < MAX_LEVEL && newLevel ?
     (<button className="btn" onClick={onEnterLevelMode}>Level Up</button>) : null;
   const deleteButton = (<button className="btn" onClick={() => onDelete(id)}>Delete Pokemon</button>);
   const confirmDeleteButton = (<button className="btn" onClick={() => onConfirmDelete(id)}>Confirm Delete?</button>);

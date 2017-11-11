@@ -37,8 +37,11 @@ class PokemonDetailContainer extends Component {
     const { levels } = POKEMON_REF_DATA[currentPm.number];
     const newLevel = levels.find(l => l.LVL === currentPm.stats.LVL + 1);
     let availableStatPoints = null;
+    let maxLevel = false;
     if (newLevel) {
       availableStatPoints = STAT_INCREASE_REF_DATA[newLevel.statIncreases];
+    } else {
+      maxLevel = true;
     }
 
     this.state = {
@@ -50,7 +53,8 @@ class PokemonDetailContainer extends Component {
       remainingStatPoints: availableStatPoints,
       statIncreaseKeys: [],
       confirmDelete: false,
-      originalStats: api.getPokemon(id).stats
+      originalStats: api.getPokemon(id).stats,
+      maxLevel: maxLevel
     }
   }
 
@@ -68,7 +72,7 @@ class PokemonDetailContainer extends Component {
 
   render() {
     const { currentMode, id, pokemon, overwriteTarget, statIncreaseKeys,
-      remainingStatPoints, backupPmData, originalStats, confirmDelete } = this.state;
+      remainingStatPoints, backupPmData, originalStats, confirmDelete, maxLevel } = this.state;
     const { number, customName, stats: { LVL } } = pokemon;
     const { name, image, type, levels } = POKEMON_REF_DATA[number];
     const imgSrc = pathToImages(`./${image}`, true);
@@ -82,6 +86,7 @@ class PokemonDetailContainer extends Component {
         name={name}
         imgSrc={imgSrc}
         type={type}
+        newLevel={newLevel}
         confirmDelete={confirmDelete}
         onDelete={this.onDelete.bind(this)}
         onConfirmDelete={this.onConfirmDelete.bind(this)}
@@ -104,7 +109,7 @@ class PokemonDetailContainer extends Component {
         onStatInputChange={this.onStatInputChange.bind(this)}
         onCustomNameInputChange={this.onCustomNameInputChange.bind(this)}
       />);
-    } else if (currentMode === 'level' && pokemon.stats.LVL < MAX_LEVEL) {
+    } else if (currentMode === 'level' && pokemon.stats.LVL < MAX_LEVEL && !maxLevel) {
       pokemonDetailComponent = (<PokemonLevelUp
         {...pokemon}
         id={id}
@@ -218,14 +223,18 @@ class PokemonDetailContainer extends Component {
       const { levels } = POKEMON_REF_DATA[updatedPokemon.number];
       const newLevel = levels.find(l => l.LVL === updatedPokemon.stats.LVL + 1);
       let availableStatPoints = null;
+      let maxLevel = false;
       if (newLevel) {
         availableStatPoints = STAT_INCREASE_REF_DATA[newLevel.statIncreases];
+      } else {
+        maxLevel = true;
       }
       this.setState({
         pokemon: updatedPokemon,
-        originalStats: updatedPokemon.stats,
+        originalStats: cloneDeep(updatedPokemon.stats),
         statIncreaseKeys: [],
-        remainingStatPoints: availableStatPoints
+        remainingStatPoints: availableStatPoints,
+        maxLevel: maxLevel
       });
     }
   }

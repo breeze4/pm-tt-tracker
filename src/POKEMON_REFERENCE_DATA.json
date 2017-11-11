@@ -518,5 +518,54 @@
         "statIncreases": "HIGH"
       }
     ]
+  },
+  "016": {
+    "name": "Pidgey",
+    "image": "016_pidgey.png",
+    "type": [
+      "NORMAL", "FLYING"
+    ],
+    "baseStats": {
+      "HP": 10,
+      "LVL": 1,
+      "ATK": 10,
+      "DEF": 10,
+      "SPC_ATK": 10,
+      "SPC_DEF": 10,
+      "SPD": 10,
+      "CAP_DC": 10
+    },
+    "defaultMoves": [
+      "NORMAL_TACKLE",
+      "GROUND_SAND_ATTACK"
+    ],
+    "hpIncrease": "LOW",
+    "levels": [
+      {
+        "LVL": 2,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 3,
+        "feature": "MOVE",
+        "move": "FLYING_GUST"
+      },
+      {
+        "LVL": 4,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 5,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 6,
+        "feature": "MOVE",
+        "move": "NORMAL_QUICK_ATTACK"
+      }
+    ]
   }
 }
