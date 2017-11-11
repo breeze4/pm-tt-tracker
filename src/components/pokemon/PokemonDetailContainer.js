@@ -82,7 +82,6 @@ class PokemonDetailContainer extends Component {
         name={name}
         imgSrc={imgSrc}
         type={type}
-        moveRefData={MOVES_REF_DATA}
         confirmDelete={confirmDelete}
         onDelete={this.onDelete.bind(this)}
         onConfirmDelete={this.onConfirmDelete.bind(this)}
@@ -100,7 +99,6 @@ class PokemonDetailContainer extends Component {
         customName={customName}
         imgSrc={imgSrc}
         type={type}
-        moveRefData={MOVES_REF_DATA}
         onCancelEdit={this.onCancelEdit.bind(this)}
         onSaveEdit={this.onSaveEdit.bind(this)}
         onStatInputChange={this.onStatInputChange.bind(this)}
@@ -115,7 +113,6 @@ class PokemonDetailContainer extends Component {
         LVL={pokemon.stats.LVL}
         newLevel={newLevel}
         type={type}
-        moveRefData={MOVES_REF_DATA}
         maxedMoves={pokemon.moves.length === MAX_MOVES}
         overwriteTarget={overwriteTarget}
         statPoints={remainingStatPoints}

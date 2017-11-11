@@ -29,7 +29,7 @@ export const LEVEL_UP_STATS = {
 }
 
 const PokemonEdit = ({ id, imgSrc, name, type, number, customName, stats, moves,
-  moveRefData, onSaveEdit, onCancelEdit, onCustomNameInputChange, onStatInputChange }) => {
+   onSaveEdit, onCancelEdit, onCustomNameInputChange, onStatInputChange }) => {
 
   const saveEditButton = (<button className="btn btn-primary" onClick={() => onSaveEdit({ id })}>Save</button>);
   const cancelModeButton = (<button className="btn" onClick={onCancelEdit}>Cancel</button>);
@@ -87,9 +87,8 @@ const PokemonEdit = ({ id, imgSrc, name, type, number, customName, stats, moves,
         <div className="panel-boddy">
           <ul className="">
             {moves.map((key) => {
-              const move = moveRefData[key];
               return (
-                <MoveDetail key={key} {...move} />
+                <MoveDetail key={key} move={key} stats={stats} />
               );
             })}
           </ul>

@@ -32,7 +32,7 @@
       "power": 15,
       "accuracy": 90,
       "damageDice": "1d4",
-      "hitBonus": 4,
+      "accuracyBonus": 4,
       "PP": 20
     },
     "DRAGON_DRAGON_RAGE": {
@@ -43,7 +43,7 @@
       "power": 40,
       "accuracy": 100,
       "damageDice": "1d8",
-      "hitBonus": 5,
+      "accuracyBonus": 5,
       "PP": 10
     },
     "FLYING_FLY": {
@@ -54,7 +54,7 @@
       "power": 90,
       "accuracy": 95,
       "damageDice": "2d8",
-      "hitBonus": 4,
+      "accuracyBonus": 4,
       "PP": 15
     },
     "FLYING_WING_ATTACK": {
@@ -65,7 +65,7 @@
       "power": 60,
       "accuracy": 100,
       "damageDice": "1d10",
-      "hitBonus": 5,
+      "accuracyBonus": 5,
       "PP": 35
     },
     "FIRE_EMBER": {
@@ -76,7 +76,7 @@
       "power": 40,
       "accuracy": 100,
       "damageDice": "1d8",
-      "hitBonus": 5,
+      "accuracyBonus": 5,
       "PP": 30
     },
     "FIRE_FIRE_SPIN": {
@@ -87,7 +87,7 @@
       "power": 35,
       "accuracy": 85,
       "damageDice": "1d6",
-      "hitBonus": 4,
+      "accuracyBonus": 4,
       "PP": 15
     },
     "FIRE_FLAMETHROWER": {
@@ -98,7 +98,7 @@
       "power": 90,
       "accuracy": 100,
       "damageDice": "2d8",
-      "hitBonus": 5,
+      "accuracyBonus": 5,
       "PP": 15
     },
     "NORMAL_GROWL": {
@@ -108,7 +108,7 @@
       "changedStat": "ATK",
       "changedStatAmount": 1,
       "accuracy": 100,
-      "hitBonus": 5,
+      "accuracyBonus": 5,
       "PP": 40
     },
     "NORMAL_SCRATCH": {
@@ -119,7 +119,7 @@
       "power": 40,
       "accuracy": 100,
       "damageDice": "1d8",
-      "hitBonus": 5,
+      "accuracyBonus": 5,
       "PP": 35
     },
     "NORMAL_SLASH": {
@@ -130,7 +130,7 @@
       "power": 70,
       "accuracy": 100,
       "damageDice": "1d10",
-      "hitBonus": 5,
+      "accuracyBonus": 5,
       "PP": 20
     },
     "NORMAL_SMOKESCREEN": {
@@ -141,7 +141,7 @@
       "power": 40,
       "accuracy": 100,
       "damageDice": "1d8",
-      "hitBonus": 5,
+      "accuracyBonus": 5,
       "PP": 20
     },
     "NORMAL_TAIL_WHIP": {
@@ -151,7 +151,7 @@
       "changedStat": "DEF",
       "changedStatAmount": 1,
       "accuracy": 100,
-      "hitBonus": 5,
+      "accuracyBonus": 5,
       "PP": 40
     },
     "NORMAL_WRAP": {
@@ -162,7 +162,7 @@
       "power": 15,
       "accuracy": 90,
       "damageDice": "1d4",
-      "hitBonus": 4,
+      "accuracyBonus": 4,
       "PP": 20
     }
   },

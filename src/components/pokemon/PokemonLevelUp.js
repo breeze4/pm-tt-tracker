@@ -8,7 +8,7 @@ const { refData } = config;
 const POKEMON_REF_DATA = refData.pokemon;
 
 const PokemonLevelUp = ({ id, name, number, LVL, newLevel, type, newType,
-  stats, originalStats, statIncreaseKeys, statPoints, moves, moveRefData, maxedMoves, overwriteTarget,
+  stats, originalStats, statIncreaseKeys, statPoints, moves, maxedMoves, overwriteTarget,
   onCancelLevel, onLevelUp, onClearOverwriteMove, onSelectOverwriteMove, onChangeStat }) => {
 
   const newLevelFeature = POKEMON_REF_DATA[number].levels.find(l => l.LVL === LVL + 1);
@@ -39,15 +39,15 @@ const PokemonLevelUp = ({ id, name, number, LVL, newLevel, type, newType,
     <div className="panel-body">
       <span>New Move:</span>
       <div className="pm-moves-list-item new-move">
-        <MoveDetail {...moveRefData[newLevel.move]} />
+        <MoveDetail move={newLevel.move} stats={stats} />
       </div>
       <span>Current Moves:</span>
       <div className="pm-detail-moves-list">
         <ul className="pm-moves-list">
           {moves.map((key) => {
-            const move = moveRefData[key];
             return (
-              <MoveDetail key={key} classes={moveDetailClasses} {...move}>
+              <MoveDetail key={key} classes={moveDetailClasses} move={key}
+                stats={stats}>
                 {showMoveButton ? (
                   <span className="float-right">
                     {getMoveButton(key)}
@@ -80,7 +80,7 @@ const PokemonLevelUp = ({ id, name, number, LVL, newLevel, type, newType,
       (<button className="btn btn-primary" onClick={() =>
         onLevelUp(id, feature, { move: newLevel.move, overwriteTarget })}>
         {buttonText}</button>);
-  } else  {
+  } else {
     statsBlock = (
       <StatsIncrease
         classes={['panel-body']}
@@ -110,7 +110,7 @@ const PokemonLevelUp = ({ id, name, number, LVL, newLevel, type, newType,
       levelUpButton = (<button className={btnClasses.join(' ')}>
         {buttonText}</button>);
     }
-  } 
+  }
 
   return (
     <div className="">
@@ -136,7 +136,7 @@ const PokemonLevelUp = ({ id, name, number, LVL, newLevel, type, newType,
           <div className="column col-4">
             <div className="columns">
               <span className="column col-12">=></span>
-              <span className="column col-12">{statPoints &&`${statPoints} points`}</span>
+              <span className="column col-12">{statPoints && `${statPoints} points`}</span>
             </div>
           </div>
           <div className="column col-4">

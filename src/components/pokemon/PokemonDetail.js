@@ -11,7 +11,7 @@ import config from '../../Config.js';
 const { refData } = config;
 
 const PokemonDetail = ({ id, imgSrc, name, type, number, customName, stats,
-  moves, moveRefData, confirmDelete, onDelete, onConfirmDelete, onEnterEditMode, onEnterLevelMode }) => {
+  moves, confirmDelete, onDelete, onConfirmDelete, onEnterEditMode, onEnterLevelMode }) => {
   const { LVL } = stats;
 
   const editModeButton = (<button className="btn" onClick={onEnterEditMode}>Edit</button>);
@@ -37,9 +37,8 @@ const PokemonDetail = ({ id, imgSrc, name, type, number, customName, stats,
   const movesList = (
     <ul className="panel-body">
       {moves.map((key) => {
-        const move = moveRefData[key];
         return (
-          <MoveDetail key={key} {...move} />
+          <MoveDetail key={key} move={key} stats={stats} />
         );
       })}
     </ul>

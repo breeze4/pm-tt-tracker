@@ -13,7 +13,7 @@ const TYPES_DATA = refData.types;
 
 const PokedexDetail = (props) => {
   const { number, name, imgSrc, type, baseStats, defaultMoves,
-    moveRefData, addedToParty, onAddToTrainer } = props;
+     addedToParty, onAddToTrainer } = props;
 
   const addToTrainerButton = addedToParty ?
     (<button className="btn disabled">Added</button>) :
@@ -53,9 +53,8 @@ const PokedexDetail = (props) => {
         </div>
         <ul className="panel-body">
           {defaultMoves.map((key) => {
-            const move = moveRefData[key];
             return (
-              <MoveDetail key={key} {...move} />
+              <MoveDetail key={key} move={key} stats={baseStats} />
             );
           })}
         </ul>
