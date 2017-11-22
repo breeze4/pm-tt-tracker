@@ -617,6 +617,55 @@
       }
     ]
   },
+  "032": {
+    "name": "Nidoran",
+    "image": "032_nidoran.png",
+    "type": [
+      "POISON"
+    ],
+    "baseStats": {
+      "HP": 10,
+      "LVL": 1,
+      "ATK": 10,
+      "DEF": 10,
+      "SPC_ATK": 10,
+      "SPC_DEF": 10,
+      "SPD": 10,
+      "CAP_DC": 10
+    },
+    "defaultMoves": [
+      "NORMAL_TACKLE",
+      "NORMAL_TAIL_WHIP"
+    ],
+    "hpIncrease": "LOW",
+    "levels": [
+      {
+        "LVL": 2,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 3,
+        "feature": "MOVE",
+        "move": "NORMAL_HORN_ATTACK"
+      },
+      {
+        "LVL": 4,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 5,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 6,
+        "feature": "MOVE",
+        "move": "POISON_POISON_STING"
+      }
+    ]
+  },
   "041": {
     "name": "Zubat",
     "image": "041_zubat.png",
@@ -663,6 +712,310 @@
         "LVL": 6,
         "feature": "MOVE",
         "move": "FLYING_WING_ATTACK"
+      }
+    ]
+  },
+  "052": {
+    "name": "Meowth",
+    "image": "052_meowth.png",
+    "type": [
+      "NORMAL"
+    ],
+    "baseStats": {
+      "HP": 10,
+      "LVL": 1,
+      "ATK": 10,
+      "DEF": 10,
+      "SPC_ATK": 10,
+      "SPC_DEF": 10,
+      "SPD": 10,
+      "CAP_DC": 10
+    },
+    "defaultMoves": [
+      "NORMAL_SCRATCH",
+      "NORMAL_GROWL"
+    ],
+    "hpIncrease": "LOW",
+    "levels": [
+      {
+        "LVL": 2,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 3,
+        "feature": "MOVE",
+        "move": "NORMAL_BITE"
+      },
+      {
+        "LVL": 4,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 5,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 6,
+        "feature": "MOVE",
+        "move": "NORMAL_PAY_DAY"
+      }
+    ]
+  },
+  "056": {
+    "name": "Mankey",
+    "image": "056_mankey.png",
+    "type": [
+      "FIGHTING"
+    ],
+    "baseStats": {
+      "HP": 10,
+      "LVL": 1,
+      "ATK": 10,
+      "DEF": 10,
+      "SPC_ATK": 10,
+      "SPC_DEF": 10,
+      "SPD": 10,
+      "CAP_DC": 10
+    },
+    "defaultMoves": [
+      "NORMAL_SCRATCH",
+      "NORMAL_GROWL"
+    ],
+    "hpIncrease": "LOW",
+    "levels": [
+      {
+        "LVL": 2,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 3,
+        "feature": "MOVE",
+        "move": "FIGHTING_LOW_KICK"
+      },
+      {
+        "LVL": 4,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 5,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 6,
+        "feature": "MOVE",
+        "move": "FIGHTING_KARATE_CHOP"
+      }
+    ]
+  },
+  "060": {
+    "name": "Poliwag",
+    "image": "060_poliwag.png",
+    "type": [
+      "WATER"
+    ],
+    "baseStats": {
+      "HP": 10,
+      "LVL": 1,
+      "ATK": 10,
+      "DEF": 10,
+      "SPC_ATK": 10,
+      "SPC_DEF": 10,
+      "SPD": 10,
+      "CAP_DC": 10
+    },
+    "defaultMoves": [
+      "WATER_BUBBLE",
+      "PSYCHIC_HYPNOSIS"
+    ],
+    "hpIncrease": "LOW",
+    "levels": [
+      {
+        "LVL": 2,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 3,
+        "feature": "MOVE",
+        "move": "WATER_WATER_GUN"
+      },
+      {
+        "LVL": 4,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 5,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 6,
+        "feature": "EVOLUTION",
+        "evolvedNumber": "061",
+        "statIncreases": "MED"
+      }
+    ]
+  },
+  "061": {
+    "name": "Poliwhirl",
+    "image": "061_poliwhirl.png",
+    "type": [
+      "WATER"
+    ],
+    "baseStats": {
+      "HP": 10,
+      "LVL": 1,
+      "ATK": 10,
+      "DEF": 10,
+      "SPC_ATK": 10,
+      "SPC_DEF": 10,
+      "SPD": 10,
+      "CAP_DC": 10
+    },
+    "defaultMoves": [
+      "WATER_BUBBLE",
+      "PSYCHIC_HYPNOSIS",
+      "WATER_WATER_GUN"
+    ],
+    "hpIncrease": "MED",
+    "levels": [
+      {
+        "LVL": 7,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 8,
+        "feature": "MOVE",
+        "move": "NORMAL_DOUBLE_SLAP"
+      },
+      {
+        "LVL": 9,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 10,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 11,
+        "feature": "MOVE",
+        "move": "NORMAL_BODY_SLAM"
+      }
+    ]
+  },
+  "066": {
+    "name": "Machop",
+    "image": "066_machop.png",
+    "type": [
+      "FIGHTING"
+    ],
+    "baseStats": {
+      "HP": 10,
+      "LVL": 1,
+      "ATK": 10,
+      "DEF": 10,
+      "SPC_ATK": 10,
+      "SPC_DEF": 10,
+      "SPD": 10,
+      "CAP_DC": 10
+    },
+    "defaultMoves": [
+      "FIGHTING_LOW_KICK",
+      "NORMAL_LEER"
+    ],
+    "hpIncrease": "LOW",
+    "levels": [
+      {
+        "LVL": 2,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 3,
+        "feature": "MOVE",
+        "move": "NORMAL_FOCUS_ENERGY"
+      },
+      {
+        "LVL": 4,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 5,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 6,
+        "feature": "MOVE",
+        "move": "FIGHTING_KARATE_CHOP"
+      },
+      {
+        "LVL": 7,
+        "feature": "EVOLUTION",
+        "evolvedNumber": "067",
+        "statIncreases": "MED"
+      }
+    ]
+  },
+  "067": {
+    "name": "Machoke",
+    "image": "067_machoke.png",
+    "type": [
+      "FIGHTING"
+    ],
+    "baseStats": {
+      "HP": 10,
+      "LVL": 1,
+      "ATK": 10,
+      "DEF": 10,
+      "SPC_ATK": 10,
+      "SPC_DEF": 10,
+      "SPD": 10,
+      "CAP_DC": 10
+    },
+    "defaultMoves": [
+      "FIGHTING_LOW_KICK",
+      "NORMAL_LEER",
+      "NORMAL_FOCUS_ENERGY",
+      "FIGHTING_KARATE_CHOP"
+    ],
+    "hpIncrease": "MED",
+    "levels": [
+      {
+        "LVL": 8,
+        "feature": "STATS",
+        "statIncreases": "MED"
+      },
+      {
+        "LVL": 9,
+        "feature": "MOVE",
+        "move": "FIGHTING_SEISMIC_TOSS"
+      },
+      {
+        "LVL": 10,
+        "feature": "STATS",
+        "statIncreases": "MED"
+      },
+      {
+        "LVL": 11,
+        "feature": "STATS",
+        "statIncreases": "MED"
+      },
+      {
+        "LVL": 12,
+        "feature": "MOVE",
+        "move": "FIGHTING_VITAL_THROW"
       }
     ]
   },

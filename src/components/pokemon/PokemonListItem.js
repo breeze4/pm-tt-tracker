@@ -6,7 +6,7 @@ import TypeLabel from '../TypeLabel';
 import config from '../../Config.js';
 const { refData: { pokemon } } = config;
 
-const pathToThumbnails = require.context('../../../images/thumbnails', true);
+const pathToThumbnails = require.context('../../../images/pokemon', true);
 
 const PokemonListItem = ({ id, number, customName, stats,
   onSelectPokemon, children }) => {

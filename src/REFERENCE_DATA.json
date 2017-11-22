@@ -89,6 +89,50 @@
       "accuracyBonus": 5,
       "PP": 35
     },
+    "FIGHTING_LOW_KICK": {
+      "name": "Low Kick",
+      "type": "FIGHTING",
+      "category": "Physical",
+      "effect": "An attack that may cause flinching. Causes flinching on 14-20.",
+      "power": 50,
+      "accuracy": 90,
+      "damageDice": "1d8",
+      "accuracyBonus": 4,
+      "PP": 20
+    },
+    "FIGHTING_KARATE_CHOP": {
+      "name": "Karate Chop",
+      "type": "FIGHTING",
+      "category": "Physical",
+      "effect": "Has a high critical hit ratio. Critical hit on 18-20.",
+      "power": 50,
+      "accuracy": 100,
+      "damageDice": "1d8",
+      "accuracyBonus": 5,
+      "PP": 25
+    },
+    "FIGHTING_SEISMIC_TOSS": {
+      "name": "Seismic Toss",
+      "type": "FIGHTING",
+      "category": "Physical",
+      "effect": "Deals extra damage equals to user's level.",
+      "power": 60,
+      "accuracy": 100,
+      "damageDice": "1d10",
+      "accuracyBonus": 5,
+      "PP": 20
+    },
+    "FIGHTING_VITAL_THROW": {
+      "name": "Vital Throw",
+      "type": "FIGHTING",
+      "category": "Physical",
+      "effect": "Makes the user's move last, but it never misses.",
+      "power": 70,
+      "accuracy": 100,
+      "damageDice": "1d10",
+      "accuracyBonus": 5,
+      "PP": 10
+    },
     "FIRE_EMBER": {
       "name": "Ember",
       "type": "FIRE",
@@ -207,9 +251,43 @@
       "accuracyBonus": 5,
       "PP": 15
     },
+    "NORMAL_BITE": {
+      "name": "Bite",
+      "type": "NORMAL",
+      "category": "Physical",
+      "effect": "An attack that may cause flinching. Causes flinching on 18-20.",
+      "power": 60,
+      "accuracy": 100,
+      "damageDice": "1d8",
+      "accuracyBonus": 5,
+      "PP": 25
+    },
+    "NORMAL_BODY_SLAM": {
+      "name": "Body Slam",
+      "type": "NORMAL",
+      "category": "Physical",
+      "effect": "An attack that may cause paralysis. Causes paralysis on 18-20.",
+      "power": 85,
+      "accuracy": 100,
+      "damageDice": "2d8",
+      "accuracyBonus": 5,
+      "PP": 15
+    },
+    "NORMAL_DOUBLE_SLAP": {
+      "name": "Double Slap",
+      "type": "NORMAL",
+      "category": "Physical",
+      "effect": "Repeatedly slaps the foe 1d4 + 1 times. Roll separate attacks.",
+      "power": 15,
+      "accuracy": 85,
+      "damageDice": "1d4",
+      "accuracyBonus": 4,
+      "PP": 10
+    },
     "NORMAL_DEFENSE_CURL": {
       "name": "Defense Curl",
       "type": "NORMAL",
+      "category": "Status",
       "effect": "Curls up to conceal weak spots and raise Defense by 1.",
       "changedStat": "DEF",
       "changedStatAmount": 1,
@@ -217,9 +295,17 @@
       "accuracyBonus": 5,
       "PP": 40
     },
+    "NORMAL_FOCUS_ENERGY": {
+      "name": "Focus Energy",
+      "type": "NORMAL",
+      "category": "Status",
+      "effect": "Raises the chance for a critical hit. One use causes critical hits on 19-20, two uses causes critical hits on 18-20, etc.",
+      "PP": 40
+    },
     "NORMAL_GROWL": {
       "name": "Growl",
       "type": "NORMAL",
+      "category": "Status",
       "effect": "Lowers the foe's Attack.",
       "changedStat": "ATK",
       "changedStatAmount": 1,
@@ -230,6 +316,7 @@
     "NORMAL_GROWTH": {
       "name": "Growth",
       "type": "NORMAL",
+      "category": "Status",
       "effect": "Raises the Special Attack score by 2.",
       "changedStat": "SPC_ATK",
       "changedStatAmount": 2,
@@ -245,6 +332,17 @@
       "accuracyBonus": 5,
       "PP": 40
     },
+    "NORMAL_HORN_ATTACK": {
+      "name": "Horn Attack",
+      "type": "NORMAL",
+      "category": "Physical",
+      "effect": "Jabs the foe with sharp horns.",
+      "power": 65,
+      "accuracy": 100,
+      "damageDice": "1d10",
+      "accuracyBonus": 5,
+      "PP": 25
+    },
     "NORMAL_HYPER_FANG": {
       "name": "Hyper Fang",
       "type": "NORMAL",
@@ -255,6 +353,28 @@
       "damageDice": "2d8",
       "accuracyBonus": 3,
       "PP": 35
+    },
+    "NORMAL_LEER": {
+      "name": "Leer",
+      "type": "NORMAL",
+      "category": "Status",
+      "effect": "Lowers the foe's Defense by 1.",
+      "changedStat": "DEF",
+      "changedStatAmount": 1,
+      "accuracy": 100,
+      "accuracyBonus": 5,
+      "PP": 40
+    },
+    "NORMAL_PAY_DAY": {
+      "name": "Pay Day",
+      "type": "NORMAL",
+      "category": "Physical",
+      "effect": "Throws coins at the foe. Money is recovered after. Amount is double Meowth's level.",
+      "power": 40,
+      "accuracy": 100,
+      "damageDice": "1d6",
+      "accuracyBonus": 5,
+      "PP": 20
     },
     "NORMAL_POUND": {
       "name": "Pound",
@@ -378,6 +498,26 @@
       "accuracyBonus": 3,
       "PP": 20
     },
+    "POISON_POISON_STING": {
+      "name": "Poison Sting",
+      "type": "POISON",
+      "category": "Physical",
+      "effect": "An attack that may poison the target. 11-20 will deal 1d4 poison damage for 1d6 turns.",
+      "power": 15,
+      "accuracy": 100,
+      "damageDice": "1d6",
+      "accuracyBonus": 5,
+      "PP": 35
+    },
+    "PSYCHIC_HYPNOSIS": {
+      "name": "Hypnosis",
+      "type": "PSYCHIC",
+      "category": "Status",
+      "effect": "May put the foe to sleep. Puts foe to sleep for 1d4 turns on 12-20. Any damage will break sleep.",
+      "accuracy": 60,
+      "accuracyBonus": 3,
+      "PP": 20
+    },
     "ROCK_ROCK_THROW": {
       "name": "Rock Throw",
       "type": "ROCK",
@@ -495,6 +635,25 @@
       "badAgainst": [],
       "noEffect": []
     },
+    "FIGHTING": {
+      "name": "Fighting",
+      "color": "#C03028",
+      "fontColor": "white",
+      "goodAgainst": [
+        "NORMAL",
+        "ICE",
+        "ROCK"
+      ],
+      "badAgainst": [
+        "POISON",
+        "FLYING",
+        "PSYCHIC",
+        "BUG"
+      ],
+      "noEffect": [
+        "GHOST"
+      ]
+    },
     "FIRE": {
       "name": "Fire",
       "color": "#F08030",
@@ -589,6 +748,19 @@
         "GROUND",
         "ROCK",
         "GHOST"
+      ],
+      "noEffect": []
+    },
+    "PSYCHIC": {
+      "name": "Psychic",
+      "color": "#F85888",
+      "fontColor": "white",
+      "goodAgainst": [
+        "FIGHTING",
+        "POISON"
+      ],
+      "badAgainst": [
+        "PSYCHIC"
       ],
       "noEffect": []
     },

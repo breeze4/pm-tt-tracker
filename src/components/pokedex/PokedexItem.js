@@ -6,7 +6,7 @@ import './pokedex.css';
 import TypeLabel from '../TypeLabel';
 import computeRating from '../../api/computeRating';
 
-const pathToThumbnails = require.context('../../../images/thumbnails', true);
+const pathToThumbnails = require.context('../../../images/pokemon', true);
 
 const PokedexItem = ({ id, name, image, number, type, baseStats }) => {
   const { HP } = baseStats;
