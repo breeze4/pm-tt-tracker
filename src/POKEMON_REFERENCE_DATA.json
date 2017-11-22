@@ -1390,7 +1390,7 @@
       "FIGHTING_DOUBLE_KICK",
       "PSYCHIC_MEDITATE"
     ],
-    "hpIncrease": "MED",
+    "hpIncrease": "LOW",
     "levels": [
       {
         "LVL": 2,
@@ -1449,7 +1449,7 @@
       "FIGHTING_COMET_PUNCH",
       "PSYCHIC_AGILITY"
     ],
-    "hpIncrease": "MED",
+    "hpIncrease": "LOW",
     "levels": [
       {
         "LVL": 2,
@@ -1557,7 +1557,7 @@
       "NORMAL_TACKLE",
       "NORMAL_TAIL_WHIP"
     ],
-    "hpIncrease": "MED",
+    "hpIncrease": "LOW",
     "levels": [
       {
         "LVL": 2,

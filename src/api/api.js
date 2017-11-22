@@ -51,13 +51,15 @@ export const addMoveToPokemon = (pokemon, move, overwriteTarget) => {
     pokemon.moves.push(move);
     return true;
   }
-  if (overwriteTarget) {
+  if (overwriteTarget && overwriteTarget !== move) {
     const target = pokemon.moves.indexOf(overwriteTarget);
     if (target < 0) {
       console.log('not a move this pokemon knows');
       return false;
     }
     pokemon.moves[target] = move;
+    return true;
+  } else if (overwriteTarget === move) {
     return true;
   }
 };

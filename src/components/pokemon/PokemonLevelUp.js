@@ -29,6 +29,9 @@ const PokemonLevelUp = ({ id, name, number, LVL, newLevel, type, newType,
     if (overwriteTarget === key) {
       return (<button className="btn btn-primary"
         onClick={() => onClearOverwriteMove(key)}>Keep</button>);
+    } else if(newLevel.move === key) {
+      return (<button className="btn"
+        onClick={() => onSelectOverwriteMove(key)}>Ignore</button>);
     } else {
       return (<button className="btn"
         onClick={() => onSelectOverwriteMove(key)}>Overwrite</button>);
@@ -39,7 +42,13 @@ const PokemonLevelUp = ({ id, name, number, LVL, newLevel, type, newType,
     <div className="panel-body">
       <span>New Move:</span>
       <div className="pm-moves-list-item new-move">
-        <MoveDetail move={newLevel.move} stats={stats} />
+        <MoveDetail move={newLevel.move} stats={stats}>
+          {showMoveButton ? (
+            <span className="float-right">
+              {getMoveButton(newLevel.move)}
+            </span>
+          ) : null}
+        </MoveDetail>
       </div>
       <span>Current Moves:</span>
       <div className="pm-detail-moves-list">
@@ -66,10 +75,12 @@ const PokemonLevelUp = ({ id, name, number, LVL, newLevel, type, newType,
   let statsBlock = null;
   let buttonText = 'Can\'t use';
   if (feature === 'MOVE') {
-    const disabled = (maxedMoves && !overwriteTarget);
+    const disabled = (maxedMoves && !overwriteTarget && (overwriteTarget !== newLevel.move));
 
     if (disabled) {
       buttonText = 'Select Overwritten Move';
+    } else if(overwriteTarget === newLevel.move) {
+      buttonText = 'Keep Existing Moves';
     } else {
       buttonText = 'Add New Move';
     }
