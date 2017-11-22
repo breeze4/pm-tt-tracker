@@ -56,6 +56,37 @@
       "accuracyBonus": 5,
       "PP": 10
     },
+    "ELECTRIC_THUNDER_PUNCH": {
+      "name": "Thunder Punch",
+      "type": "ELECTRIC",
+      "category": "Physical",
+      "effect": "An electrified punch that may paralyze the foe. Causes paralysis on 19-20.",
+      "power": 40,
+      "accuracy": 100,
+      "damageDice": "1d10",
+      "accuracyBonus": 5,
+      "PP": 15
+    },
+    "ELECTRIC_THUNDERSHOCK": {
+      "name": "Thundershock",
+      "type": "ELECTRIC",
+      "category": "Special",
+      "effect": "An electrical attack that may paralyze the foe. Causes paralysis on 19-20.",
+      "power": 40,
+      "accuracy": 100,
+      "damageDice": "1d8",
+      "accuracyBonus": 5,
+      "PP": 30
+    },
+    "ELECTRIC_THUNDERWAVE": {
+      "name": "Thunderwave",
+      "type": "ELECTRIC",
+      "category": "Special",
+      "effect": "A weak jolt of electricity that paralyzes the foe for 1d4 turns.",
+      "accuracy": 100,
+      "accuracyBonus": 5,
+      "PP": 30
+    },
     "FLYING_FLY": {
       "name": "Fly",
       "type": "FLYING",
@@ -78,6 +109,17 @@
       "accuracyBonus": 5,
       "PP": 35
     },
+    "FLYING_PECK": {
+      "name": "Peck",
+      "type": "FLYING",
+      "category": "Physical",
+      "effect": "Attacks the foe with a jabbing beak.",
+      "power": 35,
+      "accuracy": 100,
+      "damageDice": "1d6",
+      "accuracyBonus": 5,
+      "PP": 35
+    },
     "FLYING_WING_ATTACK": {
       "name": "Wing Attack",
       "type": "FLYING",
@@ -88,6 +130,28 @@
       "damageDice": "1d10",
       "accuracyBonus": 5,
       "PP": 35
+    },
+    "FIGHTING_COMET_PUNCH": {
+      "name": "Comet Punch",
+      "type": "FIGHTING",
+      "category": "Physical",
+      "effect": "Rapidly punches foe 1d4 + 1 times.",
+      "power": 20,
+      "accuracy": 85,
+      "damageDice": "1d4",
+      "accuracyBonus": 4,
+      "PP": 15
+    },
+    "FIGHTING_DOUBLE_KICK": {
+      "name": "Double Kick",
+      "type": "FIGHTING",
+      "category": "Physical",
+      "effect": "A double-kicking attack that strikes the foe twice.",
+      "power": 30,
+      "accuracy": 100,
+      "damageDice": "1d6",
+      "accuracyBonus": 5,
+      "PP": 30
     },
     "FIGHTING_LOW_KICK": {
       "name": "Low Kick",
@@ -100,6 +164,17 @@
       "accuracyBonus": 4,
       "PP": 20
     },
+    "FIGHTING_JUMP_KICK": {
+      "name": "Jump Kick",
+      "type": "FIGHTING",
+      "category": "Physical",
+      "effect": "May miss, damaging the user. On miss, take 1d8 damage.",
+      "power": 100,
+      "accuracy": 90,
+      "damageDice": "2d10",
+      "accuracyBonus": 4,
+      "PP": 10
+    },
     "FIGHTING_KARATE_CHOP": {
       "name": "Karate Chop",
       "type": "FIGHTING",
@@ -110,6 +185,17 @@
       "damageDice": "1d8",
       "accuracyBonus": 5,
       "PP": 25
+    },
+    "FIGHTING_ROLLING_KICK": {
+      "name": "Rolling Kick",
+      "type": "FIGHTING",
+      "category": "Physical",
+      "effect": "A rapid spin and fast kick that may cause flinching. Causes flinching on 14-20.",
+      "power": 60,
+      "accuracy": 85,
+      "damageDice": "1d10",
+      "accuracyBonus": 4,
+      "PP": 15
     },
     "FIGHTING_SEISMIC_TOSS": {
       "name": "Seismic Toss",
@@ -153,6 +239,17 @@
       "accuracy": 85,
       "damageDice": "1d6",
       "accuracyBonus": 4,
+      "PP": 15
+    },
+    "FIRE_FIRE_PUNCH": {
+      "name": "Fire Punch",
+      "type": "FIRE",
+      "category": "Special",
+      "effect": "A fiery punch. May cause a burn. Causes burning for 1d4 turns on 18-20.",
+      "power": 75,
+      "accuracy": 100,
+      "damageDice": "1d10",
+      "accuracyBonus": 5,
       "PP": 15
     },
     "FIRE_FLAMETHROWER": {
@@ -231,6 +328,17 @@
       "accuracyBonus": 5,
       "PP": 15
     },
+    "GROUND_MAGNITUDE": {
+      "name": "Magnitude",
+      "type": "GROUND",
+      "category": "Physical",
+      "effect": "A ground-shaking attack against all standing foes.",
+      "power": 80,
+      "accuracy": 100,
+      "damageDice": "2d8",
+      "accuracyBonus": 5,
+      "PP": 30
+    },
     "GROUND_MUD_SLAP": {
       "name": "Mud Slap",
       "type": "GROUND",
@@ -248,6 +356,28 @@
       "category": "Status",
       "effect": "Reduces single foe's accuracy by throwing sand. -2 to hit.",
       "accuracy": 100,
+      "accuracyBonus": 5,
+      "PP": 15
+    },
+    "ICE_AURORA_BEAM": {
+      "name": "Aurora Beam",
+      "type": "ICE",
+      "category": "Special",
+      "effect": "An attack that may lower Attack. Lower's foes attack by 1 on 18-20.",
+      "power": 65,
+      "accuracy": 100,
+      "damageDice": "1d10",
+      "accuracyBonus": 5,
+      "PP": 20
+    },
+    "ICE_ICE_PUNCH": {
+      "name": "Ice Punch",
+      "type": "ICE",
+      "category": "Physical",
+      "effect": "An icy punch that may freeze the foe. Causes frozen on 18-20.",
+      "power": 75,
+      "accuracy": 100,
+      "damageDice": "1d10",
       "accuracyBonus": 5,
       "PP": 15
     },
@@ -302,6 +432,17 @@
       "effect": "Raises the chance for a critical hit. One use causes critical hits on 19-20, two uses causes critical hits on 18-20, etc.",
       "PP": 40
     },
+    "NORMAL_FURY_ATTACK": {
+      "name": "Fury Attack",
+      "type": "NORMAL",
+      "category": "Physical",
+      "effect": "Jabs the target 1d4 + 1 times. Roll separate attacks.",
+      "power": 15,
+      "accuracy": 85,
+      "damageDice": "1d4",
+      "accuracyBonus": 4,
+      "PP": 20
+    },
     "NORMAL_GROWL": {
       "name": "Growl",
       "type": "NORMAL",
@@ -331,6 +472,17 @@
       "accuracy": 100,
       "accuracyBonus": 5,
       "PP": 40
+    },
+    "NORMAL_HEADBUTT": {
+      "name": "Headbutt",
+      "type": "NORMAL",
+      "category": "Physical",
+      "effect": "An attack that may make foe flinch. Causes flinching on 17-20.",
+      "power": 65,
+      "accuracy": 100,
+      "damageDice": "1d8",
+      "accuracyBonus": 5,
+      "PP": 15
     },
     "NORMAL_HORN_ATTACK": {
       "name": "Horn Attack",
@@ -403,6 +555,28 @@
       "damageDice": "1d8",
       "accuracyBonus": 5,
       "PP": 30
+    },
+    "NORMAL_RAGE": {
+      "name": "Rage",
+      "type": "NORMAL",
+      "category": "Physical",
+      "effect": "Deals damage and user goes into a rage, even on a miss. Raises Attack by 1 if the user is hit.",
+      "power": 20,
+      "accuracy": 100,
+      "damageDice": "1d4",
+      "accuracyBonus": 5,
+      "PP": 20
+    },
+    "NORMAL_SCARY_FACE": {
+      "name": "Scary Face",
+      "type": "NORMAL",
+      "category": "Status",
+      "effect": "Causes foe to move last and reduces Attack by 1.",
+      "changedStat": "ATK",
+      "changedStatAmount": 1,
+      "accuracy": 100,
+      "accuracyBonus": 5,
+      "PP": 40
     },
     "NORMAL_SCRATCH": {
       "name": "Scratch",
@@ -509,6 +683,13 @@
       "accuracyBonus": 5,
       "PP": 35
     },
+    "PSYCHIC_AGILITY": {
+      "name": "Agility",
+      "type": "PSYCHIC",
+      "category": "Status",
+      "effect": "Sharply increases the user's Speed by 2.",
+      "PP": 30
+    },
     "PSYCHIC_HYPNOSIS": {
       "name": "Hypnosis",
       "type": "PSYCHIC",
@@ -518,6 +699,20 @@
       "accuracyBonus": 3,
       "PP": 20
     },
+    "PSYCHIC_MEDITATE": {
+      "name": "Meditate",
+      "type": "PSYCHIC",
+      "category": "Status",
+      "effect": "Increases the user's Attack by 1.",
+      "PP": 40
+    },
+    "PSYCHIC_REST": {
+      "name": "Rest",
+      "type": "PSYCHIC",
+      "category": "Status",
+      "effect": "Recovers full HP and status conditions and sleep for 2 turns.",
+      "PP": 10
+    },
     "ROCK_ROCK_THROW": {
       "name": "Rock Throw",
       "type": "ROCK",
@@ -526,6 +721,16 @@
       "accuracy": 90,
       "accuracyBonus": 4,
       "damageDice": "1d8",
+      "PP": 20
+    },
+    "ROCK_ROLLOUT": {
+      "name": "Rollout",
+      "type": "ROCK",
+      "category": "Physical",
+      "effect": "Attacks five turns with rising power. Add 1 additional damage dice each turn.",
+      "accuracy": 90,
+      "accuracyBonus": 4,
+      "damageDice": "1d6",
       "PP": 20
     },
     "WATER_BUBBLE": {
@@ -635,6 +840,23 @@
       "badAgainst": [],
       "noEffect": []
     },
+    "ELECTRIC": {
+      "name": "Electric",
+      "color": "#F8D030",
+      "fontColor": "white",
+      "goodAgainst": [
+        "WATER",
+        "FLYING"
+      ],
+      "badAgainst": [
+        "ELECTRIC",
+        "GRASS",
+        "DRAGON"
+      ],
+      "noEffect": [
+        "GROUND"
+      ]
+    },
     "FIGHTING": {
       "name": "Fighting",
       "color": "#C03028",
@@ -668,6 +890,21 @@
         "WATER",
         "ROCK",
         "DRAGON"
+      ],
+      "noEffect": []
+    },
+    "FLYING": {
+      "name": "Flying",
+      "color": "#9966ff",
+      "fontColor": "white",
+      "goodAgainst": [
+        "GRASS",
+        "FIGHTING",
+        "BUG"
+      ],
+      "badAgainst": [
+        "ELECTRIC",
+        "ROCK"
       ],
       "noEffect": []
     },
@@ -708,18 +945,19 @@
         "FLYING"
       ]
     },
-    "FLYING": {
-      "name": "Flying",
-      "color": "#9966ff",
+    "ICE": {
+      "name": "Ice",
+      "color": "#98D8D8",
       "fontColor": "white",
       "goodAgainst": [
         "GRASS",
-        "FIGHTING",
-        "BUG"
+        "GROUND",
+        "FLYING",
+        "DRAGON"
       ],
       "badAgainst": [
-        "ELECTRIC",
-        "ROCK"
+        "WATER",
+        "ICE"
       ],
       "noEffect": []
     },

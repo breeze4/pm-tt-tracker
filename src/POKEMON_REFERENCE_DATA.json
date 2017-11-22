@@ -1019,6 +1019,55 @@
       }
     ]
   },
+  "069": {
+    "name": "Bellsprout",
+    "image": "069_bellsprout.png",
+    "type": [
+      "GRASS", "POISON"
+    ],
+    "baseStats": {
+      "HP": 10,
+      "LVL": 1,
+      "ATK": 10,
+      "DEF": 10,
+      "SPC_ATK": 10,
+      "SPC_DEF": 10,
+      "SPD": 10,
+      "CAP_DC": 10
+    },
+    "defaultMoves": [
+      "GRASS_VINE_WHIP",
+      "NORMAL_GROWTH"
+    ],
+    "hpIncrease": "LOW",
+    "levels": [
+      {
+        "LVL": 2,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 3,
+        "feature": "MOVE",
+        "move": "NORMAL_WRAP"
+      },
+      {
+        "LVL": 4,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 5,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 6,
+        "feature": "MOVE",
+        "move": "GRASS_SLEEP_POWDER"
+      }
+    ]
+  },
   "074": {
     "name": "Geodude",
     "image": "074_geodude.png",
@@ -1065,6 +1114,210 @@
         "LVL": 6,
         "feature": "MOVE",
         "move": "ROCK_ROCK_THROW"
+      },
+      {
+        "LVL": 7,
+        "feature": "EVOLUTION",
+        "evolvedNumber": "075",
+        "statIncreases": "MED"
+      }
+    ]
+  },
+  "075": {
+    "name": "Graveler",
+    "image": "075_graveler.png",
+    "type": [
+      "ROCK", "GROUND"
+    ],
+    "baseStats": {
+      "HP": 10,
+      "LVL": 1,
+      "ATK": 10,
+      "DEF": 10,
+      "SPC_ATK": 10,
+      "SPC_DEF": 10,
+      "SPD": 10,
+      "CAP_DC": 10
+    },
+    "defaultMoves": [
+      "NORMAL_TACKLE",
+      "NORMAL_DEFENSE_CURL",
+      "GROUND_SAND_ATTACK",
+      "ROCK_ROCK_THROW"
+    ],
+    "hpIncrease": "MED",
+    "levels": [
+      {
+        "LVL": 8,
+        "feature": "STATS",
+        "statIncreases": "MED"
+      },
+      {
+        "LVL": 9,
+        "feature": "MOVE",
+        "move": "GROUND_MAGNITUDE"
+      },
+      {
+        "LVL": 10,
+        "feature": "STATS",
+        "statIncreases": "MED"
+      },
+      {
+        "LVL": 11,
+        "feature": "STATS",
+        "statIncreases": "MED"
+      },
+      {
+        "LVL": 12,
+        "feature": "MOVE",
+        "move": "ROCK_ROLLOUT"
+      }
+    ]
+  },
+  "081": {
+    "name": "Magnemite",
+    "image": "081_magnemite.png",
+    "type": [
+      "ELECTRIC"
+    ],
+    "baseStats": {
+      "HP": 10,
+      "LVL": 1,
+      "ATK": 10,
+      "DEF": 10,
+      "SPC_ATK": 10,
+      "SPC_DEF": 10,
+      "SPD": 10,
+      "CAP_DC": 10
+    },
+    "defaultMoves": [
+      "NORMAL_TACKLE",
+      "NORMAL_SUPERSONIC"
+    ],
+    "hpIncrease": "LOW",
+    "levels": [
+      {
+        "LVL": 2,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 3,
+        "feature": "MOVE",
+        "move": "ELECTRIC_THUNDERSHOCK"
+      },
+      {
+        "LVL": 4,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 5,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 6,
+        "feature": "MOVE",
+        "move": "ELECTRIC_THUNDERWAVE"
+      }
+    ]
+  },
+  "084": {
+    "name": "Doduo",
+    "image": "084_doduo.png",
+    "type": [
+      "NORMAL", "FLYING"
+    ],
+    "baseStats": {
+      "HP": 10,
+      "LVL": 1,
+      "ATK": 10,
+      "DEF": 10,
+      "SPC_ATK": 10,
+      "SPC_DEF": 10,
+      "SPD": 10,
+      "CAP_DC": 10
+    },
+    "defaultMoves": [
+      "FLYING_PECK",
+      "NORMAL_GROWL"
+    ],
+    "hpIncrease": "LOW",
+    "levels": [
+      {
+        "LVL": 2,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 3,
+        "feature": "MOVE",
+        "move": "NORMAL_FURY_ATTACK"
+      },
+      {
+        "LVL": 4,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 5,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 6,
+        "feature": "MOVE",
+        "move": "PSYCHIC_AGILITY"
+      }
+    ]
+  },
+  "086": {
+    "name": "Seel",
+    "image": "086_seel.png",
+    "type": [
+      "WATER"
+    ],
+    "baseStats": {
+      "HP": 10,
+      "LVL": 1,
+      "ATK": 10,
+      "DEF": 10,
+      "SPC_ATK": 10,
+      "SPC_DEF": 10,
+      "SPD": 10,
+      "CAP_DC": 10
+    },
+    "defaultMoves": [
+      "NORMAL_HEADBUTT",
+      "NORMAL_GROWL"
+    ],
+    "hpIncrease": "LOW",
+    "levels": [
+      {
+        "LVL": 2,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 3,
+        "feature": "MOVE",
+        "move": "ICE_AURORA_BEAM"
+      },
+      {
+        "LVL": 4,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 5,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 6,
+        "feature": "MOVE",
+        "move": "PSYCHIC_REST"
       }
     ]
   },
@@ -1114,6 +1367,237 @@
         "LVL": 6,
         "feature": "MOVE",
         "move": "GROUND_MUD_SLAP"
+      }
+    ]
+  },
+  "106": {
+    "name": "Hitmonlee",
+    "image": "106_hitmonlee.png",
+    "type": [
+      "FIGHTING"
+    ],
+    "baseStats": {
+      "HP": 10,
+      "LVL": 1,
+      "ATK": 10,
+      "DEF": 10,
+      "SPC_ATK": 10,
+      "SPC_DEF": 10,
+      "SPD": 10,
+      "CAP_DC": 10
+    },
+    "defaultMoves": [
+      "FIGHTING_DOUBLE_KICK",
+      "PSYCHIC_MEDITATE"
+    ],
+    "hpIncrease": "MED",
+    "levels": [
+      {
+        "LVL": 2,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 3,
+        "feature": "MOVE",
+        "move": "FIGHTING_ROLLING_KICK"
+      },
+      {
+        "LVL": 4,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 5,
+        "feature": "STATS",
+        "statIncreases": "MED"
+      },
+      {
+        "LVL": 6,
+        "feature": "MOVE",
+        "move": "NORMAL_FOCUS_ENERGY"
+      },
+      {
+        "LVL": 7,
+        "feature": "STATS",
+        "statIncreases": "MED"
+      },
+      {
+        "LVL": 8,
+        "feature": "MOVE",
+        "move": "FIGHTING_JUMP_KICK"
+      }
+    ]
+  },
+  "107": {
+    "name": "Hitmonchan",
+    "image": "107_hitmonchan.png",
+    "type": [
+      "FIGHTING"
+    ],
+    "baseStats": {
+      "HP": 10,
+      "LVL": 1,
+      "ATK": 10,
+      "DEF": 10,
+      "SPC_ATK": 10,
+      "SPC_DEF": 10,
+      "SPD": 10,
+      "CAP_DC": 10
+    },
+    "defaultMoves": [
+      "FIGHTING_COMET_PUNCH",
+      "PSYCHIC_AGILITY"
+    ],
+    "hpIncrease": "MED",
+    "levels": [
+      {
+        "LVL": 2,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 3,
+        "feature": "MOVE",
+        "move": "ELECTRIC_THUNDER_PUNCH"
+      },
+      {
+        "LVL": 4,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 5,
+        "feature": "STATS",
+        "statIncreases": "MED"
+      },
+      {
+        "LVL": 6,
+        "feature": "MOVE",
+        "move": "ICE_ICE_PUNCH"
+      },
+      {
+        "LVL": 7,
+        "feature": "STATS",
+        "statIncreases": "MED"
+      },
+      {
+        "LVL": 8,
+        "feature": "MOVE",
+        "move": "FIRE_FIRE_PUNCH"
+      }
+    ]
+  },
+  "116": {
+    "name": "Horsea",
+    "image": "116_horsea.png",
+    "type": [
+      "WATER"
+    ],
+    "baseStats": {
+      "HP": 10,
+      "LVL": 1,
+      "ATK": 10,
+      "DEF": 10,
+      "SPC_ATK": 10,
+      "SPC_DEF": 10,
+      "SPD": 10,
+      "CAP_DC": 10
+    },
+    "defaultMoves": [
+      "WATER_BUBBLE",
+      "NORMAL_LEER"
+    ],
+    "hpIncrease": "LOW",
+    "levels": [
+      {
+        "LVL": 2,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 3,
+        "feature": "MOVE",
+        "move": "NORMAL_SMOKESCREEN"
+      },
+      {
+        "LVL": 4,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 5,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 6,
+        "feature": "MOVE",
+        "move": "WATER_WATER_GUN"
+      }
+    ]
+  },
+  "128": {
+    "name": "Tauros",
+    "image": "128_tauros.png",
+    "type": [
+      "NORMAL"
+    ],
+    "baseStats": {
+      "HP": 10,
+      "LVL": 1,
+      "ATK": 10,
+      "DEF": 10,
+      "SPC_ATK": 10,
+      "SPC_DEF": 10,
+      "SPD": 10,
+      "CAP_DC": 10
+    },
+    "defaultMoves": [
+      "NORMAL_TACKLE",
+      "NORMAL_TAIL_WHIP"
+    ],
+    "hpIncrease": "MED",
+    "levels": [
+      {
+        "LVL": 2,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 3,
+        "feature": "MOVE",
+        "move": "NORMAL_RAGE"
+      },
+      {
+        "LVL": 4,
+        "feature": "STATS",
+        "statIncreases": "LOW"
+      },
+      {
+        "LVL": 5,
+        "feature": "STATS",
+        "statIncreases": "MED"
+      },
+      {
+        "LVL": 6,
+        "feature": "MOVE",
+        "move": "NORMAL_HORN_ATTACK"
+      },
+      {
+        "LVL": 7,
+        "feature": "STATS",
+        "statIncreases": "MED"
+      },
+      {
+        "LVL": 8,
+        "feature": "MOVE",
+        "move": "NORMAL_SCARY_FACE"
+      },
+      {
+        "LVL": 9,
+        "feature": "STATS",
+        "statIncreases": "MED"
       }
     ]
   }

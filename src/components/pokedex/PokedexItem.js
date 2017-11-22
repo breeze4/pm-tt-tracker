@@ -10,7 +10,7 @@ const pathToThumbnails = require.context('../../../images/pokemon', true);
 
 const PokedexItem = ({ id, name, image, number, type, baseStats }) => {
   const { HP } = baseStats;
-  const rating = computeRating(baseStats);
+  // const rating = computeRating(baseStats);
   const imgSrc = pathToThumbnails(`./${image}`, true);
 
   return (
@@ -25,7 +25,7 @@ const PokedexItem = ({ id, name, image, number, type, baseStats }) => {
             </div>
             <div className="column col-5">
               <span className="h5 d-block">{name}</span>
-              <span className="h6 d-block">{`Rating: ${rating}`}</span>
+              {/* <span className="h6 d-block">{`Rating: ${rating}`}</span> */}
             </div>
             <div className="column col-3">
               <span className="h6 d-block">{`#${number}`}</span>

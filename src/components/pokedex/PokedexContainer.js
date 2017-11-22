@@ -55,7 +55,9 @@ class PokedexContainer extends Component {
       );
     }));
 
-    const pokedexListItems = Object.keys(pokedex)
+    const pokedexKeys = Object.keys(pokedex).sort()
+
+    const pokedexListItems = pokedexKeys
       .filter((number) => {
         const { type } = pokedex[number];
         return type.includes(typeFilter) || typeFilter === 'ALL';
